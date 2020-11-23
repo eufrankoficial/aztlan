@@ -4,7 +4,7 @@ module.exports = {
     entry: path.resolve('resources', 'assets', 'js', 'app.js'),
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public/assets/core/js'),
+        path: path.resolve(__dirname, 'public/assets/js'),
     },
     module: {
         rules:[

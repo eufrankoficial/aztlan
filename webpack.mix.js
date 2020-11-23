@@ -4,20 +4,25 @@ require('laravel-mix-merge-manifest');
 const basePath = 'public/assets/';
 const core = __dirname + '/resources/assets/';
 const assets = __dirname + '/resources/assets/';
-const adminLteBase = __dirname + '/resources/assets/adminlte/'
+const adminLteBase = __dirname + '/resources/assets/adminlte/';
 
-/*Login scripts
-mix.scripts([
-        core + 'bundles/libscripts.bundle.js',
-        core + 'bundles/vendorscripts.bundle.js',
-        core + 'bundles/mainscripts.bundle.js',
-        core + 'vendor/sweetalert/sweetalert.min.js',
+// Login page
+mix.styles([
+        adminLteBase + 'css/fontawesome-free/css/all.min.css',
+        adminLteBase + 'css/icheck-bootstrap/icheck-bootstrap.min.css',
+        adminLteBase + 'css/adminlte.min.css'
     ],
-    basePath + 'core/js/login.js'
-);*/
+    basePath + 'css/login.min.css'
+);
 
-
-
+//Login scripts
+mix.scripts([
+        adminLteBase + 'js/jquery/jquery.min.js',
+        adminLteBase + 'js/bootstrap/js/bootstrap.bundle.min.js',
+        adminLteBase + 'js/adminlte.min.js'
+    ],
+    basePath + 'js/login.min.js'
+);
 
 if (mix.inProduction()) {
     mix.version();
