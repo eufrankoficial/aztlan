@@ -25,6 +25,42 @@ mix.scripts([
     basePath + 'js/login.min.js'
 );
 
+// Layouts Default Scripts
+mix.styles([
+    adminLteBase + 'css/fontawesome-free/css/all.min.css',
+    adminLteBase + 'tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+    adminLteBase + 'css/icheck-bootstrap/icheck-bootstrap.min.css',
+    adminLteBase + 'css/adminlte.min.css',
+    adminLteBase + 'jqvmap/jqvmap.min.css',
+    adminLteBase + 'overlayScrollbars/css/OverlayScrollbars.min.css',
+    adminLteBase + 'daterangepicker/daterangepicker.css',
+    adminLteBase + 'summernote/summernote-bs4.min.css'
+],
+    basePath + 'css/default.min.css'
+);
+
+mix.scripts([
+    adminLteBase + 'js/jquery/jquery.min.js',
+    adminLteBase + 'jquery-ui/jquery-ui.min.js',
+    adminLteBase + 'js/bootstrap/js/bootstrap.bundle.min.js',
+    adminLteBase + 'chart.js/Chart.min.js',
+    adminLteBase + 'sparklines/sparkline.js',
+    adminLteBase + 'jqvmap/jquery.vmap.min.js',
+    adminLteBase + 'jqvmap/maps/jquery.vmap.usa.js',
+    adminLteBase + 'jquery-knob/jquery.knob.min.js',
+    adminLteBase + 'moment/moment.min.js',
+    adminLteBase + 'daterangepicker/daterangepicker.js',
+    adminLteBase + 'tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
+    adminLteBase + 'summernote/summernote-bs4.min.js',
+    adminLteBase + 'overlayScrollbars/js/jquery.overlayScrollbars.min.js',
+    adminLteBase + 'js/demo.js',
+    adminLteBase + 'js/dashboard.js',
+
+    adminLteBase + 'js/adminlte.min.js'
+],
+    basePath + 'js/default.min.js'
+);
+
 if (mix.inProduction()) {
     mix.version();
 }

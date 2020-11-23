@@ -1,4 +1,6 @@
 {
     "/assets/css/login.min.css": "/assets/css/login.min.css",
-    "/assets/js/login.min.js": "/assets/js/login.min.js"
+    "/assets/js/login.min.js": "/assets/js/login.min.js",
+    "/assets/css/default.min.css": "/assets/css/default.min.css",
+    "/assets/js/default.min.js": "/assets/js/default.min.js"
 }
