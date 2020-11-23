@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 require('laravel-mix-merge-manifest');
+mix.disableNotifications();
 
 const basePath = 'public/assets/';
 const core = __dirname + '/resources/assets/';
