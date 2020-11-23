@@ -1,17 +1,24 @@
 const mix = require('laravel-mix');
+require('laravel-mix-merge-manifest');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
- */
+const basePath = 'public/assets/';
+const core = __dirname + '/resources/assets/';
+const assets = __dirname + '/resources/assets/';
+const adminLteBase = __dirname + '/resources/assets/adminlte/'
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+/*Login scripts
+mix.scripts([
+        core + 'bundles/libscripts.bundle.js',
+        core + 'bundles/vendorscripts.bundle.js',
+        core + 'bundles/mainscripts.bundle.js',
+        core + 'vendor/sweetalert/sweetalert.min.js',
+    ],
+    basePath + 'core/js/login.js'
+);*/
+
+
+
+
+if (mix.inProduction()) {
+    mix.version();
+}
