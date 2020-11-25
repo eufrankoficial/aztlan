@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,7 +191,9 @@
       <workItem from="1606138496360" duration="22938000" />
       <workItem from="1606185583677" duration="45000" />
       <workItem from="1606240302848" duration="1871000" />
-      <workItem from="1606247072544" duration="2772000" />
+      <workItem from="1606247072544" duration="4117000" />
+      <workItem from="1606258522867" duration="149000" />
+      <workItem from="1606328276423" duration="406000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
