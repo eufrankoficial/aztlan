@@ -193,7 +193,7 @@
       <workItem from="1606240302848" duration="1871000" />
       <workItem from="1606247072544" duration="4117000" />
       <workItem from="1606258522867" duration="149000" />
-      <workItem from="1606328276423" duration="406000" />
+      <workItem from="1606328276423" duration="1253000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -273,9 +273,9 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="390" y="27" width="626" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/56.27.1304.741@56.27.1304.741" timestamp="1606138880416" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606248391886">
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606330887696">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606248391886" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606330887696" />
   </component>
 </project>
