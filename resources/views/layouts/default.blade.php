@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AZTLAN | Dashboard</title>
+    <title>AZTLAN</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/default.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -99,7 +101,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">{{ !empty($title) ? $title : 'Dashboard' }}</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -143,6 +145,9 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+
+@yield('scripts')
+
 <script src="{{ asset('assets/js/default.min.js') }}"></script>
 
 

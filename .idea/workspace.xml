@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
+      <change afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +147,10 @@
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php-laravel" />
       <path value="$PROJECT_DIR$/vendor/aws/aws-sdk-php" />
       <path value="$PROJECT_DIR$/vendor/mtdowling/jmespath.php" />
+      <path value="$PROJECT_DIR$/vendor/alexpechkarev/geometry-library" />
+      <path value="$PROJECT_DIR$/vendor/jbroadway/urlify" />
+      <path value="$PROJECT_DIR$/vendor/voku/stop-words" />
+      <path value="$PROJECT_DIR$/vendor/alexpechkarev/google-maps" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kZmScFIp3Mq1CnPBDiC4fLl544" />
@@ -193,7 +204,7 @@
       <workItem from="1606240302848" duration="1871000" />
       <workItem from="1606247072544" duration="4117000" />
       <workItem from="1606258522867" duration="149000" />
-      <workItem from="1606328276423" duration="1253000" />
+      <workItem from="1606328276423" duration="7146000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -273,9 +284,13 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="390" y="27" width="626" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/56.27.1304.741@56.27.1304.741" timestamp="1606138880416" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606330887696">
+    <state x="372" y="174" key="run.anything.popup" timestamp="1606335288204">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606330887696" />
+    <state x="372" y="174" key="run.anything.popup/56.27.1304.741@56.27.1304.741" timestamp="1606335288204" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606337098929">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606337098929" />
   </component>
 </project>

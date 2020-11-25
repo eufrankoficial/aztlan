@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeviceController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -15,4 +16,5 @@ Route::middleware('guest')->namespace('Auth')->group(function() {
 
 Route::middleware('guest')->namespace('Controllers')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/device-detail', [DeviceController::class, 'show'])->name('device.detail');
 });
