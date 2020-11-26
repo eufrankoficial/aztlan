@@ -36,7 +36,7 @@
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                <button class="btn btn-primary btn-block" @click="submitLogin($event)">Entrar</button>
                             </div>
                         </div>
                     </form>
@@ -51,6 +51,8 @@
 </template>
 
 <script>
+    import { request } from "../../request";
+
     export default {
         name: 'LoginComponent',
         data () {
@@ -58,6 +60,27 @@
                 username: null,
                 password: null,
                 remember: 0
+            }
+        },
+
+        methods: {
+            submitLogin: function(event) {
+                event.preventDefault();
+
+                const response = request.post('authenticate', {
+                    username: this.username,
+                    password: this.password
+                });
+
+                console.log(response);
+
+                if(response.data.status === true) {
+                    location.reload();
+                    return true;
+                }
+
+                this.$swal('Atenção!', 'Crendenciais inválidas', 'error');
+                return false;
             }
         }
     };

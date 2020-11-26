@@ -10,11 +10,13 @@ use App\Http\Controllers\DeviceController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
+    Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate.post');
     Route::get('/revover-password', [RecoverPasswordController::class, 'index'])->name('recoverpass.index');
     Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('resetpass.index');
 });
 
-Route::middleware('guest')->namespace('Controllers')->group(function() {
+Route::middleware('auth')->namespace('Controllers')->group(function() {
+    Route::get('/home', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/device-detail', [DeviceController::class, 'show'])->name('device.detail');
 });

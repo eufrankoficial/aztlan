@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/request/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/validator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/LoginComponent/LoginComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/LoginComponent/LoginComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,6 +158,11 @@
       <path value="$PROJECT_DIR$/vendor/jbroadway/urlify" />
       <path value="$PROJECT_DIR$/vendor/voku/stop-words" />
       <path value="$PROJECT_DIR$/vendor/alexpechkarev/google-maps" />
+      <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
+      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kZmScFIp3Mq1CnPBDiC4fLl544" />
@@ -160,6 +172,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../estudos/aws/aws-doc-sdk-examples/php/example_code/kinesisfirehose" />
@@ -204,7 +217,9 @@
       <workItem from="1606240302848" duration="1871000" />
       <workItem from="1606247072544" duration="4117000" />
       <workItem from="1606258522867" duration="149000" />
-      <workItem from="1606328276423" duration="7146000" />
+      <workItem from="1606328276423" duration="8134000" />
+      <workItem from="1606402910135" duration="4256000" />
+      <workItem from="1606411419183" duration="979000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -240,6 +255,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Disable notification after compiled npm run dev" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="303" y="59" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606408348051">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="303" y="59" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/56.27.1304.741@56.27.1304.741" timestamp="1606408348051" />
     <state x="247" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1606164389400">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -268,6 +287,10 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state width="1258" height="172" key="GridCell.Tab.0.right/56.27.1304.741@56.27.1304.741" timestamp="1606168835781" />
+    <state width="263" height="500" key="HiddenNamespacesPopup" timestamp="1606408655496">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state width="263" height="500" key="HiddenNamespacesPopup/56.27.1304.741@56.27.1304.741" timestamp="1606408655496" />
     <state x="503" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1606138167944">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -284,13 +307,17 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="390" y="27" width="626" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/56.27.1304.741@56.27.1304.741" timestamp="1606138880416" />
+    <state x="489" y="312" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606410536335">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="489" y="312" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/56.27.1304.741@56.27.1304.741" timestamp="1606410536335" />
     <state x="372" y="174" key="run.anything.popup" timestamp="1606335288204">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/56.27.1304.741@56.27.1304.741" timestamp="1606335288204" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606337098929">
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606411518735">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606337098929" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606411518735" />
   </component>
 </project>
