@@ -20,6 +20,7 @@ class LogoutController extends Controller
     public function logout()
     {
         $this->authService->logout();
-        return redirect()->route('login.index');
+
+        return response()->json(['status' => true]);
     }
 }

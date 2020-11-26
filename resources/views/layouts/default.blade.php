@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AZTLAN</title>
 
@@ -29,6 +30,8 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
+                <logout-top-button-component url="{{ route('logout') }}"></logout-top-button-component>
+
             </ul>
         </nav>
         <!-- /.navbar -->
