@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="icheck-primary">
-                                    <input type="checkbox" id="remember" v-model="remember">
+                                    <input type="checkbox" id="remember" v-model="remember" @click="toggleRememberToken">
                                     <label for="remember">
                                         Lembrar minha senha
                                     </label>
@@ -59,20 +59,23 @@
             return {
                 username: null,
                 password: null,
-                remember: 0
+                remember: false
             }
         },
 
         methods: {
-            submitLogin: function(event) {
-                event.preventDefault();
+            toggleRememberToken: function () {
+                this.remember = !this.remember ? true : false;
+            },
 
-                const response = request.post('authenticate', {
+            submitLogin: async function (event) {
+                event.preventDefault();
+                const credentials = {
                     username: this.username,
                     password: this.password
-                });
+                };
 
-                console.log(response);
+                const response = await request.post('authenticate', credentials);
 
                 if(response.data.status === true) {
                     location.reload();

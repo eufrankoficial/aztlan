@@ -3,11 +3,21 @@
 namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Services\Auth\AuthService;
 
 class AuthController extends Controller
 {
+    /**
+     * @var AuthService.
+     */
+    protected $authService;
+
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
+
     public function index()
     {
         return view('auth.login.index');
@@ -16,19 +26,21 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         try {
+            $authenticated = $this->authService->authenticate(
+                [
+                    'username' => $request->get('username'),
+                    'password' => $request->get('password')
+                ],
+                (bool) $request->get('remember')
+             );
 
-            $credentials = $request->only('username', 'password');
-
-            if (Auth::attempt($credentials)) {
-                return response()->json(
-                    [
-                        'status' => true
-                    ]
-                );
+            if ($authenticated) {
+                return response()->json(['status' => true]);
             }
         } catch (\Exception $e) {
-            dd($e);
+
         }
+
         return response()->json(
             [
                 'status' => false

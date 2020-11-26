@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
@@ -14,6 +15,8 @@ Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/revover-password', [RecoverPasswordController::class, 'index'])->name('recoverpass.index');
     Route::get('/reset-password', [ResetPasswordController::class, 'index'])->name('resetpass.index');
 });
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->namespace('Controllers')->group(function() {
     Route::get('/home', [DashboardController::class, 'index'])->name('dashboard.index');
