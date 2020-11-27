@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/BaseRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Interfaces/BaseInterfaceRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Device/DeviceRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ViewModels/DeviceListViewModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/breadcrumbs/dashboard.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/breadcrumbs/devices.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/device/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/breadcrumbs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +162,8 @@
       <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-view-models" />
+      <path value="$PROJECT_DIR$/vendor/diglactic/laravel-breadcrumbs" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kZmScFIp3Mq1CnPBDiC4fLl544" />
@@ -170,11 +184,12 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Repositories/Device" />
       <recent name="$PROJECT_DIR$/app/Repositories/Interfaces" />
       <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$/resources/assets/js" />
@@ -210,7 +225,8 @@
       <workItem from="1606411419183" duration="1612000" />
       <workItem from="1606414282381" duration="11045000" />
       <workItem from="1606490651780" duration="592000" />
-      <workItem from="1606496033845" duration="4801000" />
+      <workItem from="1606496033845" duration="8286000" />
+      <workItem from="1606508544347" duration="1699000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -254,6 +270,10 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="395" y="199" width="616" height="403" key="#com.intellij.fileTypes.FileTypeChooser/56.27.1304.741@56.27.1304.741" timestamp="1606501830125" />
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606505954635">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/56.27.1304.741@56.27.1304.741" timestamp="1606505954635" />
     <state x="247" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1606164389400">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -286,14 +306,14 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state width="263" height="500" key="HiddenNamespacesPopup/56.27.1304.741@56.27.1304.741" timestamp="1606408655496" />
-    <state x="503" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1606138167944">
+    <state x="503" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1606509352403">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="503" y="323" width="399" height="156" key="NewPhpFileDialog/56.27.1304.741@56.27.1304.741" timestamp="1606138167944" />
-    <state x="197" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1606143054822">
+    <state x="503" y="323" width="399" height="156" key="NewPhpFileDialog/56.27.1304.741@56.27.1304.741" timestamp="1606509352403" />
+    <state x="197" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1606508607134">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="197" y="31" width="1022" height="737" key="SettingsEditor/56.27.1304.741@56.27.1304.741" timestamp="1606143054822" />
+    <state x="197" y="31" width="1022" height="737" key="SettingsEditor/56.27.1304.741@56.27.1304.741" timestamp="1606508607134" />
     <state width="590" height="446" key="SwitcherDM" timestamp="1606156437901">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -314,9 +334,9 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/56.27.1304.741@56.27.1304.741" timestamp="1606335288204" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606501258501">
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606510146407">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606501258501" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606510146407" />
   </component>
 </project>

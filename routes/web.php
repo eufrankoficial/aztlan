@@ -22,5 +22,12 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::middleware('auth')->namespace('Controllers')->group(function() {
     Route::get('/home', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/device-detail', [DeviceController::class, 'show'])->name('device.detail');
+
+
+    Route::prefix('devices')->name('device.')->group( function() {
+        Route::get('/', [DeviceController::class, 'index'])->name('index');
+        Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
+    });
+
+
 });

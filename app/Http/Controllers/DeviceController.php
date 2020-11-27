@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Device\DeviceService;
 use Illuminate\Http\Request;
+use App\ViewModels\DeviceListViewModel;
 
 class DeviceController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @var DeviceService.
      */
+    protected $deviceService;
+
+    public function __construct(DeviceService $deviceService)
+    {
+        $this->deviceService = $deviceService;
+    }
+
     public function index()
     {
-        //
+        return (new DeviceListViewModel($this->deviceService))->view('device.index');
     }
 
     /**
