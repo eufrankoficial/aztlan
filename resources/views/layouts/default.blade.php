@@ -106,7 +106,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">{{ !empty($title) ? $title : 'Dashboard' }}</h1>
                         </div>
-
                         @if($breadcrumb)
                             @if(empty($param))
                                 {!! Breadcrumbs::render($breadcrumb) !!}

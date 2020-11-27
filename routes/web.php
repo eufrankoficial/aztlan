@@ -28,6 +28,4 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::get('/', [DeviceController::class, 'index'])->name('index');
         Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
     });
-
-
 });

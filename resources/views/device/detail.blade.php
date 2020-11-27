@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => 'Device #BD7D108F0'])
+@extends('layouts.default', ['title' => 'Device #BD7D108F0', 'breadcrumb' => 'device.detail', 'param' => $device])
     @section('content')
         <div class="row">
             <div class="col-lg-3 col-6">
@@ -97,4 +97,4 @@
                     .openOn(mymap);
             </script>
         @endsection
-    @stop
+    @endsection

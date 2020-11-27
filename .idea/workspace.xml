@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Device/DeviceRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ViewModels/DeviceListViewModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/breadcrumbs/dashboard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/breadcrumbs/devices.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/device/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/breadcrumbs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/Hashidable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Device.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breadcrumbs/devices.php" beforeDir="false" afterPath="$PROJECT_DIR$/breadcrumbs/devices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -226,7 +224,7 @@
       <workItem from="1606414282381" duration="11045000" />
       <workItem from="1606490651780" duration="592000" />
       <workItem from="1606496033845" duration="8286000" />
-      <workItem from="1606508544347" duration="1699000" />
+      <workItem from="1606508544347" duration="7259000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -306,6 +304,10 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state width="263" height="500" key="HiddenNamespacesPopup/56.27.1304.741@56.27.1304.741" timestamp="1606408655496" />
+    <state x="454" y="117" width="497" height="568" key="NewPhpClassDialog" timestamp="1606512424643">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="454" y="117" width="497" height="568" key="NewPhpClassDialog/56.27.1304.741@56.27.1304.741" timestamp="1606512424643" />
     <state x="503" y="323" width="399" height="156" key="NewPhpFileDialog" timestamp="1606509352403">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -330,13 +332,17 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="489" y="312" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/56.27.1304.741@56.27.1304.741" timestamp="1606410536335" />
+    <state x="156" y="127" width="1104" height="541" key="dock-window-1" timestamp="1606511162470">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="156" y="127" width="1104" height="541" key="dock-window-1/56.27.1304.741@56.27.1304.741" timestamp="1606511162470" />
     <state x="372" y="174" key="run.anything.popup" timestamp="1606335288204">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/56.27.1304.741@56.27.1304.741" timestamp="1606335288204" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606510146407">
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606515192094">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606510146407" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606515192094" />
   </component>
 </project>

@@ -168,6 +168,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Aws\Laravel\AwsServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'AWS' => Aws\Laravel\AwsFacade::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class
 
     ],
 

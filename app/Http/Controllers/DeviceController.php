@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Device;
 use App\Services\Device\DeviceService;
+use App\ViewModels\DeviceDetailViewModel;
 use Illuminate\Http\Request;
 use App\ViewModels\DeviceListViewModel;
 
@@ -50,9 +52,9 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Device $device)
     {
-        return view('device.detail');
+        return (new DeviceDetailViewModel($device))->view('device.detail');
     }
 
     /**
