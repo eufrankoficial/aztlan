@@ -26,7 +26,9 @@ class UserService implements BaseServiceInterface
 
     function create(array $data): User
     {
-        return $this->userRepository->create($data);
+        $user = $this->userRepository->create($data);
+
+        return $this->userRepository->findById($user->id);
     }
 
     function update(array $data, User $user): User
@@ -42,5 +44,15 @@ class UserService implements BaseServiceInterface
     function show(User $user): User
     {
         return $this->userRepository->findById($user->id);
+    }
+
+    function findByUserName(string $username): ?User
+    {
+        return $this->userRepository->where('username', trim($username))->first();
+    }
+
+    function findByEmail(string $email): ?User
+    {
+        return $this->userRepository->where('email', trim($email))->first();
     }
 }

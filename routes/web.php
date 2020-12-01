@@ -33,6 +33,7 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
     Route::prefix('users')->name('user.')->group( function() {
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::get('/create', [UserController::class, 'create'])->name('create');
+        Route::post('/exist', [UserController::class, 'exist'])->name('exist');
         Route::post('/store', [UserController::class, 'store'])->name('store');
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('detail');
         Route::post('/edit/{user}', [UserController::class, 'update'])->name('update');

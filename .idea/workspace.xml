@@ -5,37 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/app/Models/BaseAuthModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Repositories/User/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Interfaces/BaseServiceInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/User/UserService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/breadcrumbs/users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/pagination.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Device.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/Searchable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Searchable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/breadcrumbs/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/breadcrumbs/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/User/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/User/UserService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/MapComponent/MapComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/MapComponent/MapComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/device/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +237,7 @@
       <workItem from="1606523648078" duration="9176000" />
       <workItem from="1606753401881" duration="9386000" />
       <workItem from="1606773130940" duration="764000" />
-      <workItem from="1606844061046" duration="2261000" />
+      <workItem from="1606844061046" duration="8474000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -386,10 +361,10 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/56.27.1304.741@56.27.1304.741" timestamp="1606335288204" />
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606845292898">
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1606850732899">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606845292898" />
+    <state x="371" y="89" width="672" height="678" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606850732899" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

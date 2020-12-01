@@ -43,8 +43,9 @@ class UserController extends Controller
             $data = $request->except('_token', 'repeat_password');
             $user = $this->userService->create($data);
 
-            return response()->json(['status' => true, 'user' => $user]);
+            return response()->json(['status' => true, 'url' => route('user.detail', $user->public_id)]);
         } catch (\Exception $e) {
+            dd($e);
             return response()->json(['status' => false]);
         }
     }
@@ -106,6 +107,22 @@ class UserController extends Controller
             $this->userService->delete($user);
 
             return response()->json(['status' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['status' => false]);
+        }
+    }
+
+    public function exist(Request $request)
+    {
+        try {
+            $exist = false;
+            if($request->get('username')) {
+                $exist = $this->userService->findByUserName($request->get('username')) ? true : false;
+            } else {
+                $exist = $this->userService->findByEmail($request->get('email')) ? true : false;
+            }
+
+            return response()->json(['status' => true, 'exist' => $exist]);
         } catch (\Exception $e) {
             return response()->json(['status' => false]);
         }
