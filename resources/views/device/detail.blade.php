@@ -5,7 +5,7 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>#BD7D108F0</h3>
+                        <h3>#{{ $device->code_device }}</h3>
                         <p>Dispositivo</p>
                     </div>
                 </div>
@@ -14,7 +14,7 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>-3º</h3>
+                        <h3>{{  number_format($device->temp, 1, ',', '.') }}º</h3>
                         <p>Temperatura</p>
                     </div>
                 </div>
@@ -23,14 +23,14 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>25/11 - 11h35</h3>
+                        <h3>{{ $device->stamp->diffForHumans() }}</h3>
                         <p>Ultima Atualização</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-success">
+                <div class="small-box bg-{{ $device->status }}">
                     <div class="inner">
                         <h3>Online</h3>
                         <p>Status</p>
@@ -63,38 +63,8 @@
 
 
             <div class="col-lg-6">
-                <div id="mymap" style="height: 260px; width: 100%;"></div>
+                <div id="mapContainer" style="height: 260px; width: 100%;"></div>
+                <map-component map="{{ $device }}"></map-component>
             </div>
         </div>
-
-        @section('scripts')
-            <script>
-                var mymap = L.map('mymap').setView([-22.969418269659766, -42.03011667055224], 13);
-
-                L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZnJhbmtlZGV2ZWxvcGVyIiwiYSI6ImNraHh1NDI2bDAzbzEyeGs2eW4yeGxkMG4ifQ.ceYsmLCMIDhoLtd8D7PPsA', {
-                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                    maxZoom: 18,
-                    id: 'mapbox/streets-v11',
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    accessToken: 'pk.eyJ1IjoiZnJhbmtlZGV2ZWxvcGVyIiwiYSI6ImNraHh1NDI2bDAzbzEyeGs2eW4yeGxkMG4ifQ.ceYsmLCMIDhoLtd8D7PPsA'
-                }).addTo(mymap);
-
-                var circle = L.circle([-22.969418269659766, -42.03011667055224], {
-                    color: 'red',
-                    fillColor: '#f03',
-                    fillOpacity: 0.5,
-                    radius: 100
-                }).addTo(mymap);
-
-                var polygon = L.polygon([
-                    [-22.969418269659766, -42.03011667055224]
-                ]).addTo(mymap);
-
-                var popup = L.popup()
-                    .setLatLng([-22.969418269659766, -42.03011667055224])
-                    .setContent("I am here")
-                    .openOn(mymap);
-            </script>
-        @endsection
     @endsection

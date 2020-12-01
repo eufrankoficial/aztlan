@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.default', ['title' => 'Dashboard', 'breadcrumb' => 'home.index'])
     @section('content')
         <!-- Small boxes (Stat box) -->
         <div class="row">

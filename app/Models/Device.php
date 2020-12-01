@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Hashidable;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,4 +42,27 @@ class Device extends BaseModel
         'updated_at',
         'deleted_at'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo.
+     */
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class, 'vehicle_id', 'id');
+    }
+
+    public function getStatusAttribute(): string
+    {
+        $stamp = Carbon::parse($this->attributes['stamp']);
+        $days = $stamp->diffInDays(Carbon::now());
+        $status = 'success';
+
+        if($days > 1) {
+            $status = 'danger';
+        } elseif($days <= 1 && $days <> 0) {
+            $status = 'warning';
+        }
+
+        return $status;
+    }
 }

@@ -20,8 +20,8 @@ trait Searchable
         $searchtableFields = collect($this->searchableAttrs);
 
         $searchtableFields->map(function($operator, $field) use ($builder, $request) {
-            if($request->get($field)) {
 
+            if($request->get($field)) {
                 if(!is_array($operator)) {
                     $builder = $this->queryField($operator, $field, $request->get($field), $builder);
                 } else {
@@ -35,6 +35,9 @@ trait Searchable
 
                     });
                 }
+            } else {
+                $term = $request->get('term');
+                $builder = $this->queryField($operator, $field, $term, $builder);
             }
         });
 
@@ -59,6 +62,8 @@ trait Searchable
                 return $builder->whereBeetwen($field, $value);
             case 'in':
                 return is_array($value) ? $builder->whereIn($field, $value) : $builder->whereIn($field, [$value]);
+            case 'orWhereLike':
+                return $builder->orWhere($field, $operator, '%' . $value . '%');
             default:
                 return $builder->where($field, $value);
         }

@@ -21,7 +21,6 @@ class DeviceService
     public function getDeviceList(): LengthAwarePaginator
     {
         $devices = $this->deviceRepo->all();
-
         $devices->map(function(&$device) {
             $device->status = 'success';
             $stamp = Carbon::parse($device->stamp);

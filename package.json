@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "axios": "^0.19",
+        "leaflet": "^1.7.1",
         "loadash": "^1.0.0",
         "vue": "^2.6.12",
         "vue-cli": "^2.9.6",
@@ -29,6 +30,7 @@
         "vue-router": "^3.4.9",
         "vue-sweetalert2": "^4.1.1",
         "vue-template-compiler": "^2.6.12",
+        "vue2-leaflet": "^2.6.0",
         "webpack": "4.41.2"
     }
 }

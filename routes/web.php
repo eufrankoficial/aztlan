@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RecoverPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\UserController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -27,5 +28,13 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
     Route::prefix('devices')->name('device.')->group( function() {
         Route::get('/', [DeviceController::class, 'index'])->name('index');
         Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
+    });
+
+    Route::prefix('users')->name('user.')->group( function() {
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::get('/create', [UserController::class, 'create'])->name('create');
+        Route::post('/store', [UserController::class, 'store'])->name('store');
+        Route::get('/edit/{user}', [UserController::class, 'edit'])->name('detail');
+        Route::post('/edit/{user}', [UserController::class, 'update'])->name('update');
     });
 });

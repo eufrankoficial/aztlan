@@ -2,30 +2,37 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\Hashidable;
+use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends BaseAuthModel
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Hashidable, Searchable;
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
     protected $fillable = [
         'name',
         'email',
+        'username',
+        'email_verified_at',
         'password',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+        'remember_token',
+        'created_at',
+        'updated_at'
+    ];
+
+    protected $dates = [
+        'created_at',
+        'updated_at'
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
      * @var array
      */
     protected $hidden = [
@@ -34,12 +41,18 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+
+    /**
+     * @var array.
+     */
+    protected $searchableAttrs = [
+        'name' => 'like',
     ];
 
     public function getJWTIdentifier()
@@ -52,4 +65,5 @@ class User extends Authenticatable
     {
         return [];
     }
+
 }
