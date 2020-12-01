@@ -45,7 +45,6 @@ class UserController extends Controller
 
             return response()->json(['status' => true, 'url' => route('user.detail', $user->public_id)]);
         } catch (\Exception $e) {
-            dd($e);
             return response()->json(['status' => false]);
         }
     }
@@ -89,7 +88,7 @@ class UserController extends Controller
             $data = $request->except('_token', 'password', 'repeat_password');
             $this->userService->update($data, $user);
 
-            return response()->json(['status' => true]);
+            return response()->json(['status' => true, 'url' => route('user.detail', $user->public_id)]);
         } catch (\Exception $e) {
             return response()->json(['status' => false]);
         }
@@ -117,9 +116,13 @@ class UserController extends Controller
         try {
             $exist = false;
             if($request->get('username')) {
-                $exist = $this->userService->findByUserName($request->get('username')) ? true : false;
+                $user = $this->userService->findByUserName($request->get('username'));
+                $exist = $user ? true : false;
+                $exist = $user->username === trim($request->get('username')) ? false : true;
             } else {
-                $exist = $this->userService->findByEmail($request->get('email')) ? true : false;
+                $user = $this->userService->findByUserName($request->get('email'));
+                $exist = $user ? true : false;
+                $exist = $user->email === trim($request->get('email')) ? false : true;
             }
 
             return response()->json(['status' => true, 'exist' => $exist]);

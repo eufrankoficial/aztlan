@@ -103,7 +103,7 @@
                     return false;
                 }
 
-                const response = await request.post('exist', {
+                const response = await request.post('/user/exist', {
                     email: this.email
                 });
 
