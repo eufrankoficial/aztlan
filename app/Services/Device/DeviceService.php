@@ -20,10 +20,11 @@ class DeviceService
 
     public function getDeviceList(): ?LengthAwarePaginator
     {
-        $devices = $this->deviceRepo->all();
+        $devices = $this->deviceRepo->all(15, true, ['detail']);
         $devices->map(function(&$device) {
+            $detail = $device->detail;
             $device->status = 'success';
-            $stamp = Carbon::parse($device->stamp);
+            $stamp = Carbon::parse($detail->stamp);
             $days = $stamp->diffInDays(Carbon::now());
 
             if($days > 1) {

@@ -36,9 +36,10 @@ class AuthController extends Controller
 
             if ($authenticated) {
                 return response()->json(['status' => true]);
+            } else {
             }
         } catch (\Exception $e) {
-
+            dd($e);
         }
 
         return response()->json(

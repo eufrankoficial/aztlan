@@ -17,27 +17,10 @@ class Device extends BaseModel
     protected $fillable = [
         'vehicle_id',
         'code_device',
-        'description',
-        'lon',
-        'lat',
-        'bat',
-        'temp',
-        'umi',
-        'cnt',
-        'co2',
-        'tempdht1',
-        'tempdht2',
-        'stamp',
-        'created_by',
-        'updated_by',
-        'deleted_by',
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        'description'
     ];
 
     protected $dates = [
-        'stamp',
         'created_at',
         'updated_at',
         'deleted_at'
@@ -51,18 +34,13 @@ class Device extends BaseModel
         return $this->belongsTo(Vehicle::class, 'vehicle_id', 'id');
     }
 
-    public function getStatusAttribute(): string
+    public function detail()
     {
-        $stamp = Carbon::parse($this->attributes['stamp']);
-        $days = $stamp->diffInDays(Carbon::now());
-        $status = 'success';
+        return $this->hasOne(DeviceDetail::class, 'device_id', 'id')->orderBy('stamp', 'desc');
+    }
 
-        if($days > 1) {
-            $status = 'danger';
-        } elseif($days <= 1 && $days <> 0) {
-            $status = 'warning';
-        }
-
-        return $status;
+    public function history()
+    {
+        return $this->hasMany(DeviceDetail::class, 'device_id', 'id');
     }
 }

@@ -14,7 +14,7 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>{{  number_format($device->temp, 1, ',', '.') }}º</h3>
+                        <h3>{{  number_format($device->detail->temp, 1, ',', '.') }}º</h3>
                         <p>Temperatura</p>
                     </div>
                 </div>
@@ -23,14 +23,14 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>{{ $device->stamp->diffForHumans() }}</h3>
+                        <h3>{{ $device->detail->stamp->diffForHumans() }}</h3>
                         <p>Ultima Atualização</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-6">
                 <!-- small box -->
-                <div class="small-box bg-{{ $device->status }}">
+                <div class="small-box bg-{{ $device->detail->status }}">
                     <div class="inner">
                         <h3>Online</h3>
                         <p>Status</p>

@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Device.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_21_002215_create_devices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_002215_create_devices_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DeviceSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DeviceSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/device/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/auth.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +245,7 @@
       <workItem from="1606753401881" duration="9386000" />
       <workItem from="1606773130940" duration="764000" />
       <workItem from="1606844061046" duration="12882000" />
-      <workItem from="1606917717535" duration="14783000" />
+      <workItem from="1606917717535" duration="18141000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
@@ -289,10 +297,10 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="487" y="196" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog/56.27.1304.741@56.27.1304.741" timestamp="1606758371089" />
-    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606949215776">
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606952770828">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/56.27.1304.741@56.27.1304.741" timestamp="1606949215776" />
+    <state x="441" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/56.27.1304.741@56.27.1304.741" timestamp="1606952770828" />
     <state x="247" y="27" width="912" height="741" key="CommitChangelistDialog2" timestamp="1606164389400">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -341,10 +349,18 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state width="590" height="446" key="SwitcherDM/56.27.1304.741@56.27.1304.741" timestamp="1606156437901" />
-    <state x="581" y="287" width="352" height="228" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1606501706267">
+    <state x="541" y="77" width="367" height="655" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1606951279098">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="581" y="287" width="352" height="228" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/56.27.1304.741@56.27.1304.741" timestamp="1606501706267" />
+    <state x="541" y="77" width="367" height="655" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/56.27.1304.741@56.27.1304.741" timestamp="1606951279098" />
+    <state x="581" y="287" width="352" height="228" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog" timestamp="1606951163526">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="581" y="287" width="352" height="228" key="com.intellij.database.actions.ToolActions$ScriptingActionBase$MyDatabaseScriptDialog/56.27.1304.741@56.27.1304.741" timestamp="1606951163526" />
+    <state x="542" y="213" width="321" height="375" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1606951203285">
+      <screen x="56" y="27" width="1304" height="741" />
+    </state>
+    <state x="542" y="213" width="321" height="375" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/56.27.1304.741@56.27.1304.741" timestamp="1606951203285" />
     <state x="390" y="27" width="626" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606138880416">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
@@ -361,10 +377,10 @@
       <screen x="56" y="27" width="1304" height="741" />
     </state>
     <state x="372" y="174" key="run.anything.popup/56.27.1304.741@56.27.1304.741" timestamp="1606335288204" />
-    <state x="371" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1606949286695">
+    <state x="371" y="89" width="672" height="160" key="search.everywhere.popup" timestamp="1606952591628">
       <screen x="56" y="27" width="1304" height="741" />
     </state>
-    <state x="371" y="89" width="672" height="160" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606949286695" />
+    <state x="371" y="89" width="672" height="160" key="search.everywhere.popup/56.27.1304.741@56.27.1304.741" timestamp="1606952591628" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
