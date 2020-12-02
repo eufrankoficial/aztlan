@@ -18,7 +18,7 @@ class DeviceService
         $this->deviceRepo = $deviceRepo;
     }
 
-    public function getDeviceList(): LengthAwarePaginator
+    public function getDeviceList(): ?LengthAwarePaginator
     {
         $devices = $this->deviceRepo->all();
         $devices->map(function(&$device) {
