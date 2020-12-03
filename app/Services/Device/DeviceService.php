@@ -3,10 +3,11 @@
 namespace App\Services\Device;
 
 use App\Repositories\Device\DeviceRepository;
+use App\Services\Interfaces\BaseServiceInterface;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
-
-class DeviceService
+use Illuminate\Http\Request;
+class DeviceService implements BaseServiceInterface
 {
     /**
      * @var DeviceRepository.
@@ -16,6 +17,40 @@ class DeviceService
     public function __construct(DeviceRepository $deviceRepo)
     {
         $this->deviceRepo = $deviceRepo;
+    }
+
+    public function list(Request $request)
+    {
+
+    }
+
+    public function create(array $data)
+    {
+        $device = $data['device'];
+        $detail = $data['detail'];
+
+        $model = $this->deviceRepo->create($device);
+        $model->detail()->create($detail);
+
+        return $model;
+    }
+
+    public function update(array $data, $device)
+    {
+        $device = $this->deviceRepo->update($device->id, $data['device']);
+        $device->detail()->update($data['detail']);
+
+        return $device;
+    }
+
+    public function delete($user)
+    {
+
+    }
+
+    public function show($user)
+    {
+
     }
 
     public function getDeviceList(): ?LengthAwarePaginator

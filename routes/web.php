@@ -28,7 +28,9 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
     Route::prefix('devices')->name('device.')->group( function() {
         Route::get('/', [DeviceController::class, 'index'])->name('index');
         Route::get('/create', [DeviceController::class, 'create'])->name('create');
+        Route::post('/create', [DeviceController::class, 'store'])->name('store');
         Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
+        Route::post('/{device}', [DeviceController::class, 'update'])->name('update');
     });
 
     Route::prefix('users')->name('user.')->group( function() {

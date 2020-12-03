@@ -2,15 +2,20 @@
 
 namespace App\ViewModels;
 
-use App\Services\Device\DeviceService;
+use App\Services\Vehicle\VehicleService;
 use Spatie\ViewModels\ViewModel;
 
 class CreateDeviceViewModel extends ViewModel
 {
-    protected $deviceService;
+    protected $vehicleService;
 
-    public function __construct(DeviceService  $deviceService)
+    public function __construct(VehicleService $vehicleService)
     {
-        $this->deviceService = $deviceService;
+        $this->vehicleService = $vehicleService;
+    }
+
+    public function vehicles()
+    {
+        return $this->vehicleService->getToSelect();
     }
 }

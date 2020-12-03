@@ -29,7 +29,7 @@ class CreateDeviceDetailTable extends Migration
             $table->decimal('tempdht2', 8, 2)->nullable();
             $table->decimal('umidht1', 8, 2)->nullable();
             $table->decimal('umidht2', 8, 2)->nullable();
-            $table->timestamp('stamp')->nullable();
+            $table->timestamp('stamp')->nullable()->default(now());
             $table->bigInteger('created_by');
             $table->bigInteger('updated_by');
             $table->bigInteger('deleted_by')->nullable();

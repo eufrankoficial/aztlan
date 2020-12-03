@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use App\Services\Device\DeviceService;
+use App\Services\Vehicle\VehicleService;
 use App\ViewModels\CreateDeviceViewModel;
 use App\ViewModels\DeviceDetailViewModel;
 use Illuminate\Http\Request;
 use App\ViewModels\DeviceListViewModel;
+use DB;
 
 class DeviceController extends Controller
 {
@@ -16,9 +18,12 @@ class DeviceController extends Controller
      */
     protected $deviceService;
 
-    public function __construct(DeviceService $deviceService)
+    protected $vehicleService;
+
+    public function __construct(DeviceService $deviceService, VehicleService $vehicleService)
     {
         $this->deviceService = $deviceService;
+        $this->vehicleService = $vehicleService;
     }
 
     public function index()
@@ -33,7 +38,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        return (new CreateDeviceViewModel($this->deviceService))->view('device.create');
+        return (new CreateDeviceViewModel($this->vehicleService))->view('device.create');
     }
 
     /**
@@ -44,7 +49,16 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $device = $this->deviceService->create($request->except('_token'));
+
+            DB::commit();
+            return response()->json(['status' => true, 'device' => $device]);
+        } catch(\Exception $e) {
+            DB::rollback();
+            return response()->json(['status' => false]);
+        }
     }
 
     /**
@@ -64,9 +78,9 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Device $device)
     {
-        //
+        return (new DeviceDetailViewModel($device))->view('device.detail');
     }
 
     /**
@@ -76,19 +90,22 @@ class DeviceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Device $device)
     {
-        //
-    }
+        DB::beginTransaction();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        try {
+            $data = $request->except('_token');
+
+            $this->deviceService->update($data, $device);
+
+            DB::commit();
+
+            return response()->json(['status' => true]);
+        } catch(\Exception $e) {
+
+            DB::rollback();
+            return response()->json(['status' => false]);
+        }
     }
 }

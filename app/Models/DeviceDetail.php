@@ -6,10 +6,9 @@ use App\Traits\Hashidable;
 use App\Traits\Searchable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DeviceDetail extends Model
+class DeviceDetail extends BaseModel
 {
     use HasFactory, Searchable, Hashidable, SoftDeletes;
 
