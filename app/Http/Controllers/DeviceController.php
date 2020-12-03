@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use App\Services\Device\DeviceService;
+use App\ViewModels\CreateDeviceViewModel;
 use App\ViewModels\DeviceDetailViewModel;
 use Illuminate\Http\Request;
 use App\ViewModels\DeviceListViewModel;
@@ -32,7 +33,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        //
+        return (new CreateDeviceViewModel($this->deviceService))->view('device.create');
     }
 
     /**

@@ -27,6 +27,7 @@ mix.scripts([
 
 // Layouts Default Scripts
 mix.styles([
+    adminLteBase + 'select2/css/select2.min.css',
     adminLteBase + 'css/fontawesome-free/css/all.min.css',
     adminLteBase + 'tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
     adminLteBase + 'css/icheck-bootstrap/icheck-bootstrap.min.css',
@@ -45,6 +46,7 @@ mix.scripts([
     adminLteBase + 'js/bootstrap/js/bootstrap.bundle.min.js',
     adminLteBase + 'chart.js/Chart.min.js',
     adminLteBase + 'sparklines/sparkline.js',
+    adminLteBase + 'select2/js/select2.full.min.js',
     adminLteBase + 'jqvmap/jquery.vmap.min.js',
     adminLteBase + 'jqvmap/maps/jquery.vmap.usa.js',
     adminLteBase + 'jquery-knob/jquery.knob.min.js',
@@ -55,6 +57,7 @@ mix.scripts([
     adminLteBase + 'overlayScrollbars/js/jquery.overlayScrollbars.min.js',
     adminLteBase + 'js/demo.js',
     adminLteBase + 'js/dashboard.js',
+    basePath + 'js/scripts.js',
 
     adminLteBase + 'js/adminlte.min.js'
 ],
