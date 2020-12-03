@@ -54,7 +54,7 @@ class DeviceController extends Controller
             $device = $this->deviceService->create($request->except('_token'));
 
             DB::commit();
-            return response()->json(['status' => true, 'device' => $device]);
+            return response()->json(['status' => true, 'url' => route('device.detail', $device->public_id)]);
         } catch(\Exception $e) {
             DB::rollback();
             return response()->json(['status' => false]);
