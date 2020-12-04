@@ -69,7 +69,7 @@ class DeviceController extends Controller
      */
     public function show(Device $device)
     {
-        return (new DeviceDetailViewModel($device))->view('device.detail');
+        return (new DeviceDetailViewModel($this->deviceService, $device))->view('device.detail');
     }
 
     /**
@@ -80,7 +80,7 @@ class DeviceController extends Controller
      */
     public function edit(Device $device)
     {
-        return (new DeviceDetailViewModel($device))->view('device.detail');
+        return (new DeviceDetailViewModel($this->deviceService, $device))->view('device.detail');
     }
 
     /**

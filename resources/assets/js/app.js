@@ -2,11 +2,8 @@ import Vue from 'vue';
 import VueSweetalert2 from 'vue-sweetalert2';
 import Vuelidate from 'vuelidate'
 
-
 import './globals/components.js';
 
-Vue.use(VueSweetalert2);
-Vue.use(Vuelidate)
 const app = new Vue({
     el: '#app',
     data: {

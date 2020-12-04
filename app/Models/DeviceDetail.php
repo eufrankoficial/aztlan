@@ -41,9 +41,18 @@ class DeviceDetail extends BaseModel
         'stamp'
     ];
 
+    protected $casts = [
+        'status' => 'string'
+    ];
+
     public function device()
     {
         return $this->belongsTo(Device::class, 'device_id', 'id');
+    }
+
+    public function getTempAttribute()
+    {
+        return number_format($this->attributes['temp'], 1, ',', '.');
     }
 
     public function getStatusAttribute(): string

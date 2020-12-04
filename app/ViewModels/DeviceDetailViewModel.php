@@ -3,15 +3,26 @@
 namespace App\ViewModels;
 
 use App\Models\Device;
+use App\Services\Device\DeviceService;
 use Spatie\ViewModels\ViewModel;
 
 class DeviceDetailViewModel extends ViewModel
 {
+    /**
+     * @var Device.
+     */
     protected $device;
 
-    public function __construct(Device $device)
+    /**
+     * @var DeviceService.
+     */
+    protected $deviceService;
+
+    public function __construct(DeviceService $deviceService, Device $device)
     {
+        $this->deviceService = $deviceService;
         $this->device = $device;
+        $this->device()->load(['detail']);
     }
 
     public function device(): Device

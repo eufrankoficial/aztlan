@@ -3,6 +3,7 @@
 namespace App\Services\Device;
 
 use App\Repositories\Device\DeviceRepository;
+use App\Responses\Devices\DeviceDetailResponse;
 use App\Services\Interfaces\BaseServiceInterface;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -48,9 +49,9 @@ class DeviceService implements BaseServiceInterface
 
     }
 
-    public function show($user)
+    public function show($device)
     {
-
+        return $device;
     }
 
     public function getDeviceList(): ?LengthAwarePaginator
@@ -59,13 +60,15 @@ class DeviceService implements BaseServiceInterface
         $devices->map(function(&$device) {
             $detail = $device->detail;
             $device->status = 'success';
-            $stamp = Carbon::parse($detail->stamp);
-            $days = $stamp->diffInDays(Carbon::now());
+            if(!empty($detail->stamp)) {
+                $stamp = Carbon::parse($detail->stamp);
+                $days = $stamp->diffInDays(Carbon::now());
 
-            if($days > 1) {
-                $device->status = 'danger';
-            } elseif($days <= 1 && $days <> 0) {
-                $device->status = 'warning';
+                if($days > 1) {
+                    $device->status = 'danger';
+                } elseif($days <= 1 && $days <> 0) {
+                    $device->status = 'warning';
+                }
             }
         });
 

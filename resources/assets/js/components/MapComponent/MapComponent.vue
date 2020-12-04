@@ -1,63 +1,53 @@
 <template>
     <div class="MapComponent">
-        <div style="height: 500px; width: 100%">
-            <l-map
-                :zoom="zoom"
-                :center="center"
-                :options="mapOptions"
-                style="height: 80%"
-                @update:center="centerUpdate"
-                @update:zoom="zoomUpdate"
-            >
-            </l-map>
-        </div>
+        <div :id="id" style="height: 500px; width: 100%"></div>
     </div>
 </template>
 
 <script>
-import L from 'leaflet';
-import { latLng } from "leaflet";
-import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
+import { accessToken } from '../../config/app';
 
 export default {
     name: "MapComponent",
-    components: {
-        LMap,
-        LTileLayer,
-        LMarker,
-        LPopup,
-        LTooltip
+    props: ['mapname', 'options'],
+
+    mounted() {
+        this.mountMap();
     },
+
     data() {
         return {
-            zoom: 13,
-            center: latLng(47.41322, -1.219482),
-            url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            attribution:
-                '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-            withPopup: latLng(47.41322, -1.219482),
-            withTooltip: latLng(47.41422, -1.250482),
-            currentZoom: 11.5,
-            currentCenter: latLng(47.41322, -1.219482),
-            showParagraph: false,
-            mapOptions: {
-                zoomSnap: 0.5
-            },
-            showMap: true
+            mapurl: `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${accessToken}`,
+            maxzoom: 18,
+            titlesize: 512,
+            zoomoffset: -1,
+            id: this.mapname
         };
     },
     methods: {
-        zoomUpdate(zoom) {
-            this.currentZoom = zoom;
-        },
-        centerUpdate(center) {
-            this.currentCenter = center;
-        },
-        showLongText() {
-            this.showParagraph = !this.showParagraph;
-        },
-        innerClick() {
-            alert("Click!");
+        mountMap: function () {
+            const mymap = L.map(this.id).setView([this.options.lat, this.options.lon], 13);
+
+            L.tileLayer(this.mapurl, {
+                maxZoom: this.maxzoom,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox/streets-v11',
+                tileSize: this.titlesize,
+                zoomOffset: this.zoomoffset
+            }).addTo(mymap);
+
+            L.circle([this.options.lat, this.options.lon], 500, {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5
+            }).addTo(mymap);
+
+            L.polygon([
+                [this.options.lat, this.options.lon]
+            ]).addTo(mymap);
+
         }
     }
 };
