@@ -98,7 +98,7 @@
             </div>
 
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-sm-12">
                 <map-component mapname="device-detail" :options="device.detail"></map-component>
             </div>
         </div>

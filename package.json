@@ -22,9 +22,11 @@
     },
     "dependencies": {
         "axios": "^0.19",
+        "chart.js": "^2.9.4",
         "leaflet": "^1.7.1",
         "loadash": "^1.0.0",
         "vue": "^2.6.12",
+        "vue-chartjs": "^3.5.1",
         "vue-cli": "^2.9.6",
         "vue-loader": "^15.9.5",
         "vue-router": "^3.4.9",

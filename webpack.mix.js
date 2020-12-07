@@ -57,8 +57,7 @@ mix.scripts([
     adminLteBase + 'overlayScrollbars/js/jquery.overlayScrollbars.min.js',
     adminLteBase + 'js/demo.js',
     adminLteBase + 'js/dashboard.js',
-    basePath + 'js/scripts.js',
-
+        assets + 'js/scripts.js',
     adminLteBase + 'js/adminlte.min.js'
 ],
     basePath + 'js/default.min.js'
