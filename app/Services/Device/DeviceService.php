@@ -2,8 +2,8 @@
 
 namespace App\Services\Device;
 
+use App\Models\Device;
 use App\Repositories\Device\DeviceRepository;
-use App\Responses\Devices\DeviceDetailResponse;
 use App\Services\Interfaces\BaseServiceInterface;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -39,7 +39,7 @@ class DeviceService implements BaseServiceInterface
     public function update(array $data, $device)
     {
         $device = $this->deviceRepo->update($device->id, $data['device']);
-        $device->detail()->update($data['detail']);
+        $device->detail()->create($data['detail']);
 
         return $device;
     }
@@ -53,7 +53,42 @@ class DeviceService implements BaseServiceInterface
     {
         $device->stamp_view = $device->detail->stamp->diffForHumans();
         $device->status = $device->getStatus();
+
         return $device;
+    }
+
+    public function chart(Device $device)
+    {
+        $stamps = $device->history->pluck('stamp')->toArray();
+        $dataLabels = [];
+        foreach($stamps as $stamp) {
+            $dataLabels[] = $stamp->format('d/m/Y H:i');
+        }
+
+        $toChart = [
+            'bat' => '#84C7C7',
+            'temp' => '#D51058',
+            'umi' => '#CB1EA1',
+            'cnt' => '#ECEC12',
+            'co2' => '#398703',
+            'tempdht1' => '#578677',
+            'tempdht2' => '#0C5389'
+        ];
+
+        $sets = [];
+        foreach($toChart as $chart => $color) {
+            $sets[] = [
+                'label' => $chart,
+                'backgroundColor' => $color,
+                'data' => $device->history->pluck($chart)->toArray()
+            ];
+
+        }
+
+        return collect([
+            'labels' => $dataLabels,
+            'sets' => $sets
+        ]);
     }
 
     public function getDeviceList(): ?LengthAwarePaginator

@@ -1,6 +1,6 @@
 <template>
     <div class="MapComponent">
-        <div :id="id" style="height: 428px; width: 100%"></div>
+        <div :id="id" style="height: 400px; width: 100%; margin-bottom: 20px"></div>
     </div>
 </template>
 

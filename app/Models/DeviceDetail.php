@@ -34,6 +34,8 @@ class DeviceDetail extends BaseModel
         'deleted_at'
     ];
 
+
+
     protected $dates = [
         'created_at',
         'updated_at',
@@ -48,11 +50,6 @@ class DeviceDetail extends BaseModel
     public function device()
     {
         return $this->belongsTo(Device::class, 'device_id', 'id');
-    }
-
-    public function getTempAttribute()
-    {
-        return number_format($this->attributes['temp'], 1, ',', '.');
     }
 
     public function getStatusAttribute(): string

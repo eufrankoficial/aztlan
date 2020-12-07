@@ -3,13 +3,16 @@
     export default {
         extends: Line,
         name: 'LineChartComponent',
+        props: ['chart'],
 
         mounted () {
+            this.mountChart();
             this.renderChart(this.chartdata, this.options)
         },
 
         data () {
             return {
+                chartOptions: JSON.parse(this.chart),
                 chartdata: {
                     labels: [
                         'January',
@@ -27,7 +30,7 @@
                     datasets: [
                         {
                             label: 'CO2',
-                            backgroundColor: '#84C7C7',
+                            backgroundColor: '#0c5389',
                             data: [
                                 441,
                                 330,
@@ -70,6 +73,13 @@
                     maintainAspectRatio: false
                 }
             };
+        },
+
+        methods: {
+            mountChart: function () {
+                this.chartdata.labels = this.chartOptions.labels;
+                this.chartdata.datasets = this.chartOptions.sets;
+            }
         }
     };
 </script>

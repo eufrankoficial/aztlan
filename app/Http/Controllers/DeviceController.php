@@ -108,4 +108,22 @@ class DeviceController extends Controller
             return response()->json(['status' => false]);
         }
     }
+
+    public function chart(Device $device)
+    {
+        try {
+
+            $device = $this->deviceService->chart($device);
+
+            $data = [
+                'labels' => $device['stamps'],
+                'dataSets' => $device['sets']
+            ];
+
+
+            response()->json(['status' => true, 'data' => $data]);
+        } catch (\Exception $e) {
+            return response()->json(['status' => false]);
+        }
+    }
 }

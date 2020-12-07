@@ -29,4 +29,9 @@ class DeviceDetailViewModel extends ViewModel
     {
         return $this->deviceService->show($this->device);
     }
+
+    public function chart()
+    {
+        return $this->deviceService->chart($this->device);
+    }
 }

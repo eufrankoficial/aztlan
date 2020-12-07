@@ -41,7 +41,7 @@ class Device extends BaseModel
 
     public function history()
     {
-        return $this->hasMany(DeviceDetail::class, 'device_id', 'id');
+        return $this->hasMany(DeviceDetail::class, 'device_id', 'id')->orderBy('stamp', 'asc');
     }
 
     public function getStatusAttribute()
