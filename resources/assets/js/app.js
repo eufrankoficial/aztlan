@@ -4,6 +4,8 @@ import Vuelidate from 'vuelidate'
 
 import './globals/components.js';
 
+Vue.use(VueSweetalert2);
+
 const app = new Vue({
     el: '#app',
     data: {

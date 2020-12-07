@@ -51,6 +51,8 @@ class DeviceService implements BaseServiceInterface
 
     public function show($device)
     {
+        $device->stamp_view = $device->detail->stamp->diffForHumans();
+        $device->status = $device->getStatus();
         return $device;
     }
 
@@ -69,7 +71,9 @@ class DeviceService implements BaseServiceInterface
                 } elseif($days <= 1 && $days <> 0) {
                     $device->status = 'warning';
                 }
+                $device->stamp_view = $stamp->diffForHumans();
             }
+
         });
 
         return $devices;

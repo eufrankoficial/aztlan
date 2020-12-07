@@ -43,4 +43,24 @@ class Device extends BaseModel
     {
         return $this->hasMany(DeviceDetail::class, 'device_id', 'id');
     }
+
+    public function getStatusAttribute()
+    {
+        return $this->getStatus();
+    }
+
+    public function getStatus()
+    {
+        $stamp = Carbon::parse($this->detail->stamp);
+        $days = $stamp->diffInDays(Carbon::now());
+        $status = 'success';
+
+        if($days > 1) {
+            $status = 'danger';
+        } elseif($days <= 1 && $days <> 0) {
+            $status = 'warning';
+        }
+
+        return $status;
+    }
 }

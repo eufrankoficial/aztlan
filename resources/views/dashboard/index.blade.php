@@ -9,7 +9,7 @@
                         <div class="inner">
                             <h3>#{{ $device->code_device }}</h3>
 
-                            <p>Atualizado em {{ $device->detail->stamp }}</p>
+                            <p>Atualizado em {{ $device->detail->stamp_view }}</p>
                         </div>
                         <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

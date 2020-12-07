@@ -27,6 +27,6 @@ class DeviceDetailViewModel extends ViewModel
 
     public function device(): Device
     {
-        return $this->device;
+        return $this->deviceService->show($this->device);
     }
 }

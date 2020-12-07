@@ -1,6 +1,6 @@
 <template>
     <div class="MapComponent">
-        <div :id="id" style="height: 500px; width: 100%"></div>
+        <div :id="id" style="height: 428px; width: 100%"></div>
     </div>
 </template>
 
@@ -27,7 +27,6 @@ export default {
     methods: {
         mountMap: function () {
             const mymap = L.map(this.id).setView([this.options.lat, this.options.lon], 13);
-
             L.tileLayer(this.mapurl, {
                 maxZoom: this.maxzoom,
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -47,7 +46,6 @@ export default {
             L.polygon([
                 [this.options.lat, this.options.lon]
             ]).addTo(mymap);
-
         }
     }
 };

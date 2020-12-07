@@ -12,7 +12,7 @@
                     <div class="inner">
                         <h3>#{{ $device->code_device }}</h3>
 
-                        <p>Atualizado em {{ $device->detail->stamp->diffForHumans() }}</p>
+                        <p>Atualizado em {{ $device->detail->stamp }}</p>
                     </div>
                     <a href="{{ route('device.detail', $device->public_id) }}" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
