@@ -14,7 +14,7 @@
 
                         <p>Atualizado em {{ $device->detail->stamp }}</p>
                     </div>
-                    <a href="{{ route('device.detail', $device->public_id) }}" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('device.detail', $device->id) }}" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
     @endforeach
