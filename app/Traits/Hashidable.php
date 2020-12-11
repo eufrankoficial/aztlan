@@ -7,7 +7,8 @@ trait Hashidable
 {
     public function getRouteKey()
     {
-        return Hashids::connection('main')->encode($this->getKey());
+        // return Hashids::connection('main')->encode($this->getKey());
+        return $this->getKey();
     }
 
     public function getPublicIdAttribute()
