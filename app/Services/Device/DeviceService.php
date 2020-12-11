@@ -8,6 +8,7 @@ use App\Services\Interfaces\BaseServiceInterface;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
+
 class DeviceService implements BaseServiceInterface
 {
     /**
