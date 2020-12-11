@@ -4,7 +4,7 @@
             <!-- /.login-logo -->
             <div class="card card-outline card-primary">
                 <div class="card-header text-center">
-                    <a href="javascript:void(0);" class="h1"><b>AZ</b>TLAN</a>
+                    <a href="javascript:void(0);" class="h1"><b>Globo</b>Biotech</a>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Iniciar sessão</p>
