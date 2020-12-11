@@ -13,7 +13,8 @@ trait Hashidable
     public function getPublicIdAttribute()
     {
         $hashId = new Hashids();
-        return $hashId->encode($this->attributes['id']);
+        return $this->attributes['id'];
+        //return $hashId->encode($this->attributes['id']);
     }
 
     /**
@@ -25,7 +26,8 @@ trait Hashidable
     public function resolveRouteBinding($value, $field = null)
     {
         $hashid = new Hashids();
-        $id = $hashid->decode($value);
+        // $id = $hashid->decode($value);
+        $id = $value;
         return $this->where('id', $id)->firstOrFail();
     }
 }
