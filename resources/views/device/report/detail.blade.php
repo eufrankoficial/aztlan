@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <h3 class="card-title">Dispositivo <strong>#{{ $report->code_device }}</strong></h3>
+                        <h1 class="invoice-title">Dispositivo <strong>#{{ $report->code_device }}</strong></h1>
                     </div>
 
                     <div class="row">
@@ -27,8 +27,7 @@
                             <p>
                                 <strong>Criado em: </strong>
                                 10.12
-                            </p>
-                            <p>
+                                <br>
                                 <strong>
                                     Datas:
                                 </strong>
@@ -36,7 +35,7 @@
                             </p>
                         </div>
                         <div class="col-lg-4 col-md-4">
-                            <img src="{{ asset('assets/img/logos/global.jpeg') }}" alt="Logo" class="brand-image" width="254" height="100">
+                            <img src="{{ asset('assets/img/logos/global.jpeg') }}" alt="Logo" style="float: right" class="brand-image" width="254" height="100">
                         </div>
                     </div>
                 </div>

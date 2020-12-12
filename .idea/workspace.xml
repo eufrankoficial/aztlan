@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/app/Services/Device/DeviceReportService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/device/report/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Device.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/Hashidable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Hashidable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/report/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/report/detail.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +245,7 @@
       <workItem from="1607629172458" duration="4623000" />
       <workItem from="1607699663919" duration="9142000" />
       <workItem from="1607727655401" duration="3178000" />
-      <workItem from="1607786744642" duration="3058000" />
+      <workItem from="1607786744642" duration="3286000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
