@@ -35,6 +35,17 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box">
+                    <div class="inner">
+                        <h3>Relatório</h3>
+                        <a href="#">
+                            <p> <i class="fa fa-file-export"></i>Gerar</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-sm-12">

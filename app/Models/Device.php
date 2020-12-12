@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\Hashidable;
+use App\Traits\Searchable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,12 +13,24 @@ class Device extends BaseModel
     use HasFactory;
     use SoftDeletes;
     use Hashidable;
+    use Searchable;
 
     protected $table = 'device';
     protected $fillable = [
         'vehicle_id',
         'code_device',
         'description'
+    ];
+
+    /**
+     * @var array.
+     */
+    protected $searchableAttrs = [
+        'description' => 'like',
+        'code_device' => '=',
+        'history' => [
+            'stamp' => 'betweeen'
+        ]
     ];
 
     protected $dates = [

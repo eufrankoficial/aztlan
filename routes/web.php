@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -31,6 +32,10 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::post('/create', [DeviceController::class, 'store'])->name('store');
         Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
         Route::post('/{device}', [DeviceController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('report')->name('report.')->group(function () {
+       Route::get('/device/{device}', [ReportController::class, 'exportDeviceHistory'])->name('device');
     });
 
     Route::prefix('users')->name('user.')->group( function() {

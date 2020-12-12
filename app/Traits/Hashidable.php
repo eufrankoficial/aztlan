@@ -7,15 +7,12 @@ trait Hashidable
 {
     public function getRouteKey()
     {
-        // return Hashids::connection('main')->encode($this->getKey());
         return $this->getKey();
     }
 
     public function getPublicIdAttribute()
     {
-        $hashId = new Hashids();
         return $this->attributes['id'];
-        //return $hashId->encode($this->attributes['id']);
     }
 
     /**
@@ -26,9 +23,6 @@ trait Hashidable
      */
     public function resolveRouteBinding($value, $field = null)
     {
-        $hashid = new Hashids();
-        // $id = $hashid->decode($value);
-        $id = $value;
-        return $this->where('id', $id)->firstOrFail();
+        return $this->where('id', $value)->firstOrFail();
     }
 }
