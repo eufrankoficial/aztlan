@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <h1 class="invoice-title">Dispositivo <strong>#{{ $report->code_device }}</strong></h1>
+                        <h1 class="invoice-title">Caminhão <strong>{{ $report->vehicle->license_plate }}</strong></h1>
                     </div>
 
                     <div class="row">

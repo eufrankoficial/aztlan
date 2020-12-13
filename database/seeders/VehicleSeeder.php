@@ -15,44 +15,20 @@ class VehicleSeeder extends Seeder
      */
     public function run()
     {
-        $vehicles = [
-            [
-                'name' => Str::random(10),
-                'license_plate' => Str::random(3) . '-' . rand(4, 4),
+        for ($i = 0; $i <= 20; $i++) {
+            $vehicle = [
+                'name' => 'Caminhão - ' . Str::random(10),
+                'license_plate' => strtoupper(Str::random(3)) . '-' . rand(1000, 9999),
                 'created_by' => 12,
                 'updated_by' => 12,
                 'created_at' => now(),
                 'updated_at' => now()
-            ],
-            [
-                'name' => Str::random(10),
-                'license_plate' => Str::random(3) . '-' . rand(4, 4),
-                'created_by' => 12,
-                'updated_by' => 12,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => Str::random(10),
-                'license_plate' => Str::random(3) . '-' . rand(4, 4),
-                'created_by' => 12,
-                'updated_by' => 12,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => Str::random(10),
-                'license_plate' => Str::random(3) . '-' . rand(4, 4),
-                'created_by' => 12,
-                'updated_by' => 12,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-        ];
+            ];
 
-        foreach($vehicles as $vehicle) {
-            DB::table('vehicle')->insert($vehicle);
+            $exist = DB::table('vehicle')->where('license_plate', '=', $vehicle['license_plate'])->exists();
+            if(!$exist) {
+                DB::table('vehicle')->insert($vehicle);
+            }
         }
-
     }
 }

@@ -94,7 +94,7 @@ class DeviceService implements BaseServiceInterface
 
     public function getDeviceList(): ?LengthAwarePaginator
     {
-        $devices = $this->deviceRepo->all(15, true, ['detail']);
+        $devices = $this->deviceRepo->all(15, true, ['detail', 'vehicle']);
         $devices->map(function(&$device) {
             $detail = $device->detail;
             $device->status = 'success';

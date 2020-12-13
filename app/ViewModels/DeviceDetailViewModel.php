@@ -22,7 +22,7 @@ class DeviceDetailViewModel extends ViewModel
     {
         $this->deviceService = $deviceService;
         $this->device = $device;
-        $this->device()->load(['detail']);
+        $this->device()->load(['detail', 'vehicle']);
     }
 
     public function device(): Device
