@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVehiclesTable extends Migration
+class CreateFieldTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,19 @@ class CreateVehiclesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicle', function (Blueprint $table) {
+        Schema::create('field', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id')->nullable();
             $table->foreign('company_id')->references('id')->on('company');
-            $table->string('name', 100);
-            $table->string('license_plate', 45);
-            $table->bigInteger('created_by');
-            $table->bigInteger('updated_by');
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->foreign('type_id')->references('id')->on('type');
+            $table->string('field', 50);
+            $table->string('list_name', 100);
+            $table->string('form_name', 100);
+            $table->string('report_name', 100);
+            $table->string('slug', 255);
+            $table->bigInteger('created_by')->nullable();
+            $table->bigInteger('updated_by')->nullable();
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -34,6 +39,6 @@ class CreateVehiclesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehicle');
+        Schema::dropIfExists('field');
     }
 }

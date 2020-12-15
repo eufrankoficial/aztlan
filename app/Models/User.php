@@ -6,10 +6,11 @@ use App\Traits\Hashidable;
 use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends BaseAuthModel
 {
-    use HasFactory, Notifiable, Hashidable, Searchable;
+    use HasFactory, Notifiable, Hashidable, Searchable, HasRoles;
 
     /**
      * @var array

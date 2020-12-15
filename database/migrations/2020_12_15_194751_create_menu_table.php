@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDevicesTable extends Migration
+class CreateMenuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateDevicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('device', function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->id();
+            $table->string('menu', 255);
+            $table->string('route', 255);
+            $table->integer('parent_id')->nullable();
+            $table->string('icon', 255)->default('fa fa-circle');
+            $table->integer('order')->nullable();
+            $table->string('slug', 255);
 
-            $table->unsignedBigInteger('vehicle_id')->nullable();
-            $table->foreign('vehicle_id')->references('id')->on('vehicle');
-            $table->unsignedBigInteger('company_id')->nullable();
-            $table->foreign('company_id')->references('id')->on('company');
-
-            $table->string('code_device', '255')->nullable();
-            $table->text('description')->nullable();
             $table->bigInteger('created_by')->nullable();
             $table->bigInteger('updated_by')->nullable();
             $table->bigInteger('deleted_by')->nullable();
@@ -38,6 +37,6 @@ class CreateDevicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('device');
+        Schema::dropIfExists('menu');
     }
 }

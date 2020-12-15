@@ -1,0 +1,20 @@
+{
+    "roles": [
+        {
+            "name": "SuperAdmin",
+            "slug": "super-admin"
+        },
+        {
+            "name": "Admin",
+            "slug": "admin"
+        },
+        {
+            "name": "Empresa",
+            "slug": "empresa"
+        },
+        {
+            "name": "Usuário Empresa",
+            "slug": "usuario-empresa"
+        }
+    ]
+}

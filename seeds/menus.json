@@ -1,0 +1,39 @@
+{
+    "menus": [
+        {
+            "menu": "Página Inicial",
+            "route": "dashboard.index",
+            "icon": "fa fa-circle",
+            "order": 10,
+            "slug": "pagina-inicial"
+        },
+        {
+            "menu": "Dispositivos",
+            "route": "device.index",
+            "icon": "fa fa-circle",
+            "order": 9,
+            "slug": "dispositivos"
+        },
+        {
+            "menu": "Usuários",
+            "route": "user.index",
+            "icon": "fa fa-circle",
+            "order": 8,
+            "slug": "usuarios"
+        },
+        {
+            "menu": "Configurações",
+            "route": "dashboard.index",
+            "icon": "fa fa-circle",
+            "order": 8,
+            "slug": "configuracoes"
+        },
+        {
+            "menu": "Campos",
+            "route": "dashboard.index",
+            "icon": "fa fa-circle",
+            "order": 8,
+            "slug": "Campos"
+        }
+    ]
+}

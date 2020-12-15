@@ -1,0 +1,20 @@
+{
+    "permissions": [
+        {
+            "name": "list",
+            "slug": "list"
+        },
+        {
+            "name": "add",
+            "slug": "add"
+        },
+        {
+            "name": "edit",
+            "slug": "edit"
+        },
+        {
+            "name": "delete",
+            "slug": "delete"
+        }
+    ]
+}

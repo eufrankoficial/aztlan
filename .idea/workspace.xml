@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
+      <change afterPath="$PROJECT_DIR$/seeds/company.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seeds/menus.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seeds/permissions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/seeds/roles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Vehicle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Vehicle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ViewModels/DeviceDetailViewModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ViewModels/DeviceDetailViewModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DeviceSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DeviceSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/VehicleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/VehicleSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/device/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/device/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/device/report/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/report/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_21_001934_create_vehicles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_001934_create_vehicles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_21_002215_create_devices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_002215_create_devices_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_23_130145_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_23_130145_create_permissions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_02_225603_create_device_detail_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_04_200005_alter_bat_field_on_device_detail_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DeviceSeeder.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,14 +204,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/auth" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/seeds" />
       <recent name="$PROJECT_DIR$/app/Repositories/Device" />
       <recent name="$PROJECT_DIR$/app/Repositories/Interfaces" />
       <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$/resources/assets/js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/auth" />
     </key>
   </component>
   <component name="RunManager">
@@ -253,7 +260,10 @@
       <workItem from="1607699663919" duration="9142000" />
       <workItem from="1607727655401" duration="3178000" />
       <workItem from="1607786744642" duration="10380000" />
-      <workItem from="1607827395754" duration="1873000" />
+      <workItem from="1607827395754" duration="2793000" />
+      <workItem from="1607950962662" duration="1015000" />
+      <workItem from="1607964506453" duration="3537000" />
+      <workItem from="1608058621991" duration="10440000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>

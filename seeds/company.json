@@ -1,0 +1,22 @@
+{
+    "companies": [
+        {
+            "company_name": "Aztlan",
+            "fantasy_name": "Aztlan",
+            "logo": "logo.png",
+            "slug": "aztlan"
+        },
+        {
+            "company_name": "Global Biotech",
+            "fantasy_name": "Global Biotech",
+            "logo": "logo.png",
+            "slug": "global-biotech"
+        },
+        {
+            "company_name": "L2",
+            "fantasy_name": "L2",
+            "logo": "logo.png",
+            "slug": "l2"
+        }
+    ]
+}
