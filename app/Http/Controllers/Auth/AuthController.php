@@ -35,6 +35,7 @@ class AuthController extends Controller
              );
 
             if ($authenticated) {
+                $this->authService->cacheConfigsUser();
                 return response()->json(['status' => true]);
             } else {
             }

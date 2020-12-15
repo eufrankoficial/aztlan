@@ -56,6 +56,22 @@ class User extends BaseAuthModel
         'name' => 'like',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany.
+     */
+    public function group()
+    {
+        return $this->belongsToMany(GroupUser::class, 'model_has_roles', 'model_id', 'role_id');
+    }
+
+    /**
+     * @return mixed.
+     */
+    public function isSuperAdmin()
+    {
+        return current_user()->hasRole('SuperAdmin') ? true : false;
+    }
+
     public function getJWTIdentifier()
     {
 
