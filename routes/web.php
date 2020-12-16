@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\MenuSystemController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -25,6 +26,15 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
     Route::get('/home', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+
+    Route::prefix('menus')->name('menu.')->group( function() {
+        Route::get('/', [MenuSystemController::class, 'index'])->name('index');
+        Route::get('/create', [MenuSystemController::class, 'create'])->name('create');
+        Route::post('/create', [MenuSystemController::class, 'store'])->name('store');
+        Route::get('/edit/{menu}', [MenuSystemController::class, 'show'])->name('detail');
+        Route::post('/edit/{menu}', [MenuSystemController::class, 'update'])->name('update');
+        Route::get('/delete/{menu}', [MenuSystemController::class, 'destroy'])->name('delete');
+    });
 
     Route::prefix('devices')->name('device.')->group( function() {
         Route::get('/', [DeviceController::class, 'index'])->name('index');

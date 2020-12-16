@@ -109,7 +109,6 @@ class DeviceService implements BaseServiceInterface
                 }
                 $device->stamp_view = $stamp->diffForHumans();
             }
-
         });
 
         return $devices;
