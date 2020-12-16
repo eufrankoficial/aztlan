@@ -7,7 +7,7 @@ use App\Repositories\User\UserRepository;
 use App\Services\Interfaces\BaseServiceInterface;
 use Illuminate\Http\Request;
 
-class UserService implements BaseServiceInterface
+class UserService
 {
     /**
      * @var UserRepository.

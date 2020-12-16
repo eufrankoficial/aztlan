@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * Class BaseAuth.
@@ -42,6 +43,16 @@ abstract class BaseAuthModel extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom($this->sourceSlug)
+            ->saveSlugsTo('slug');
+    }
 
     /**
      * @return bool|string.

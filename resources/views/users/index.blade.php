@@ -6,6 +6,24 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
+                                <a href="{{ route('user.create') }}" class="btn btn-primary">
+                                    <i class="fa fa-plus"></i>
+                                    Adicionar
+                                </a>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
+                                <a href="{{ route('menu.create') }}" class="btn btn-success">
+                                    <i class="fa fa-file-export"></i>
+                                    Exportar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Usuários</h3>
 
@@ -45,16 +63,11 @@
                                         <td>{{ $user->username }}</td>
                                         <td>{{ $user->updated_at->format('d/m/Y h:i:s') }}</td>
                                         <td>
-                                            <a href="{{ route('user.detail', $user->public_id) }}" class="btn btn-default">
+                                            <a href="{{ route('user.detail', $user) }}" class="btn btn-default">
                                                 <i class="fa fa-edit"></i>
                                                 Editar
                                             </a>
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                                Excluir
-                                            </a>
+                                            <delete-button-component url="{{ route('user.delete', $user) }}"></delete-button-component>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -43,7 +43,7 @@ class UserController extends Controller
             $data = $request->except('_token', 'repeat_password');
             $user = $this->userService->create($data);
 
-            return response()->json(['status' => true, 'url' => route('user.detail', $user->public_id)]);
+            return response()->json(['status' => true, 'url' => route('user.detail', $user)]);
         } catch (\Exception $e) {
             return response()->json(['status' => false]);
         }
@@ -62,6 +62,7 @@ class UserController extends Controller
 
             return response()->json(['status' => true, 'user' => $user]);
         } catch (\Exception $e) {
+
             return response()->json(['status' => false]);
         }
     }
@@ -103,9 +104,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         try {
-            $this->userService->delete($user);
-
-            return response()->json(['status' => true]);
+            return $this->userService->delete($user);
         } catch (\Exception $e) {
             return response()->json(['status' => false]);
         }
