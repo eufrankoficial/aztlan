@@ -4,19 +4,19 @@
             <div class="card card-primary">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="inputName">Nome</label>
                                 <input type="text" :class="!errorName ? 'form-control' : 'form-control is-invalid'" id="inputName" v-model="name">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" :class="!errorEmail ? 'form-control' : 'form-control is-invalid'" id="email" v-model="email" @change="isValidEmail($event)">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username">Nome de usuário</label>
                                 <input type="text" :class="!errorUsername ? 'form-control' : 'form-control is-invalid'" id="username" v-model="username" @change="validateUserName($event)">

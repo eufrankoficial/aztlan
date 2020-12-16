@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Company/CompanyRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/breadcrumbs/companies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/CpfCnpjComponent/CpfCnpjComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/company/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/company/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/company/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/BaseAuthModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BaseAuthModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/User/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/User/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/UserCreateComponent/UserCreateComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/UserCreateComponent/UserCreateComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +266,7 @@
       <workItem from="1607964506453" duration="3537000" />
       <workItem from="1608058621991" duration="27767000" />
       <workItem from="1608139826646" duration="4704000" />
-      <workItem from="1608146653974" duration="3850000" />
+      <workItem from="1608146653974" duration="11279000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>

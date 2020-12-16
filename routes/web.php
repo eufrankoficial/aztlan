@@ -11,6 +11,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MenuSystemController;
+use App\Http\Controllers\CompanyController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -56,6 +57,14 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('detail');
         Route::post('/edit/{user}', [UserController::class, 'update'])->name('update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('delete');
+    });
 
+    Route::prefix('companies')->name('company.')->group( function() {
+        Route::get('/', [CompanyController::class, 'index'])->name('index');
+        Route::get('/create', [CompanyController::class, 'create'])->name('create');
+        Route::post('/create', [CompanyController::class, 'store'])->name('store');
+        Route::get('/edit/{company}', [CompanyController::class, 'show'])->name('detail');
+        Route::post('/edit/{company}', [CompanyController::class, 'update'])->name('update');
+        Route::get('/delete/{company}', [CompanyController::class, 'destroy'])->name('delete');
     });
 });
