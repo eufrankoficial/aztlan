@@ -15,7 +15,6 @@ class MenuRepository extends BaseRepository
      */
     public function saveParents(Menu $menu, $parents)
     {
-        dd($parents);
         $parents = $this->whereIn('slug', $parents)->get();
 
         $parents->map(function($parent) use ($menu) {

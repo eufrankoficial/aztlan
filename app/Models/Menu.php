@@ -28,6 +28,8 @@ class Menu extends BaseModel
 
     protected $keyName = 'slug';
 
+    protected $sourceSlug = 'menu';
+
     protected $dates = [
         'created_at',
         'updated_at',

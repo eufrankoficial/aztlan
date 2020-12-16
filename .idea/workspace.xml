@@ -5,26 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/System/MenuRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/breadcrumbs/menus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/MenuEditComponent/MenuEditComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menus/detail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menus/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/sidebar_menu.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/js/components/DeleteButtonComponent/DeleteButtonComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/menus/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/aztlan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aztlan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuSystemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuSystemController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BaseModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/System/MenuRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/System/MenuRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ViewModels/CreateMenuViewModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ViewModels/CreateMenuViewModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ViewModels/EditMenuViewModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ViewModels/EditMenuViewModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/MenuEditComponent/MenuEditComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/MenuEditComponent/MenuEditComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menus/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menus/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +183,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/laracasts/flash" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kZmScFIp3Mq1CnPBDiC4fLl544" />
@@ -270,7 +269,9 @@
       <workItem from="1607827395754" duration="2793000" />
       <workItem from="1607950962662" duration="1015000" />
       <workItem from="1607964506453" duration="3537000" />
-      <workItem from="1608058621991" duration="27544000" />
+      <workItem from="1608058621991" duration="27767000" />
+      <workItem from="1608139826646" duration="4704000" />
+      <workItem from="1608146653974" duration="2678000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>

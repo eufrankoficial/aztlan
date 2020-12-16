@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MenuRequestPost;
 use App\Models\Menu;
 use App\Repositories\System\MenuRepository;
+use App\ViewModels\CreateMenuViewModel;
 use App\ViewModels\EditMenuViewModel;
 use App\ViewModels\ListMenuViewModel;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class MenuSystemController extends Controller
      */
     public function create()
     {
-        //return (new CreateMenuViewModel($this->menuRepo))->view('menus.add');
+        return (new CreateMenuViewModel($this->menuRepo))->view('menus.add');
     }
 
     /**
@@ -60,10 +61,12 @@ class MenuSystemController extends Controller
 
             DB::commit();
 
-
+            flash(__('Saved with success'), 'success');
 
         } catch (\Exception $e) {
             DB::rollback();
+
+            flash(__('Something is not ok'), 'danger');
         }
 
         return redirect()->route('menu.index');
@@ -105,13 +108,12 @@ class MenuSystemController extends Controller
 
             DB::commit();
 
-            return response()->json(['status' => true, 'url' => route('menu.index')]);
+            flash(__('Saved with success'), 'success');
 
         } catch (\Exception $e) {
             DB::rollback();
-            dd($e);
 
-            //flash(__('Error'), 'danger');
+            flash(__('Something is not ok'), 'danger');
         }
 
         return redirect()->route('menu.index');

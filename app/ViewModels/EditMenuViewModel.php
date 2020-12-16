@@ -32,7 +32,7 @@ class EditMenuViewModel extends ViewModel
      */
     public function parents()
     {
-        return json_encode($this->menu->parents->pluck('id')->toArray());
+        return $this->menu->parents->pluck('slug')->toArray();
     }
 
     /**

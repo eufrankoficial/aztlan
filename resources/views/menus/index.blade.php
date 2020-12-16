@@ -6,12 +6,28 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
+                            <a href="{{ route('menu.create') }}" class="btn btn-primary">
+                                <i class="fa fa-plus"></i>
+                                Adicionar
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
+                            <a href="{{ route('menu.create') }}" class="btn btn-success">
+                                <i class="fa fa-file-export"></i>
+                                Exportar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Menus</h3>
-
                     <div class="card-tools">
                         <form action="{{ route('user.index') }}" method="GET">
-                            <div class="input-group input-group-sm" style="width: 150px;">
+                            <div class="input-group input-group-sm">
                                 <input type="text" name="term" class="form-control float-right" placeholder="Pesquisar" value="{{ old('term', request()->get('term')) }}">
 
                                 <div class="input-group-append">
@@ -45,12 +61,7 @@
                                         <i class="fa fa-edit"></i>
                                         Editar
                                     </a>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                        Excluir
-                                    </a>
+                                    <delete-button-component url="{{ route('menu.delete', $menu) }}"></delete-button-component>
                                 </td>
                             </tr>
                         @endforeach

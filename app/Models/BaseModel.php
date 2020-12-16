@@ -16,6 +16,7 @@ abstract class BaseModel extends Model
     use SoftDeletes;
 
     protected $keyName = false;
+    protected $sourceSlug = false;
 
     /**
      * On creating, updating and deleting Model.
@@ -55,7 +56,7 @@ abstract class BaseModel extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom($this->keyName)
+            ->generateSlugsFrom($this->sourceSlug)
             ->saveSlugsTo('slug');
     }
 

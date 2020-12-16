@@ -2,12 +2,27 @@
 
 namespace App\ViewModels;
 
+use App\Repositories\System\MenuRepository;
+use Illuminate\Support\Collection;
 use Spatie\ViewModels\ViewModel;
 
 class CreateMenuViewModel extends ViewModel
 {
-    public function __construct()
+    /**
+     * @var MenuRepository.
+     */
+    protected $menuRepo;
+
+    public function __construct(MenuRepository $menuRepo)
     {
-        //
+        $this->menuRepo = $menuRepo;
+    }
+
+    /**
+     * @return Collection.
+     */
+    public function menus(): Collection
+    {
+        return $this->menuRepo->get();
     }
 }
