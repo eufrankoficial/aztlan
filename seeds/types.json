@@ -1,0 +1,35 @@
+{
+    "types": [
+        {
+            "type": "integer",
+            "form_type": "text",
+            "slug": "integer"
+        },
+        {
+            "type": "bigint",
+            "form_type": "text",
+            "slug": "bigint"
+        },
+        {
+            "type": "bigint",
+            "form_type": "text",
+            "slug": "bigint"
+        },
+        {
+            "type": "float",
+            "form_type": "text",
+            "slug": "float"
+        },
+        {
+            "type": "double",
+            "form_type": "text",
+            "slug": "double"
+        },
+        {
+            "type": "varchar",
+            "form_type": "text",
+            "slug": "varchar"
+        }
+    ]
+}
+

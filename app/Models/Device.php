@@ -39,41 +39,16 @@ class Device extends BaseModel
         'deleted_at'
     ];
 
+    public function fields()
+    {
+        return $this->belongsToMany(Field::class, 'device_field', 'device_id', 'field_id', 'field_value_id');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo.
      */
     public function vehicle()
     {
         return $this->belongsTo(Vehicle::class, 'vehicle_id', 'id');
-    }
-
-    public function detail()
-    {
-        return $this->hasOne(DeviceDetail::class, 'device_id', 'id')->orderBy('stamp', 'desc');
-    }
-
-    public function history()
-    {
-        return $this->hasMany(DeviceDetail::class, 'device_id', 'id')->orderBy('stamp', 'asc');
-    }
-
-    public function getStatusAttribute()
-    {
-        return $this->getStatus();
-    }
-
-    public function getStatus()
-    {
-        $stamp = Carbon::parse($this->detail->stamp);
-        $days = $stamp->diffInDays(Carbon::now());
-        $status = 'success';
-
-        if($days > 1) {
-            $status = 'danger';
-        } elseif($days <= 1 && $days <> 0) {
-            $status = 'warning';
-        }
-
-        return $status;
     }
 }

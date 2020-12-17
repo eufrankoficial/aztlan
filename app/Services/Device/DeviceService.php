@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 
-class DeviceService implements BaseServiceInterface
+class DeviceService
 {
     /**
      * @var DeviceRepository.
@@ -21,6 +21,16 @@ class DeviceService implements BaseServiceInterface
         $this->deviceRepo = $deviceRepo;
     }
 
+    public function saveFields(Device $device, $deviceFields)
+    {
+        foreach($deviceFields as $field) {
+            $device->fields()->sync([
+                'field_id' => $field->id,
+                'field_value_id' => $field->value->id
+            ], false);
+        }
+    }
+
     public function list(Request $request)
     {
 
@@ -28,11 +38,7 @@ class DeviceService implements BaseServiceInterface
 
     public function create(array $data)
     {
-        $device = $data['device'];
-        $detail = $data['detail'];
-
-        $model = $this->deviceRepo->create($device);
-        $model->detail()->create($detail);
+        $model = $this->deviceRepo->create($data);
 
         return $model;
     }
