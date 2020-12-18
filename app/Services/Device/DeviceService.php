@@ -21,6 +21,14 @@ class DeviceService
         $this->deviceRepo = $deviceRepo;
     }
 
+    public function getFieldsDevice(Device $device)
+    {
+
+        return $this->deviceRepo->model()->with([
+            'fields.value'
+        ])->where('id', $device->id)->first();
+    }
+
     public function saveFields(Device $device, $deviceFields)
     {
         foreach($deviceFields as $field) {

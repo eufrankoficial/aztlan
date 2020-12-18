@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MenuSystemController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\FieldController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -66,5 +67,10 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::get('/edit/{company}', [CompanyController::class, 'show'])->name('detail');
         Route::post('/edit/{company}', [CompanyController::class, 'update'])->name('update');
         Route::get('/delete/{company}', [CompanyController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('fields')->name('field.')->group( function() {
+        Route::get('/', [FieldController::class, 'index'])->name('index');
+        Route::get('/show/{device?}', [FieldController::class, 'show'])->name('device.detail');
     });
 });
