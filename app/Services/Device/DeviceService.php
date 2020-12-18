@@ -38,7 +38,11 @@ class DeviceService
 
     public function create(array $data)
     {
-        $model = $this->deviceRepo->create($data);
+        $device = $this->deviceRepo->where('code_device', $data['code_device'])->first();
+        if(!$device)
+            $model = $this->deviceRepo->create($data);
+        else
+            $model = $this->deviceRepo->update($device->id, $data);
 
         return $model;
     }
@@ -58,14 +62,15 @@ class DeviceService
 
     public function show($device)
     {
-        $device->stamp_view = $device->detail->stamp->diffForHumans();
-        $device->status = $device->getStatus();
+        $device->stamp_view = $device->created_at;
+        $device->status = 'online';
 
         return $device;
     }
 
     public function chart(Device $device)
     {
+        /*
         $stamps = $device->history->pluck('stamp')->toArray();
         $dataLabels = [];
         foreach($stamps as $stamp) {
@@ -95,12 +100,12 @@ class DeviceService
         return collect([
             'labels' => $dataLabels,
             'sets' => $sets
-        ]);
+        ]);*/
     }
 
     public function getDeviceList(): ?LengthAwarePaginator
     {
-        $devices = $this->deviceRepo->all(15, true, ['detail', 'vehicle']);
+        $devices = $this->deviceRepo->all(15, true);
         $devices->map(function(&$device) {
             $detail = $device->detail;
             $device->status = 'success';

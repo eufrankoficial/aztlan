@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => 'Caminhão ' . $device->vehicle->license_plate, 'breadcrumb' => 'device.detail', 'param' => $device])
+@extends('layouts.default', ['title' => 'Dispositivo ' . $device->code_device, 'breadcrumb' => 'device.detail', 'param' => $device])
     @section('content')
         <view-device-detail-component devicejson="{{ $device }}"></view-device-detail-component>
 
@@ -12,7 +12,7 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <render-chart-component data="{{ $chart }}"></render-chart-component>
+
                     </div>
                 </div>
             </div>

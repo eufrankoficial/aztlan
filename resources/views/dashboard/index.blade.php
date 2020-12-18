@@ -5,11 +5,9 @@
             @foreach($devices as $device)
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-{{ $device->detail->status }}">
+                    <div class="small-box bg-success">
                         <div class="inner">
                             <h3>#{{ $device->code_device }}</h3>
-
-                            <p>Atualizado em {{ $device->detail->stamp_view }}</p>
                         </div>
                         <a href="#" class="small-box-footer">Detalhes <i class="fas fa-arrow-circle-right"></i></a>
                     </div>

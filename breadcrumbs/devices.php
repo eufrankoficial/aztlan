@@ -17,12 +17,5 @@ Breadcrumbs::for('device.create', function ($breadcrumb) {
 
 Breadcrumbs::for('device.detail', function ($breadcrumb, $device) {
     $breadcrumb->parent('device.index');
-    $breadcrumb->push($device->code_device, route('device.detail', $device->public_id));
+    $breadcrumb->push($device->code_device, route('device.detail', $device));
 });
-
-/*
-Breadcrumbs::for('beer_type.add', function ($breadcrumb) {
-    $breadcrumb->parent('beer_type.index');
-    $breadcrumb->push(__('New type'), route('beer_type.add'));
-});
-*/

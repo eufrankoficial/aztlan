@@ -38,13 +38,13 @@ class DeviceController extends Controller
 
             $deviceFields = $this->fieldService->prepareFieldsAndSave($request->except('_token'));
             // vincular com dispositivos
-            $devices = $this->deviceService->saveFields($device, $deviceFields);
+            $this->deviceService->saveFields($device, $deviceFields);
 
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
-            dd($e);
             DB::rollback();
+            dd($e);
             return response()->json(['status' => false]);
         }
     }
