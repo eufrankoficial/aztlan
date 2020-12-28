@@ -45,7 +45,7 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-sm-12 col-12" v-for="field in device.fields">
-                                <div class="description-block">
+                                <div class="description-block" v-show="field.show_on_form === 1">
                                     <span class="description-percentage text-success"></span>
                                     <h5 class="description-header">{{ field.value.value }}</h5>
                                     <span class="description-text">{{ field.list_name }}</span>
