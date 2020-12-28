@@ -55,6 +55,7 @@ mix.scripts([
     adminLteBase + 'tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
     adminLteBase + 'summernote/summernote-bs4.min.js',
     adminLteBase + 'overlayScrollbars/js/jquery.overlayScrollbars.min.js',
+    adminLteBase + 'bootstrap-switch/js/bootstrap-switch.min.js',
     adminLteBase + 'js/demo.js',
     adminLteBase + 'js/dashboard.js',
         assets + 'js/scripts.js',

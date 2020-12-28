@@ -33,26 +33,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(field, index) in fields">
-                                <td>{{ field.field }}</td>
-                                <td>{{ field.list_name }}</td>
-                                <td>{{ field.form_name }}</td>
-                                <td>{{ field.report_name }}</td>
-                                <td>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input custom-control-input-danger" type="checkbox" :checked="field.show_on_list === 1" :value="field.show_on_list">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input custom-control-input-danger" type="checkbox" :checked="field.show_on_form === 1" :value="field.show_on_form">
-                                    </div>
-                                <td>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input custom-control-input-danger" type="checkbox" :checked="field.show_on_report === 1" :value="field.show_on_report">
-                                    </div>
-                                </td>
-                            </tr>
+                            <field-list-item-component
+                                v-for="(field, index) in fields"
+                                :key="index"
+                                :field="field"
+                                :url="currentUrl"
+                            ></field-list-item-component>
                         </tbody>
                     </table>
                 </div>
@@ -63,20 +49,40 @@
 
 <script>
     import { request } from "../../request";
+    import FieldListItemComponent from "../FieldListItemComponent/FieldListItemComponent";
+    import { lastArgumentUrl, addCodeDeviceToUrl, changeLastUrlStringDeviceCode } from "../../helpers";
 
     export default {
         name: 'DeviceFieldListComponent',
         props: ['getfieldsaction'],
+        components: {
+            FieldListItemComponent
+        },
+
+        mounted() {
+            if(lastArgumentUrl !== 'fields') {
+                this.device = lastArgumentUrl;
+                this.getDeviceFields(null, 'url');
+            }
+        },
+
         data() {
             return {
                 fields: [],
-                device: null
+                device: null,
+                currentUrl: null,
             };
         },
 
         methods: {
+            getDeviceFields: async function (event, type = 'change') {
+                if(lastArgumentUrl == 'fields') {
+                    //Todo: Ao montar component carregar os campos se tiver setado a device_code na url
+                    this.currentUrl = addCodeDeviceToUrl(this.device);
+                } else {
+                    this.currentUrl = changeLastUrlStringDeviceCode(lastArgumentUrl, this.device);
+                }
 
-            getDeviceFields: async function (event) {
                 const code = this.device;
                 const url = this.getfieldsaction;
 
@@ -87,6 +93,10 @@
                 }
 
                 this.fields = response.data.device.fields;
+            },
+
+            changeUrl: function () {
+
             }
         }
     };

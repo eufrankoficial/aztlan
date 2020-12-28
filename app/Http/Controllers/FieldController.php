@@ -7,6 +7,7 @@ use App\Models\Device;
 use App\Models\Field;
 use App\Repositories\System\FieldRepository;
 use App\Services\Device\DeviceService;
+use Illuminate\Support\Facades\DB;
 
 class FieldController extends Controller
 {
@@ -46,9 +47,24 @@ class FieldController extends Controller
         }
     }
 
-    public function update(FieldUpdateRequest $request, Field $field)
+    public function showField(Device $device)
     {
+        return view('fields.index');
+    }
 
+    public function update(FieldUpdateRequest $request, Device $device, Field $field)
+    {
+        try {
+            DB::beginTransaction();
+            $data = $request->except('_token');
+            $this->deviceService->updateField($data, $field);
+            DB::commit();
+
+            return response()->json(['status' => true]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['status' => false]);
+        }
     }
 
 

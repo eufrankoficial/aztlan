@@ -71,6 +71,9 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
 
     Route::prefix('fields')->name('field.')->group( function() {
         Route::get('/', [FieldController::class, 'index'])->name('index');
+        Route::get('/{device?}', [FieldController::class, 'showField'])->name('detail.device');
+        Route::post('/{device?}/{field}', [FieldController::class, 'update'])->name('save');
         Route::get('/show/{device?}', [FieldController::class, 'show'])->name('device.detail');
+        Route::post('/show/{device}/{field}', [FieldController::class, 'update'])->name('device.save');
     });
 });

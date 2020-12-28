@@ -17,6 +17,9 @@ class Field extends BaseModel
         'list_name',
         'form_name',
         'report_name',
+        'show_on_list',
+        'show_on_form',
+        'show_on_report',
         'slug',
         'created_by',
         'updated_by',
@@ -32,7 +35,7 @@ class Field extends BaseModel
         'deleted_at'
     ];
 
-    protected $keyName = 'slug';
+    protected $keyName = 'id';
     protected $sourceSlug = 'field';
 
     public function company()

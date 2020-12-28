@@ -3,6 +3,7 @@
 namespace App\Services\Device;
 
 use App\Models\Device;
+use App\Models\Field;
 use App\Repositories\Device\DeviceRepository;
 use App\Services\Interfaces\BaseServiceInterface;
 use Carbon\Carbon;
@@ -23,7 +24,6 @@ class DeviceService
 
     public function getFieldsDevice(Device $device)
     {
-
         return $this->deviceRepo->model()->with([
             'fields.value'
         ])->where('id', $device->id)->first();
@@ -37,6 +37,11 @@ class DeviceService
                 'field_value_id' => $field->value->id
             ], false);
         }
+    }
+
+    public function updateField($data, Field $field)
+    {
+        return $field->update($data);
     }
 
     public function list(Request $request)
