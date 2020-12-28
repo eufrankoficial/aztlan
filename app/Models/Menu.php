@@ -43,4 +43,9 @@ class Menu extends BaseModel
     {
         return $this->hasMany($this, 'parent_id', 'id');
     }
+
+    public function hasFather()
+    {
+        return $this->belongsTo($this, 'parent_id', 'id');
+    }
 }

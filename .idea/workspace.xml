@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar_menu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +262,8 @@
       <workItem from="1608220003934" duration="8081000" />
       <workItem from="1608305080828" duration="12384000" />
       <workItem from="1609173394665" duration="5123000" />
-      <workItem from="1609182016003" duration="7882000" />
+      <workItem from="1609182016003" duration="8720000" />
+      <workItem from="1609191287753" duration="1128000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>

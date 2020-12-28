@@ -6,8 +6,8 @@
             @foreach(cache('menus_'.cache_key()) as $menu)
                 @if($menu->parents->count() > 0)
                     <li class="nav-item menu-open">
-                        <a href="{{ route($menu->route) }}" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <a href="{{ $menu->route !== '#' ? route($menu->route) : '#' }}" class="nav-link">
+                            <i class="{{ $menu->icon }}"></i>
                             <p>
                                 {{ $menu->menu }}
                                 <i class="right fas fa-angle-left"></i>
@@ -16,17 +16,17 @@
                         <ul class="nav nav-treeview">
                             @foreach($menu->parents as $parent)
                                 <li class="nav-item">
-                                    <a href="{{ route($parent->route) }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="{{ $parent->route != '#' ? route($parent->route) : '#' }}" class="nav-link">
+                                        <i class="{{ $parent->icon }}"></i>
                                         <p>{{ $parent->menu }}</p>
                                     </a>
                                 </li>
                             @endforeach
                         </ul>
                     </li>
-                @elseif($menu->parents->count() == 0 && $menu->route !== '#' && $menu->route !== '')
+                @elseif($menu->parents->count() == 0 && !$menu->hasFather && $menu->route !== '#' && $menu->route !== '')
                     <li class="nav-item">
-                        <a href="{{ $menu->parents->count() == 0 && $menu->route != '#' ? route($menu->route) : '#' }}" class="nav-link">
+                        <a href="{{ $menu->parents->count() == 0 && $menu->route !== '#' ? route($menu->route) : '#' }}" class="nav-link">
                             @if($menu->icon)
                                 <i class="{{ $menu->icon }}"></i>
                             @endif
@@ -36,7 +36,6 @@
                         </a>
                     </li>
                 @endif
-
             @endforeach
         @endif
 
