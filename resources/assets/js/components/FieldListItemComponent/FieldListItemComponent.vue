@@ -1,10 +1,27 @@
 <template>
         <tr>
             <td>{{ field.field }}</td>
-            <td>{{ field.type_id }}</td>
-            <td>{{ field.list_name }}</td>
-            <td>{{ field.form_name }}</td>
-            <td>{{ field.report_name }}</td>
+            <td @click="editField(field.field)">
+                <span>{{ field.type_id }}</span>
+            </td>
+            <td @click="editField(field.field, 'list_name')" @change="saveListName($event)">
+                <div class="col-md-12" v-if="showField && currentField == field.field && editingField == 'list_name'">
+                    <input type="text" class="form-control form-control-sm" v-model="list_name">
+                </div>
+                <span v-else>{{ field.list_name }}</span>
+            </td>
+            <td @click="editField(field.field, 'form_name')" @change="saveFormName($event)">
+                <div class="col-md-12" v-if="showField && currentField == field.field && editingField == 'form_name'">
+                    <input type="text" class="form-control form-control-sm" v-model="form_name">
+                </div>
+                <span v-else>{{ field.form_name }}</span>
+            </td>
+            <td @click="editField(field.field, 'report_name')" @change="saveReportName($event)">
+                <div class="col-md-12" v-if="showField && currentField == field.field && editingField == 'report_name'">
+                    <input type="text" class="form-control form-control-sm" v-model="report_name">
+                </div>
+                <span v-else>{{ field.report_name }}</span>
+            </td>
             <td>
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" :checked="field.show_on_list == 1" :value="field.show_on_list" v-model="show_on_list" @click="saveShowOnList($event)">
@@ -31,6 +48,12 @@
 
         data() {
             return {
+                showField: false,
+                currentField: false,
+                list_name: this.field.list_name,
+                form_name: this.field.form_name,
+                report_name: this.field.report_name,
+                editingField: null,
                 show_on_list: this.field.show_on_list == 1 ? true : false,
                 show_on_form: this.field.show_on_form == 1 ? true : false,
                 show_on_report: this.field.show_on_report == 1 ? true : false
@@ -38,6 +61,46 @@
         },
 
         methods: {
+
+            saveListName: function(event) {
+                this.saveAction({
+                    list_name: this.list_name
+                });
+
+                this.field.list_name = this.list_name;
+                this.resetShowConfigVars();
+            },
+
+            saveFormName: function(event) {
+                this.saveAction({
+                    form_name: this.form_name
+                });
+
+                this.field.form_name = this.form_name;
+                this.resetShowConfigVars();
+            },
+
+            saveReportName: function(event) {
+                this.saveAction({
+                    report_name: this.report_name
+                });
+
+                this.field.report_name = this.report_name;
+                this.resetShowConfigVars();
+            },
+
+            editField: function (field, param) {
+                this.currentField = field;
+                this.showField = true;
+                this.editingField = param;
+            },
+
+            resetShowConfigVars: function () {
+                this.currentField = null;
+                this.showField = false;
+                this.editingField = null;
+            },
+
             saveShowOnList: function (event) {
                 if(this.show_on_list) {
                     this.show_on_list = false;
@@ -45,11 +108,9 @@
                     this.show_on_list = true;
                 }
 
-                const data = {
+                this.saveAction({
                     show_on_list: this.show_on_list ? 1 : 0
-                };
-
-                this.saveAction(data)
+                })
             },
 
             saveShowOnForm: function (event) {
@@ -59,11 +120,9 @@
                     this.show_on_form = true;
                 }
 
-                const data = {
+                this.saveAction({
                     show_on_form: this.show_on_form ? 1 : 0
-                };
-
-                this.saveAction(data)
+                })
             },
 
             saveShowOnReport: function (event) {
@@ -72,11 +131,10 @@
                 } else {
                     this.show_on_report = true;
                 }
-                const data = {
-                    show_on_report: this.show_on_report ? 1 : 0
-                };
 
-                this.saveAction(data)
+                this.saveAction({
+                    show_on_report: this.show_on_report ? 1 : 0
+                })
             },
 
             saveAction: async function (data) {
