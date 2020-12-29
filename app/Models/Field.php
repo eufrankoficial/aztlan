@@ -52,4 +52,9 @@ class Field extends BaseModel
     {
         return $this->hasOne(FieldValue::class, 'field_id', 'id');
     }
+
+    public function values()
+    {
+        return $this->hasMany(FieldValue::class, 'field_id', 'id');
+    }
 }

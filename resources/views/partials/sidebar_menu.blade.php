@@ -38,7 +38,5 @@
                 @endif
             @endforeach
         @endif
-
-
     </ul>
 </nav>

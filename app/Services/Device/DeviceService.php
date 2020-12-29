@@ -31,12 +31,7 @@ class DeviceService
 
     public function saveFields(Device $device, $deviceFields)
     {
-        foreach($deviceFields as $field) {
-            $device->fields()->sync([
-                'field_id' => $field->id,
-                'field_value_id' => $field->value->id
-            ], false);
-        }
+
     }
 
     public function updateField($data, Field $field)
@@ -49,9 +44,12 @@ class DeviceService
 
     }
 
-    public function create(array $data)
+    public function save(array $data)
     {
-        $device = $this->deviceRepo->where('code_device', $data['code_device'])->first();
+        $device = $this->deviceRepo
+                    ->with(['fields'])
+                    ->where('code_device', $data['code_device'])->first();
+
         if(!$device)
             $model = $this->deviceRepo->create($data);
         else

@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/DeviceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Device.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Field.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/System/FieldRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/System/FieldRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/System/FieldService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/System/FieldService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_15_220038_create_cache_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_15_220038_create_cache_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar_menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar_menu.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +268,9 @@
       <workItem from="1608305080828" duration="12384000" />
       <workItem from="1609173394665" duration="5123000" />
       <workItem from="1609182016003" duration="8720000" />
-      <workItem from="1609191287753" duration="1128000" />
+      <workItem from="1609191287753" duration="1535000" />
+      <workItem from="1609255066154" duration="5906000" />
+      <workItem from="1609262934546" duration="12018000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>

@@ -32,18 +32,17 @@ class DeviceController extends Controller
             DB::beginTransaction();
             $data = $request->except('_token');
             $device = array_shift($data);
-            $device = $this->deviceService->create([
+            $device = $this->deviceService->save([
                 'code_device' => $device['id']
             ]);
 
-            $deviceFields = $this->fieldService->prepareFieldsAndSave($request->except('_token'));
-            // vincular com dispositivos
-            $this->deviceService->saveFields($device, $deviceFields);
+            $this->fieldService->prepareFieldsAndSave($request->except('_token'), $device);
 
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
             DB::rollback();
+            dd($e);
             return response()->json(['status' => false]);
         }
     }

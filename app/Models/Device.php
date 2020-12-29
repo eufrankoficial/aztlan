@@ -39,7 +39,7 @@ class Device extends BaseModel
 
     public function fields()
     {
-        return $this->belongsToMany(Field::class, 'device_field', 'device_id', '');
+        return $this->belongsToMany(Field::class, 'device_field', 'device_id');
     }
 
     /**
