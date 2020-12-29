@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ApiRequestDeviceStore;
 use App\Models\Device;
 use App\Services\System\FieldService;
 use Illuminate\Http\Request;
@@ -26,12 +27,13 @@ class DeviceController extends Controller
         $this->fieldService = $fieldService;
     }
 
-    public function store(Request $request)
+    public function store(ApiRequestDeviceStore $request)
     {
         try {
             DB::beginTransaction();
             $data = $request->except('_token');
-            $device = array_shift($data);
+            $device = $data;
+
             $device = $this->deviceService->save([
                 'code_device' => $device['id']
             ]);

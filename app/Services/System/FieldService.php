@@ -23,7 +23,7 @@ class FieldService
     {
         $fields = collect($fieldsAndValues);
 
-        foreach($fields->first() as $field => $value) {
+        foreach($fields as $field => $value) {
             $fieldInstance = $field;
             $existField = $device->fields->filter(function($deviceField) use ($field) {
                 return $deviceField->field === $field;
