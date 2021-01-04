@@ -50,10 +50,8 @@
                                     <h5 class="description-header">{{ field.value.value }}</h5>
                                     <span class="description-text">{{ field.list_name }}</span>
                                 </div>
-                                <!-- /.description-block -->
                             </div>
                         </div>
-                        <!-- /.row -->
                     </div>
                 </div>
             </div>

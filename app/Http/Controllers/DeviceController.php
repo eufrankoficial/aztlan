@@ -9,7 +9,7 @@ use App\ViewModels\CreateDeviceViewModel;
 use App\ViewModels\DeviceDetailViewModel;
 use Illuminate\Http\Request;
 use App\ViewModels\DeviceListViewModel;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class DeviceController extends Controller
 {
@@ -31,22 +31,11 @@ class DeviceController extends Controller
         return (new DeviceListViewModel($this->deviceService))->view('device.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return (new CreateDeviceViewModel($this->vehicleService))->view('device.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         DB::beginTransaction();
@@ -61,40 +50,21 @@ class DeviceController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Device $device)
     {
         return (new DeviceDetailViewModel($this->deviceService, $device))->view('device.detail');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Device $device)
     {
         return (new DeviceDetailViewModel($this->deviceService, $device))->view('device.detail');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Device $device)
     {
-        DB::beginTransaction();
-
         try {
+            DB::beginTransaction();
+
             $data = $request->except('_token');
 
             $this->deviceService->update($data, $device);

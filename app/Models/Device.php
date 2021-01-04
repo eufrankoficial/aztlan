@@ -42,12 +42,14 @@ class Device extends BaseModel
         return $this->belongsToMany(Field::class, 'device_field', 'device_id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo.
-     */
     public function vehicle()
     {
         return $this->belongsTo(Vehicle::class, 'vehicle_id', 'id');
+    }
+
+    public function charts()
+    {
+        return $this->belongsToMany(ChartType::class, 'device_chart_type', 'device_id');
     }
 
     public function getUpdatedAtAttribute()

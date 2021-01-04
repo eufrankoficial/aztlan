@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             CompanyTableSeeder::class,
             RolesPermissionTableSeeder::class,
             MenuTableSeeder::class,
-            VehicleSeeder::class
+            VehicleSeeder::class,
+            ChartTypeTableSeeder::class
         ]);
 
         \App\Models\User::factory(10)->create();

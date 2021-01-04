@@ -44,6 +44,7 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::post('/create', [DeviceController::class, 'store'])->name('store');
         Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
         Route::post('/{device}', [DeviceController::class, 'update'])->name('update');
+        Route::post('/{device?}/{field}', [FieldController::class, 'update'])->name('save');
     });
 
     Route::prefix('report')->name('report.')->group(function () {

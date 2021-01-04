@@ -19,7 +19,7 @@ class FieldService
         $this->fieldRepo = $fieldRepo;
     }
 
-    public function prepareFieldsAndSave(array $fieldsAndValues, Device $device)
+    public function prepareFieldsAndSave(array $fieldsAndValues, Device $device): void
     {
         $fields = collect($fieldsAndValues);
 
