@@ -33,7 +33,7 @@
                     <div class="inner">
                         <h3>Relatório</h3>
                         <a href="#">
-                            <p> <i class="fa fa-file-export"></i>Gerar</p>
+                            <p><i class="fa fa-file-export"></i>Gerar</p>
                         </a>
                     </div>
                 </div>
@@ -44,18 +44,29 @@
                 <div class="card card-primary">
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-sm-12 col-12" v-for="field in device.fields">
-                                <div class="description-block" v-show="field.show_on_form === 1">
-                                    <span class="description-percentage text-success"></span>
-                                    <h5 class="description-header">{{ field.value.value }}</h5>
-                                    <span class="description-text">{{ field.list_name }}</span>
+                            <div
+                                class="col-sm-12 col-12"
+                                v-for="field in device.fields"
+                            >
+                                <div
+                                    class="description-block"
+                                    v-show="field.show_on_form === 1"
+                                >
+                                    <span
+                                        class="description-percentage text-success"
+                                    ></span>
+                                    <h5 class="description-header">
+                                        {{ field.value.value }}
+                                    </h5>
+                                    <span class="description-text">{{
+                                        field.list_name
+                                    }}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -79,7 +90,7 @@
         methods: {
             getFields: function () {
                 this.device.fields.map((field) => {
-                    console.log(field.value.value);
+
                 });
             }
         }

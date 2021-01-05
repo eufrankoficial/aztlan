@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MenuSystemController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DeviceChartController;
 use App\Http\Controllers\FieldController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
@@ -43,7 +44,8 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::get('/create', [DeviceController::class, 'create'])->name('create');
         Route::post('/create', [DeviceController::class, 'store'])->name('store');
         Route::get('/{device}', [DeviceController::class, 'show'])->name('detail');
-        Route::post('/{device}', [DeviceController::class, 'update'])->name('update');
+		Route::post('/{device}', [DeviceController::class, 'update'])->name('update');
+		Route::post('/{device}/save-chart-config', [DeviceChartController::class, 'save'])->name('save.chart.config');
         Route::post('/{device?}/{field}', [FieldController::class, 'update'])->name('save');
     });
 

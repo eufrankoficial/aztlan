@@ -25,7 +25,7 @@ class DeviceService
     public function getFieldsDevice(Device $device)
     {
         return $this->deviceRepo->model()->with([
-            'fields.value'
+			'fields.value'
         ])->where('id', $device->id)->first();
     }
 

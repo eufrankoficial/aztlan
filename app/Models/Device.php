@@ -2,12 +2,9 @@
 
 namespace App\Models;
 
-use App\Traits\Hashidable;
 use App\Traits\Searchable;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Sluggable\HasSlug;
 
 class Device extends BaseModel
 {
@@ -18,7 +15,7 @@ class Device extends BaseModel
     protected $fillable = [
         'vehicle_id',
         'code_device',
-        'description'
+        'description',
     ];
 
     /**
@@ -26,13 +23,13 @@ class Device extends BaseModel
      */
     protected $searchableAttrs = [
         'description' => 'like',
-        'code_device' => '='
+        'code_device' => '=',
     ];
 
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
     ];
 
     protected $keyName = 'code_device';
@@ -49,7 +46,7 @@ class Device extends BaseModel
 
     public function charts()
     {
-        return $this->belongsToMany(ChartType::class, 'device_chart_type', 'device_id');
+        return $this->belongsToMany(ChartType::class, 'device_chart_type', 'device_id')->withPivot(['x', 'y', 'field_id']);
     }
 
     public function getUpdatedAtAttribute()
