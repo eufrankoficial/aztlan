@@ -6,14 +6,20 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mb-3">
                             <form>
-                                <input type="text" name="term" class="form-control form-control-lg float-right" placeholder="ID DO DISPOSITIVO" v-model="device" @change="getDeviceFields($event)">
+                                <input
+                                    type="text"
+                                    name="term"
+                                    class="form-control form-control-lg float-right"
+                                    placeholder="ID DO DISPOSITIVO"
+                                    v-model="device"
+                                    @change="getDeviceFields($event)"
+                                />
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card" v-if="fields.length > 0">
-
                 <div class="card-header">
                     <h3 class="card-title">Campos do dispositivo</h3>
                 </div>
@@ -21,16 +27,18 @@
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
-                        <tr>
-                            <th>Campo</th>
-                            <th>Tipo</th>
-                            <th>Nome na listagem</th>
-                            <th>Nome no detalhe</th>
-                            <th>Nome no relatório</th>
-                            <th>Exibir na listagem</th>
-                            <th>Exibir no detalhe</th>
-                            <th>Exibir no relatório</th>
-                        </tr>
+                            <tr>
+                                <th>Campo</th>
+                                <th>Tipo</th>
+                                <th>Nome na listagem</th>
+                                <th>Nome no detalhe</th>
+                                <th>Nome no relatório</th>
+                                <th>Exibir na listagem</th>
+                                <th>Exibir no detalhe</th>
+                                <th>Exibir no relatório</th>
+                                <th>Exibir no gráfico</th>
+                                <th>Cor no gráfico</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <field-list-item-component
@@ -77,7 +85,6 @@
         methods: {
             getDeviceFields: async function (event, type = 'change') {
                 if(lastArgumentUrl == 'fields') {
-                    //Todo: Ao montar component carregar os campos se tiver setado a device_code na url
                     this.currentUrl = addCodeDeviceToUrl(this.device);
                 } else {
                     this.currentUrl = changeLastUrlStringDeviceCode(lastArgumentUrl, this.device);
