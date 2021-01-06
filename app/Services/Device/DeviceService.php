@@ -81,10 +81,13 @@ class DeviceService
 
     public function chart(Device $device)
     {
+		$dataLabels = [];
+		$sets = [];
 		// Eixo x do dispositivo
         $fieldToChart = $device->charts()->where('x', 1)->first();
 
-		// pegar todos os valores desse campos
+		if(!empty($fieldToChart->pivot)) {
+			// pegar todos os valores desse campos
 		$fieldAxe = $device->fields()
 			->with(['values'])
 			->whereHas('values', function($query) {
@@ -94,7 +97,6 @@ class DeviceService
 
 		$dataLabels = $fieldAxe->values->pluck('value')->toArray();
 		$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->where('show_on_chart', 1)->get();
-
 
         $sets = [];
         foreach($fields as $key => $field) {
@@ -106,6 +108,7 @@ class DeviceService
                 ];
             }
         }
+		}
 
         return collect([
             'labels' => $dataLabels,

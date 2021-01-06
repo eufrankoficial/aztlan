@@ -34,6 +34,7 @@ class DeviceChartController extends Controller
 
 		} catch (\Exception $e) {
 			DB::rollback();
+			dd($e);
 			return response()->json(['status' => false]);
 		}
     }

@@ -28,11 +28,13 @@ class DeviceChartService
 		$deviceChartConfig = [];
 
 		foreach($axes as $key => $field) {
-			$deviceChartConfig[] = [
-				'chart_type_id' => $config['chart_type_id'],
-				'field_id' => $field,
-				$key => 1
-			];
+			if(!empty($field)) {
+				$deviceChartConfig[] = [
+					'chart_type_id' => $config['chart_type_id'],
+					'field_id' => $field,
+					$key => 1
+				];
+			}
 		}
 
 		$detaching = isset($config['detaching']) ? true : false;
