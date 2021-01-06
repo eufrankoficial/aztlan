@@ -12,20 +12,21 @@
 
         data () {
             return {
-                chartOptions: JSON.parse(this.chart),
+                chartOptions: [],
                 chartdata: {
                     labels: [],
                     datasets: []
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false
+                    responsive: false,
+                    maintainAspectRatio: true
                 }
             };
         },
 
         methods: {
             mountChart: function () {
+				this.chartOptions = JSON.parse(this.chart);
                 this.chartdata.labels = this.chartOptions.labels;
                 this.chartdata.datasets = this.chartOptions.sets;
             }

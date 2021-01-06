@@ -81,37 +81,36 @@ class DeviceService
 
     public function chart(Device $device)
     {
-        /*
-        $stamps = $device->history->pluck('stamp')->toArray();
-        $dataLabels = [];
-        foreach($stamps as $stamp) {
-            $dataLabels[] = $stamp->format('d/m/Y H:i');
-        }
+		// Eixo x do dispositivo
+        $fieldToChart = $device->charts()->where('x', 1)->first();
 
-        $toChart = [
-            'bat' => '#84C7C7',
-            'temp' => '#D51058',
-            'umi' => '#CB1EA1',
-            'cnt' => '#ECEC12',
-            'co2' => '#398703',
-            'tempdht1' => '#578677',
-            'tempdht2' => '#0C5389'
-        ];
+		// pegar todos os valores desse campos
+		$fieldAxe = $device->fields()
+			->with(['values'])
+			->whereHas('values', function($query) {
+				$query->orderBy('created_at', 'asc');
+			})->where('field_id', $fieldToChart->pivot->field_id)
+			->first();
+
+		$dataLabels = $fieldAxe->values->pluck('value')->toArray();
+		$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->get();
+
 
         $sets = [];
-        foreach($toChart as $chart => $color) {
-            $sets[] = [
-                'label' => $chart,
-                'backgroundColor' => $color,
-                'data' => $device->history->pluck($chart)->toArray()
-            ];
-
+        foreach($fields as $key => $field) {
+            if($field->field !== $fieldAxe->field) {
+                $sets[] = [
+                    'label' => $field->field,
+                    'backgroundColor' => '#D51058',
+                    'data' => $field->values->pluck('value')->toArray()
+                ];
+            }
         }
 
         return collect([
             'labels' => $dataLabels,
             'sets' => $sets
-        ]);*/
+        ]);
     }
 
     public function getDeviceList(): ?LengthAwarePaginator

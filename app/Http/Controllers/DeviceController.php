@@ -82,7 +82,6 @@ class DeviceController extends Controller
     public function chart(Device $device)
     {
         try {
-
             $device = $this->deviceService->chart($device);
 
             $data = [

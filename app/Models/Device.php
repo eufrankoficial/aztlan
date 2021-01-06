@@ -46,7 +46,7 @@ class Device extends BaseModel
 
     public function charts()
     {
-        return $this->belongsToMany(ChartType::class, 'device_chart_type', 'device_id')->withPivot(['x', 'y', 'field_id']);
+        return $this->belongsToMany(ChartType::class, 'device_chart_type', 'device_id', 'chart_type_id')->withPivot(['x', 'y', 'field_id']);
     }
 
     public function getUpdatedAtAttribute()
