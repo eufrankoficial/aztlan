@@ -123,7 +123,9 @@
             >
                 <v-input-colorpicker v-model="color_on_chart" />
             </div>
-            <span v-else>{{ field.color_on_chart }}</span>
+            <span :style="{ background: field.color_on_chart }" v-else>{{
+                field.color_on_chart
+            }}</span>
         </td>
     </tr>
 </template>

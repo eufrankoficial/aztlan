@@ -93,15 +93,15 @@ class DeviceService
 			->first();
 
 		$dataLabels = $fieldAxe->values->pluck('value')->toArray();
-		$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->get();
+		$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->where('show_on_chart', 1)->get();
 
 
         $sets = [];
         foreach($fields as $key => $field) {
             if($field->field !== $fieldAxe->field) {
                 $sets[] = [
-                    'label' => $field->field,
-                    'backgroundColor' => '#D51058',
+                    'label' => $field->list_name,
+                    'backgroundColor' => $field->color_on_chart,
                     'data' => $field->values->pluck('value')->toArray()
                 ];
             }
