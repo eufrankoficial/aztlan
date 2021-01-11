@@ -14,6 +14,7 @@ use App\Http\Controllers\MenuSystemController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DeviceChartController;
 use App\Http\Controllers\FieldController;
+use App\Http\Controllers\UserGroupController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -78,5 +79,13 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::post('/{device?}/{field}', [FieldController::class, 'update'])->name('save');
         Route::get('/show/{device?}', [FieldController::class, 'show'])->name('device.detail');
         Route::post('/show/{device}/{field}', [FieldController::class, 'update'])->name('device.save');
-    });
+	});
+
+
+	Route::prefix('user-groups')->name('user.groups.')->group(function () {
+		Route::get('/', [UserGroupController::class, 'index'])->name('index');
+		Route::get('/{group}', [UserGroupController::class, 'edit'])->name('detail');
+		Route::post('/{group}', [UserGroupController::class, 'update'])->name('save');
+	});
+
 });
