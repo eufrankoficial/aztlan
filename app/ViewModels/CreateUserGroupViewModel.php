@@ -23,7 +23,6 @@ class CreateUserGroupViewModel extends ViewModel
 	function menus()
 	{
 		return $this->menuRepository
-			->where('parent_id', 0)
 			->with(['parents'])->get();
 	}
 }

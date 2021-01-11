@@ -33,7 +33,7 @@ class EditUserGroupViewModel extends ViewModel
      */
     function menus(): Collection
     {
-        return $this->menuRepository->where('parent_id', 0)->with('parents')->get();
+        return $this->menuRepository->with(['parents'])->get();
     }
 
 	function permissions()

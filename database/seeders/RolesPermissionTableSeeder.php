@@ -48,8 +48,7 @@ class RolesPermissionTableSeeder extends Seeder
 
         DB::table('permissions')->delete();
         $permissions = file_get_contents(base_path('seeds/permissions.json'));
-        $permissions = json_decode($permissions);
-
+		$permissions = json_decode($permissions);
 
         foreach($permissions->permissions as $perm) {
             DB::table('permissions')->insert((array)$perm);;

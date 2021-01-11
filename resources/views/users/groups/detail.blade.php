@@ -24,7 +24,7 @@
                                     <label>Permissões</label>
 									<select name="permissions[]" class="form-control @error('permissions') is-invalid @enderror select2" id="permissions" multiple="multiple">
 										@foreach($permissions as $permission)
-											<option value="{{ $permission->slug }}" @if(in_array($permission->slug, $groupPermissions)) selected @endif>
+											<option value="{{ $permission->id }}" @if(in_array($permission->slug, $groupPermissions)) selected @endif>
 												{{ $permission->name }}
 											</option>
 										@endforeach

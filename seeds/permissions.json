@@ -1,20 +1,120 @@
 {
     "permissions": [
         {
-            "name": "list",
-            "slug": "list"
+            "name": "Dashboard",
+            "slug": "dashboard.index"
         },
         {
-            "name": "add",
-            "slug": "add"
-        },
-        {
-            "name": "edit",
-            "slug": "edit"
-        },
-        {
-            "name": "delete",
-            "slug": "delete"
-        }
+            "name": "Listagem de menus",
+            "slug": "menu.index"
+		},
+		{
+			"name": "Criação de menus",
+			"slug": "menu.create"
+		},
+		{
+			"name": "Detalhe do menu",
+			"slug": "menu.detail"
+		},
+		{
+			"name": "Atualizar menu",
+			"slug": "menu.update"
+		},
+		{
+			"name": "Excluir menu",
+			"slug": "menu.delete"
+		},
+		{
+			"name": "Listar dispositivos",
+			"slug": "device.index"
+		},
+		{
+			"name": "Criar dispositivo",
+			"slug": "device.create"
+		},
+		{
+			"name": "Criar dispositivo",
+			"slug": "device.create"
+		},
+		{
+			"name": "Detalhe do dispositivo",
+			"slug": "device.detail"
+		},
+		{
+			"name": "Atualizar dispositivo",
+			"slug": "device.update"
+		},
+		{
+			"name": "Visualizar gráficos",
+			"slug": "chart.view"
+		},
+		{
+			"name": "Configurar campos do dispositivo",
+			"slug": "config.device.field"
+		},
+		{
+			"name": "Configurar gráficos do dispositivo",
+			"slug": "config.device.chart"
+		},
+		{
+			"name": "Listar de usuários",
+			"slug": "users.index"
+		},
+		{
+			"name": "Criar usuários",
+			"slug": "users.create"
+		},
+		{
+			"name": "Detalhe de usuário",
+			"slug": "users.detail"
+		},
+		{
+			"name": "Atualizar usuário",
+			"slug": "users.update"
+		},
+		{
+			"name": "Excluir usuário",
+			"slug": "users.delete"
+		},
+		{
+			"name": "Listar empresas",
+			"slug": "company.index"
+		},
+		{
+			"name": "Criar empresa",
+			"slug": "company.create"
+		},
+		{
+			"name": "Detalhe de empresa",
+			"slug": "company.detail"
+		},
+		{
+			"name": "Atualizar empresa",
+			"slug": "company.update"
+		},
+		{
+			"name": "Excluir empresa",
+			"slug": "company.delete"
+		},
+		{
+			"name": "Listagem de grupos usuários",
+			"slug": "user.groups.index"
+		},
+		{
+			"name": "Criar grupo de usuário",
+			"slug": "user.groups.add"
+		},
+		{
+			"name": "Detalhe de grupo de usuário",
+			"slug": "user.groups.detail"
+		},
+		{
+			"name": "Atualizar grupo de usuário",
+			"slug": "user.groups.update"
+		},
+		{
+			"name": "Excluir grupo de usuário",
+			"slug": "user.groups.delete"
+		}
     ]
 }

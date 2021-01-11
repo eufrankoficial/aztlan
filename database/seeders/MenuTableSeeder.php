@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 
 class MenuTableSeeder extends Seeder
@@ -16,9 +17,24 @@ class MenuTableSeeder extends Seeder
         $file = file_get_contents(base_path('seeds/menus.json'));
         $file = json_decode($file);
 
-        \DB::table('menu')->delete();
+		\DB::table('menu')->delete();
+
         foreach($file->menus as $menu) {
-            \DB::table('menu')->insert((array)$menu);
+            $m = Menu::create([
+				"menu" => $menu->menu,
+				"route" => $menu->route,
+				"icon"  => $menu->icon,
+				"order" => 8,
+				"slug" => $menu->slug,
+			]);
+
+			if(!empty($menu->parents) && count($menu->parents) > 0) {
+                foreach($menu->parents as $parent) {
+					$p = (array) $parent;
+					$p['parent_id'] = $m->id;
+                    Menu::create($p);
+                }
+            }
         }
     }
 }

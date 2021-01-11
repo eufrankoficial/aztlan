@@ -3,37 +3,46 @@
         {
             "menu": "Página Inicial",
             "route": "dashboard.index",
-            "icon": "fa fa-circle",
+            "icon": "nav-icon fas fa-tachometer-alt",
             "order": 10,
             "slug": "pagina-inicial"
         },
         {
             "menu": "Dispositivos",
             "route": "device.index",
-            "icon": "fa fa-circle",
+            "icon": "fa fa-list",
             "order": 9,
             "slug": "dispositivos"
-        },
-        {
-            "menu": "Usuários",
-            "route": "user.index",
-            "icon": "fa fa-circle",
-            "order": 8,
-            "slug": "usuarios"
-        },
-        {
-            "menu": "Configurações",
-            "route": "dashboard.index",
-            "icon": "fa fa-circle",
-            "order": 8,
-            "slug": "configuracoes"
-        },
-        {
-            "menu": "Campos",
-            "route": "dashboard.index",
-            "icon": "fa fa-circle",
-            "order": 8,
-            "slug": "Campos"
-        }
+		},
+		{
+			"menu": "Configurações",
+			"route": "dashboard.index",
+			"icon": "fas fa-cogs",
+			"order": 8,
+			"slug": "configuracoes",
+			"parents": [
+				{
+					"menu": "Usuários",
+					"route": "user.index",
+					"icon": "fa fa-users",
+					"order": 8,
+					"slug": "usuarios"
+				},
+				{
+					"menu": "Menus",
+					"route": "menu.index",
+					"icon": "fa fa-list",
+					"order": 8,
+					"slug": "menus"
+				},
+				{
+					"menu": "Grupos de usários",
+					"route": "user.groups.index",
+					"icon": "fa fa-users",
+					"order": 8,
+					"slug": "grupos-de-usuario"
+				}
+			]
+		}
     ]
 }

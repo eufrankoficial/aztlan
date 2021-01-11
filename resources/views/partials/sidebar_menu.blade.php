@@ -5,7 +5,7 @@
         @if(cache('menus_'.cache_key()))
             @foreach(cache('menus_'.cache_key()) as $menu)
                 @if($menu->parents->count() > 0)
-                    <li class="nav-item menu-open">
+                    <li class="nav-item">
                         <a href="{{ $menu->route !== '#' ? route($menu->route) : '#' }}" class="nav-link">
                             <i class="{{ $menu->icon }}"></i>
                             <p>
