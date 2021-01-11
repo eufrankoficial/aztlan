@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateUserGroupRequest;
 use App\Http\Requests\SaveUserGroupRequest;
 use App\Models\GroupUser;
+use App\Repositories\System\MenuRepository;
 use App\Repositories\System\PermissionRepository;
 use App\Repositories\System\UserGroupRepository;
 use App\ViewModels\CreateUserGroupViewModel;
@@ -17,11 +18,13 @@ class UserGroupController extends Controller
 {
 	protected $groupUserRepository;
 	protected $permissionRepository;
+	protected $menuRepository;
 
-	public function __construct(UserGroupRepository $groupUserRepository, PermissionRepository $permissionRepository)
+	public function __construct(UserGroupRepository $groupUserRepository, PermissionRepository $permissionRepository, MenuRepository $menuRepo)
 	{
 		$this->userGroupRepository = $groupUserRepository;
 		$this->permissionRepository = $permissionRepository;
+		$this->menuRepo = $menuRepo;
 	}
 
     /**
@@ -39,7 +42,7 @@ class UserGroupController extends Controller
      */
     public function create()
     {
-        return (new CreateUserGroupViewModel($this->permissionRepository))->view('users.groups.create');
+        return (new CreateUserGroupViewModel($this->permissionRepository, $this->menuRepo))->view('users.groups.create');
     }
 
     /**
@@ -59,6 +62,7 @@ class UserGroupController extends Controller
 			]);
 
 			$this->userGroupRepository->syncPermissions($group, $request->get('permissions'));
+			$this->userGroupRepository->syncMenus($group, $request->get('menus'));
 
 			DB::commit();
 			flash('Salvo com sucesso', 'success');
@@ -80,7 +84,7 @@ class UserGroupController extends Controller
      */
     public function edit(GroupUser $group)
     {
-		return (new EditUserGroupViewModel($group, $this->permissionRepository))->view('users.groups.detail');
+		return (new EditUserGroupViewModel($group, $this->permissionRepository, $this->menuRepo))->view('users.groups.detail');
     }
 
     /**
@@ -103,6 +107,7 @@ class UserGroupController extends Controller
 			);
 
 			$this->userGroupRepository->syncPermissions($group, $request->get('permissions'));
+			$this->userGroupRepository->syncMenus($group, $request->get('menus'));
 
 			DB::commit();
 
@@ -111,6 +116,7 @@ class UserGroupController extends Controller
 
 		} catch(\Exception $e) {
 			DB::rollback();
+			dd($e);
 			flash('Não possível salvar os dados do grupo', 'danger');
 		}
 

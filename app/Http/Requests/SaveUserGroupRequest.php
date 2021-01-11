@@ -24,7 +24,9 @@ class SaveUserGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+			'name' => 'required',
+			'permissions' => 'required',
+			'menus' => 'required'
         ];
     }
 }

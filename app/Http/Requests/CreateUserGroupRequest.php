@@ -25,7 +25,8 @@ class CreateUserGroupRequest extends FormRequest
     {
         return [
 			'name' => 'required|min:3',
-			'permissions' => 'required'
+			'permissions' => 'required',
+			'menus' => 'required'
         ];
     }
 }
