@@ -73,17 +73,6 @@ class UserGroupController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -134,8 +123,18 @@ class UserGroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(GroupUser $group)
     {
-        //
+        try {
+			DB::beginTransaction();
+
+			$group->delete();
+
+			DB::commit();
+			return response()->json(['status' => true]);
+		} catch(\Exception $e) {
+			DB::rollback();
+			return response()->json(['status' => false]);
+		}
     }
 }

@@ -88,6 +88,7 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
 		Route::post('/add', [UserGroupController::class, 'store'])->name('store');
 		Route::get('/{group}/edit', [UserGroupController::class, 'edit'])->name('detail');
 		Route::post('/{group}/edit', [UserGroupController::class, 'update'])->name('save');
+		Route::get('/{group}/delete', [UserGroupController::class, 'destroy'])->name('delete');
 	});
 
 });

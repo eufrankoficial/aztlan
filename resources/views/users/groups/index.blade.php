@@ -11,12 +11,6 @@
                                     Adicionar
                                 </a>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
-                                <a href="{{ route('menu.create') }}" class="btn btn-success">
-                                    <i class="fa fa-file-export"></i>
-                                    Exportar
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +50,7 @@
                                                 <i class="fa fa-edit"></i>
                                                 Editar
                                             </a>
-                                            <delete-button-component url="{{ route('user.delete', $group) }}"></delete-button-component>
+                                            <delete-button-component url="{{ route('user.groups.delete', $group) }}"></delete-button-component>
                                         </td>
                                     </tr>
                                 @endforeach
