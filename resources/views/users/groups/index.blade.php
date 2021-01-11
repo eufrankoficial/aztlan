@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
-                                <a href="{{ route('user.create') }}" class="btn btn-primary">
+                                <a href="{{ route('user.groups.add') }}" class="btn btn-primary">
                                     <i class="fa fa-plus"></i>
                                     Adicionar
                                 </a>

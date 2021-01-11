@@ -84,8 +84,10 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
 
 	Route::prefix('user-groups')->name('user.groups.')->group(function () {
 		Route::get('/', [UserGroupController::class, 'index'])->name('index');
-		Route::get('/{group}', [UserGroupController::class, 'edit'])->name('detail');
-		Route::post('/{group}', [UserGroupController::class, 'update'])->name('save');
+		Route::get('/add', [UserGroupController::class, 'create'])->name('add');
+		Route::post('/add', [UserGroupController::class, 'store'])->name('store');
+		Route::get('/{group}/edit', [UserGroupController::class, 'edit'])->name('detail');
+		Route::post('/{group}/edit', [UserGroupController::class, 'update'])->name('save');
 	});
 
 });

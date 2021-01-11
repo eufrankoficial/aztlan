@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUserGroupRequest;
 use App\Http\Requests\SaveUserGroupRequest;
 use App\Models\GroupUser;
 use App\Repositories\System\PermissionRepository;
 use App\Repositories\System\UserGroupRepository;
+use App\ViewModels\CreateUserGroupViewModel;
 use App\ViewModels\EditUserGroupViewModel;
 use App\ViewModels\ListUserGroupViewModel;
 use Illuminate\Http\Request;
@@ -37,7 +39,7 @@ class UserGroupController extends Controller
      */
     public function create()
     {
-        //
+        return (new CreateUserGroupViewModel($this->permissionRepository))->view('users.groups.create');
     }
 
     /**
@@ -46,9 +48,28 @@ class UserGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserGroupRequest $request)
     {
-        //
+        try {
+
+			DB::beginTransaction();
+
+			$group = $this->userGroupRepository->save([
+				'name' => $request->get('name')
+			]);
+
+			$this->userGroupRepository->syncPermissions($group, $request->get('permissions'));
+
+			DB::commit();
+			flash('Salvo com sucesso', 'success');
+
+		} catch(\Exception $e) {
+			DB::rollback();
+
+			flash('Não foi possível salvar', 'danger');
+		}
+
+		return redirect()->route('user.groups.index');
     }
 
     /**

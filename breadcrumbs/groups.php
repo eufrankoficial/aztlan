@@ -8,9 +8,9 @@ Breadcrumbs::for('user.groups.index', function ($breadcrumb) {
     $breadcrumb->push('Grupos de usuários', route('user.groups.index'));
 });
 
-Breadcrumbs::for('user.groups.create', function ($breadcrumb) {
+Breadcrumbs::for('user.groups.add', function ($breadcrumb) {
     $breadcrumb->parent('user.groups.index');
-    $breadcrumb->push('Novo grupo', route('user.groups.create'));
+    $breadcrumb->push('Novo grupo', route('user.groups.add'));
 });
 
 Breadcrumbs::for('user.groups.detail', function ($breadcrumb, $groupUser) {
