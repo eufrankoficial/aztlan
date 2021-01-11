@@ -8,12 +8,14 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
-                            <a href="{{ route('menu.create') }}" class="btn btn-primary">
-                                <i class="fa fa-plus"></i>
-                                Adicionar
-                            </a>
-                        </div>
+						@can('menu.create')
+							<div class="col-lg-2 col-md-2 col-sm-12 mb-3">
+								<a href="{{ route('menu.create') }}" class="btn btn-primary">
+									<i class="fa fa-plus"></i>
+									Adicionar
+								</a>
+							</div>
+						@endcan
                         <div class="col-lg-2 col-md-2 col-sm-12 mb-3">
                             <a href="{{ route('menu.create') }}" class="btn btn-success">
                                 <i class="fa fa-file-export"></i>
