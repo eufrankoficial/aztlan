@@ -17,6 +17,7 @@ class User extends BaseAuthModel
      * @var array
      */
     protected $fillable = [
+		'company_id',
         'name',
         'email',
         'username',
