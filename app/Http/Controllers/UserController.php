@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\Company\CompanyRepository;
 use App\Repositories\System\UserGroupRepository;
@@ -46,7 +48,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
         try {
             $data = $request->except('_token', 'repeat_password', 'role_id');
@@ -55,7 +57,6 @@ class UserController extends Controller
 
             return response()->json(['status' => true, 'url' => route('user.detail', $user)]);
         } catch (\Exception $e) {
-			dd($e);
             return response()->json(['status' => false]);
         }
     }
@@ -94,7 +95,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         try {
             $data = $request->except('_token', 'password', 'repeat_password', 'role_id');
@@ -103,7 +104,6 @@ class UserController extends Controller
 
             return response()->json(['status' => true, 'url' => route('user.detail', $user->public_id)]);
         } catch (\Exception $e) {
-			dd($e);
             return response()->json(['status' => false]);
         }
     }

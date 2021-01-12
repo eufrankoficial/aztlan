@@ -2,6 +2,7 @@
 
 namespace App\ViewModels;
 
+use App\Models\GroupUser;
 use App\Models\User;
 use App\Repositories\Company\CompanyRepository;
 use App\Repositories\System\UserGroupRepository;
