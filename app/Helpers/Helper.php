@@ -1,5 +1,15 @@
 <?php
 
+if(!function_exists('company'))
+{
+    function company()
+    {
+        return auth()->user()->company;
+    }
+}
+
+
+
 if(!function_exists('current_user'))
 {
     function current_user()

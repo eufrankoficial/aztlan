@@ -6,12 +6,13 @@ use App\Traits\Hashidable;
 use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Sluggable\HasSlug;
 
 class User extends BaseAuthModel
 {
-    use HasFactory, Notifiable, Hashidable, Searchable, HasRoles, HasSlug;
+    use HasFactory, Notifiable, Hashidable, Searchable, HasRoles, HasSlug, HasPermissions;
 
     /**
      * @var array
@@ -65,6 +66,11 @@ class User extends BaseAuthModel
         'name' => 'like',
     ];
 
+	public function company()
+	{
+		return $this->belongsTo(Company::class, 'company_id', 'id');
+	}
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany.
      */
@@ -79,7 +85,14 @@ class User extends BaseAuthModel
     public function isSuperAdmin()
     {
         return current_user()->hasRole('SuperAdmin') ? true : false;
-    }
+	}
+
+	public function hasPermission($permission)
+	{
+		$list = $this->getPermissionsViaRoles()->pluck('slug')->toArray();
+
+		return in_array($permission->slug, $list);
+	}
 
     public function getJWTIdentifier()
     {

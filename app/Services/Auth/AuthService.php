@@ -38,8 +38,6 @@ class AuthService
                 return Menu::with(['parents'])->get();
             }
 
-            $user = User::where('id', $user->id)->with(['group.menus'])->first();
-
             $menus = $user->group->map(function($group)  {
                 return $group->menus->map(function($menu) {
                     return $menu;
@@ -58,7 +56,7 @@ class AuthService
             if(count($menusids) > 0) {
                 return Menu::with(['parents' => function($query) use ($menusids){
                     $query->whereIn('id', $menusids);
-                }])->where('parent_id', 0)
+                }])->where('parent_id', null)
                     ->get();
             }
 

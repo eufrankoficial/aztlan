@@ -19,6 +19,3 @@ class DashboardController extends Controller
         return (new DashboardViewModel($this->deviceService))->view('device.index');
     }
 }
-
-
-
