@@ -84,7 +84,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return (new UserEditViewModel($user))->view('users.edit');
+        return (new UserEditViewModel($user, $this->userGroupRepository, $this->companyRepository))->view('users.edit');
     }
 
     /**
@@ -97,11 +97,13 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         try {
-            $data = $request->except('_token', 'password', 'repeat_password');
-            $this->userService->update($data, $user);
+            $data = $request->except('_token', 'password', 'repeat_password', 'role_id');
+			$this->userService->update($data, $user);
+			$this->userService->syncRoles($user, [$request->get('role_id')]);
 
             return response()->json(['status' => true, 'url' => route('user.detail', $user->public_id)]);
         } catch (\Exception $e) {
+			dd($e);
             return response()->json(['status' => false]);
         }
     }

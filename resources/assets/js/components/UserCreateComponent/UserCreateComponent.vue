@@ -25,7 +25,7 @@
 									<option
 										v-for="(company, index) in companies"
 										:key="index"
-										:value="company.slug">
+										:value="company.id">
 										{{ company.company_name }}
 										</option>
 								</select>

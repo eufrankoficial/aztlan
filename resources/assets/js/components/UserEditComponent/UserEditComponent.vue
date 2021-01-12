@@ -4,6 +4,35 @@
             <div class="card card-primary">
                 <div class="card-body">
                     <div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="group">Grupo do usuário</label>
+								<select class="form-control" id="group" v-model="groupmodel">
+									<option>Selecione</option>
+									<option
+										v-for="(group, index) in groupsmodel"
+										:key="index"
+										:value="group.slug"
+										>{{ group.name }}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6" v-if="issuperadmin == '1'">
+							<div class="form-group">
+								<label for="company">Empresas</label>
+								<select class="form-control" id="company" v-model="companymodel">
+									<option>Selecione</option>
+									<option
+										v-for="(company, index) in companies"
+										:key="index"
+										:value="company.id">
+										{{ company.company_name }}
+										</option>
+								</select>
+							</div>
+						</div>
+					</div>
+                    <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="inputName">Nome</label>
@@ -58,9 +87,11 @@ import { validateEmail, validateFieldString } from "../../validator";
 
 export default {
     name: 'UserEditComponent',
-    props: ['action', 'user'],
+    props: ['action', 'user', 'groupsprop', 'issuperadmin', 'companiesprop'],
     mounted() {
-
+		this.companies = JSON.parse(this.companiesprop);
+		this.groupsmodel = JSON.parse(this.groupsprop);
+		console.log(JSON.parse(this.user));
         this.populateFields();
     },
 
@@ -75,7 +106,11 @@ export default {
             errorPassword: false,
             errorEmail: false,
             errorUsername: false,
-            errorName: false
+			errorName: false,
+			groupsmodel: null,
+			companies: [],
+			groupmodel: null,
+			companymodel: null
         }
     },
 
@@ -85,7 +120,11 @@ export default {
             const user = JSON.parse(this.user);
             this.name = user.name;
             this.email = user.email;
-            this.username = user.username;
+			this.username = user.username;
+			this.companymodel = user.company_id;
+			if(user.roles.length > 0) {
+				this.groupmodel = user.roles[0].slug;
+			}
         },
 
         save: async function (event) {
@@ -96,7 +135,9 @@ export default {
                     name: this.name,
                     email: this.email,
                     username: this.username,
-                    password: this.password
+					password: this.password,
+					company_id: this.companymodel,
+					role_id: this.groupmodel
                 });
 
                 if(response.data.status) {
@@ -170,14 +211,23 @@ export default {
 
         validateForm: function (validatePass) {
             this.errorName = validateFieldString(this.name).hasError;
-            let validPass = true;
+			let validPass = true;
+			const group = this.groupmodel;
+			const company = this.companymodel;
+			if(this.$props.issuperadmin === "1") {
+				if(company == null) {
+					this.$swal('Atenção!', 'Informe a empresa', 'warning');
+					return false;
+				}
+			}
+
             if(validatePass) {
                 validPass = this.validatePassword();
             }
 
             const validUsername = this.validateUserName();
 
-            if(!validPass || !validUsername || this.errorName) {
+            if(!validPass || !validUsername || this.errorName || group == null) {
                 this.$swal('Atenção!', 'Preencha o formulário corretamente', 'warning');
                 return false;
             }
