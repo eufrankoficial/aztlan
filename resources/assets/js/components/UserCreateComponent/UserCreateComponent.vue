@@ -3,6 +3,35 @@
         <form method="POST" :action="action">
             <div class="card card-primary">
                 <div class="card-body">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="group">Grupo do usuário</label>
+								<select class="form-control" id="group" v-model="groupmodel">
+									<option>Selecione</option>
+									<option
+										v-for="(group, index) in groupsmodel"
+										:key="index"
+										:value="group.slug"
+										>{{ group.name }}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6" v-if="issuperadmin == '1'">
+							<div class="form-group">
+								<label for="company">Empresas</label>
+								<select class="form-control" id="company" v-model="companymodel">
+									<option>Selecione</option>
+									<option
+										v-for="(company, index) in companies"
+										:key="index"
+										:value="company.slug">
+										{{ company.company_name }}
+										</option>
+								</select>
+							</div>
+						</div>
+					</div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -58,7 +87,12 @@
 
     export default {
         name: 'UserCreateComponent',
-        props: ['action'],
+        props: ['action', 'groups', 'issuperadmin', 'companiesprop'],
+
+		async mounted() {
+			this.groupsmodel = JSON.parse(this.groups);
+			this.companies = JSON.parse(this.companiesprop);
+		},
 
         data() {
             return {
@@ -71,28 +105,35 @@
                 errorPassword: false,
                 errorEmail: false,
                 errorUsername: false,
-                errorName: false
+                errorName: false,
+				groupsmodel: null,
+				companies: [],
+				groupmodel: null,
+				companymodel: null
             }
         },
 
         methods: {
+
             save: async function (event) {
                 event.preventDefault();
-                const valid = this.validateForm();
+				const valid = this.validateForm();
                 if(valid) {
                     const response = await request.post(this.action, {
                         name: this.name,
                         email: this.email,
                         username: this.username,
-                        password: this.password
+						password: this.password,
+						role_id: this.groupmodel,
+						company_id: this.companymodel
                     });
-                    console.log(response.data);
+
                     if(response.data.status) {
                         this.$swal('Sucesso!', 'Usuário salvo com sucesso!', 'success');
                         window.location.href = response.data.url;
                     }
                 }
-            },
+			},
 
             isValidEmail: async function (event) {
                 const valid = validateEmail(this.email);
@@ -103,7 +144,7 @@
                     return false;
                 }
 
-                const response = await request.post('/user/exist', {
+                const response = await request.post('/users/exist', {
                     email: this.email
                 });
 
@@ -138,7 +179,7 @@
             },
 
             validateUserName: async function (event) {
-                const response = await request.post('exist', {
+                const response = await request.post('users/exist', {
                     username: this.username
                 });
 
@@ -159,9 +200,17 @@
             validateForm: function () {
                 this.errorName = validateFieldString(this.name).hasError;
                 const validPass = this.validatePassword();
-                const validUsername = this.validateUserName();
+				const validUsername = this.validateUserName();
+				const group = this.groupmodel;
+				const company = this.companymodel;
+				if(this.$props.issuperadmin === "1") {
+					if(company == null) {
+						this.$swal('Atenção!', 'Informe a empresa', 'warning');
+						return false;
+					}
+				}
 
-                if(!validPass || !validUsername || this.errorName) {
+                if(!validPass || !validUsername || this.errorName || group == null) {
                     this.$swal('Atenção!', 'Preencha o formulário corretamente', 'warning');
                     return false;
                 }

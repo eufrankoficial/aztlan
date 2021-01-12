@@ -3,19 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Repositories\Company\CompanyRepository;
+use App\Repositories\System\UserGroupRepository;
 use App\Services\User\UserService;
+use App\ViewModels\CreateUserViewModel;
 use App\ViewModels\UserEditViewModel;
 use App\ViewModels\UserListViewModel;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    protected $userService;
+	protected $userService;
+	protected $userGroupRepository;
+	protected $companyRepository;
 
-    public function __construct(UserService  $userService)
+
+    public function __construct(UserService  $userService, UserGroupRepository $userGroupRepository, CompanyRepository $companyRepository)
     {
-        $this->userService = $userService;
-    }
+		$this->userService = $userService;
+		$this->userGroupRepository = $userGroupRepository;
+		$this->companyRepository = $companyRepository;
+	}
+
     public function index(Request $request)
     {
         return (new UserListViewModel($this->userService, $request))->view('users.index');
@@ -28,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+		return (new CreateUserViewModel($this->userGroupRepository, $this->companyRepository))->view('users.create');
     }
 
     /**
@@ -40,11 +49,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
-            $data = $request->except('_token', 'repeat_password');
-            $user = $this->userService->create($data);
+            $data = $request->except('_token', 'repeat_password', 'role_id');
+			$user = $this->userService->create($data);
+			$this->userService->syncRoles($user, [$request->get('role_id')]);
 
             return response()->json(['status' => true, 'url' => route('user.detail', $user)]);
         } catch (\Exception $e) {
+			dd($e);
             return response()->json(['status' => false]);
         }
     }

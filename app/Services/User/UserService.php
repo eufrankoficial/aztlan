@@ -29,7 +29,14 @@ class UserService
         $user = $this->userRepository->create($data);
 
         return $this->userRepository->findById($user->id);
-    }
+	}
+
+	function syncRoles(User $user, array $role)
+	{
+		$user->syncRoles($role);
+
+		return $user;
+	}
 
     function update(array $data, User $user): User
     {
