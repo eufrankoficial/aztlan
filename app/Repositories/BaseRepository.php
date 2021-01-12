@@ -168,7 +168,12 @@ abstract class BaseRepository implements BaseInterfaceRepository
     public function where($field, $value)
     {
         return $this->newQuery()->where($field, $value);
-    }
+	}
+
+	public function orderBy($field, $direction)
+	{
+		return $this->newQuery()->orderBy($field, $direction);
+	}
 
     /**
      * Create a new record of this model.
