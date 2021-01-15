@@ -30,7 +30,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0);">
 						<i class="fas fa-house-user"></i>
-                        {{ company()->company_name }}
+                        {{ !empty(company()->company_name) ?: null }}
                     </a>
                 </li>
                 <li class="nav-item">

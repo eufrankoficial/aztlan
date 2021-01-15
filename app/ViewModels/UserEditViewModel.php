@@ -33,7 +33,7 @@ class UserEditViewModel extends ViewModel
 		$groups = $this->userGroupRepository;
 
 		if(!current_user()->isSuperAdmin()) {
-			$groups = $groups->whereNotIn('id', [GroupUser::SUPER_ADMIN]);
+			$groups = $groups->w0hereNotIn('id', [GroupUser::SUPER_ADMIN]);
 		}
 
 		return $groups->get();
