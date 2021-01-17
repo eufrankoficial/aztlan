@@ -46,7 +46,7 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::post('/create', [DeviceController::class, 'store'])->middleware(['can:device.create'])->name('store');
         Route::get('/{device}', [DeviceController::class, 'show'])->middleware(['can:device.detail'])->name('detail');
 		Route::post('/{device}', [DeviceController::class, 'update'])->middleware(['can:device.update'])->name('update');
-		Route::post('/{device}/save-chart-config', [DeviceChartController::class, 'save'])->middleware(['can:config.device.chart'])->name('save.chart.config');
+		Route::post('/{device?}/save-chart-config', [DeviceChartController::class, 'save'])->middleware(['can:config.device.chart'])->name('save.chart.config');
         Route::post('/{device?}/{field}', [FieldController::class, 'update'])->middleware(['can:device.update'])->name('save');
     });
 

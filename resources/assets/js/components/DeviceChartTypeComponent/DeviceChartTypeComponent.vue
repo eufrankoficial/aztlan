@@ -72,12 +72,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(typeChart, index) in device.charts">
+                        <tr
+							v-for="(typeChart, index) in device.charts"
+							:key="index"
+							>
                             <td>{{ typeChart.type }}</td>
                             <td>
                                 {{ currentTypes[typeChart.pivot.field_id][0] }}
                             </td>
                             <td>{{ typeChart.pivot.x === 1 ? "X" : "Y" }}</td>
+							<td>
+								<a href="javascript:void(0);" class="btn btn-default" @click="deleteType($event, index)">
+									Excluir
+								</a>
+							</td>
                         </tr>
                     </tbody>
                 </table>
@@ -89,10 +97,14 @@
 <script>
 	import { minLength, required } from "vuelidate/lib/validators";
 	import { request } from '../../request';
+	import DeleteButtonComponent from '../DeleteButtonComponent/DeleteButtonComponent'
 
     export default {
         name: 'DeviceChartTypeComponent',
         props: ['types', 'fields', 'action', 'deviceprop'],
+		components: {
+			DeleteButtonComponent
+		},
 
 		created() {
 			this.typesmodel = JSON.parse(this.types);
@@ -121,6 +133,25 @@
     	},
 
         methods: {
+			deleteType: async function (event, index) {
+				const fieldId = this.device.charts[index].pivot.field_id
+				this.device.charts.splice(index, 1);
+                this.configureChartTypesRegistered();
+                let currentTypes = [];
+                this.device.charts.map(function(chart) {
+                    currentTypes.push({
+                        chart_type_id: chart.pivot.chart_type_id,
+                        x: chart.pivot.x == 1 ? chart.pivot.field_id : null,
+						y: chart.pivot.y == 1 ? chart.pivot.field_id : null,
+						detaching: true
+                    });
+				});
+
+				const response = await request.post(this.action, currentTypes);
+				event.target.parentElement.parentElement.remove();
+				this.$swal('Sucesso!', 'Excluído com sucesso', 'success');
+			},
+
             configureChartTypesRegistered: function () {
 				const fields = this.device.fields;
 				let registeredTypes = {};
@@ -146,11 +177,13 @@
 					return false;
 				};
 
-				const response = await request.post(this.action, {
+				let types = [{
 					chart_type_id: this.charttype,
 					x: this.x,
 					y: this.y
-				});
+				}];
+
+				const response = await request.post(this.action, types);
 
 				if(response.data.status == false) {
 					this.$swal('Atenção!', 'Não foi possível salvar configurações.', 'danger');
@@ -158,6 +191,7 @@
 				}
 
 				this.$swal('Sucesso!', 'Configurações salvas com sucesso', 'success');
+				this.configureChartTypesRegistered();
 				return true;
 
             },

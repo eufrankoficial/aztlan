@@ -25,7 +25,6 @@ class DeviceChartController extends Controller
     {
         try {
 			DB::beginTransaction();
-
 			$this->deviceChartService->saveChartConfig($device, $request->except('_token'));
 			$device = $this->deviceRepository->with(['charts'])->findById($device->id);
 			DB::commit();

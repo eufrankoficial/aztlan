@@ -20,30 +20,44 @@ class DeviceChartService
 
 	public function saveChartConfig(Device $device, array $config)
 	{
-		$axes = [
-			'x' => $config['x'],
-			'y' => $config['y']
-		];
-
-		$deviceChartConfig = [];
-
-		foreach($axes as $key => $field) {
-			if(!empty($field)) {
-				$deviceChartConfig[] = [
-					'chart_type_id' => $config['chart_type_id'],
-					'field_id' => $field,
-					$key => 1
+		if(count($config) == 0) {
+			$this->deviceRepo->syncChartConfig(
+				$device,
+				[],
+				true
+			);
+		} else {
+			foreach($config as $conf) {
+				$axes = [
+					'x' => $conf['x'],
+					'y' => $conf['y']
 				];
+
+				$deviceChartConfig = [];
+
+				foreach($axes as $key => $field) {
+					if(!empty($field)) {
+						$deviceChartConfig[] = [
+							'chart_type_id' => $conf['chart_type_id'],
+							'field_id' => $field,
+							$key => 1
+						];
+					}
+				}
+
+				$detaching = isset($conf['detaching']) ? true : false;
+
+				$this->deviceRepo->syncChartConfig(
+					$device,
+					$deviceChartConfig,
+					$detaching
+				);
 			}
 		}
 
-		$detaching = isset($config['detaching']) ? true : false;
+		$device->load(['charts']);
 
-		return $this->deviceRepo->syncChartConfig(
-			$device,
-			$deviceChartConfig,
-			$detaching
-		);
+		return $device;
 	}
 
 }
