@@ -30,7 +30,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0);">
 						<i class="fas fa-house-user"></i>
-                        {{ !empty(company()->company_name) ?: null }}
+                        {{ !empty(company()->company_name) ?: 'AL2 Dashboard' }}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -45,11 +45,18 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="{{ asset('assets/img/logos/global.jpeg') }}" alt="AdminLTE Logo" class="brand-image img-rounded elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">&nbsp;</span>
-            </a>
+			<!-- Brand Logo -->
+			@if(!empty(company()->logo))
+				<a href="index3.html" class="brand-link">
+					<img src="{{ asset('assets/img/logos/global.jpeg') }}" alt="AdminLTE Logo" class="brand-image img-rounded elevation-3" style="opacity: .8">
+					<span class="brand-text font-weight-light">&nbsp;</span>
+				</a>
+			@else
+				<a href="index3.html" class="brand-link">
+					<img src="{{ asset('assets/img/logos/al2.png') }}" alt="AdminLTE Logo" class="brand-image img-rounded elevation-3" width="300">
+					<span class="brand-text font-weight-light">&nbsp;</span>
+				</a>
+			@endif
 
             <!-- Sidebar -->
             <div class="sidebar">
