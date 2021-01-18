@@ -51,6 +51,11 @@ class Device extends BaseModel
 
     public function getUpdatedAtAttribute()
     {
-        return Carbon::createFromTimestamp(strtotime($this->attributes['updated_at']))->format('d/m/Y H:i');
-    }
+        return Carbon::createFromTimestamp(strtotime($this->attributes['updated_at']))->diffForHumans();
+	}
+
+	public function getUpdateAtStatusAttribute()
+	{
+		return $this->attributes['updated_at'];
+	}
 }

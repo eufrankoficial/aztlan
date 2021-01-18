@@ -6,6 +6,7 @@ use App\Models\Device;
 use App\Services\Device\DeviceService;
 use Spatie\ViewModels\ViewModel;
 use App\Enums\ChartTypeEnum;
+use Carbon\Carbon;
 
 class DeviceDetailViewModel extends ViewModel
 {
@@ -44,5 +45,30 @@ class DeviceDetailViewModel extends ViewModel
     public function chart()
     {
         return $this->deviceService->chart($this->device);
-    }
+	}
+
+	public function status()
+	{
+		$status = [
+			'class' => 'success',
+			'name' => 'Online'
+		];
+
+		$now = now();
+		$updated = $now->diffInDays($this->device->updated_at_status ?: $this->device->created_at);
+
+		if($updated == 1) {
+			$status = [
+				'class' => 'warning',
+				'name' => 'Aguardando...'
+			];
+		} elseif($updated > 1) {
+			$status = [
+				'class' => 'danger',
+				'name' => 'Offline'
+			];
+		}
+
+		return json_encode($status);
+	}
 }

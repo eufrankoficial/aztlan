@@ -24,7 +24,11 @@
               <div class="card-body">
                 <div class="tab-content">
                   <div class="tab-pane active" id="view">
-                    <view-device-detail-component devicejson="{{ $device }}"></view-device-detail-component>
+					<view-device-detail-component
+						devicejson="{{ $device }}"
+						status="{{ $status }}"
+						>
+					</view-device-detail-component>
                   </div>
                   <div class="tab-pane" id="fields">
                     <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}"></device-field-list-component>

@@ -52,7 +52,7 @@ class Field extends BaseModel
 
     public function value()
     {
-        return $this->hasOne(FieldValue::class, 'field_id', 'id');
+        return $this->hasOne(FieldValue::class, 'field_id', 'id')->orderBy('id', 'desc');
     }
 
     public function values()

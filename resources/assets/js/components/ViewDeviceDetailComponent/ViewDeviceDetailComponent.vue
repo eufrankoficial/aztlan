@@ -1,7 +1,7 @@
 <template>
     <div class="ViewDeviceDetailComponent">
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
                 <div class="small-box bg-success">
                     <div class="inner">
                         <h3>{{ device.code_device }}</h3>
@@ -9,25 +9,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
                 <!-- small box -->
-                <div class="small-box bg-warning">
+                <div class="small-box" :class="'bg-' + statusmodel.class">
                     <div class="inner">
                         <h3>{{ device.updated_at }}</h3>
-                        <p>Ultima Atualização</p>
+                        <p>{{ statusmodel.name }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>Online</h3>
-                        <p>Status</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-4 col-6">
                 <!-- small box -->
                 <div class="small-box">
                     <div class="inner">
@@ -75,7 +66,7 @@
 
     export default {
         name: 'ViewDeviceDetailComponent',
-        props: ['devicejson'],
+        props: ['devicejson', 'status'],
 
         mounted() {
             this.getFields();
@@ -83,7 +74,8 @@
 
         data () {
             return {
-                device: JSON.parse(this.devicejson)
+				device: JSON.parse(this.devicejson),
+				statusmodel: JSON.parse(this.status)
             }
         },
 
