@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class ApiRequestDeviceStore extends FormRequest
 {
@@ -24,14 +25,14 @@ class ApiRequestDeviceStore extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required'
+
         ];
     }
 
     public function messages()
     {
         return [
-            'id.required' => 'Informe o do código do dispositivo'
+
         ];
     }
 

@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApiRequestDeviceStore;
-use App\Models\Device;
 use App\Services\System\FieldService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Services\Device\DeviceService;
+use Illuminate\Support\Facades\Log;
 
 class DeviceController extends Controller
 {
@@ -27,9 +26,17 @@ class DeviceController extends Controller
         $this->fieldService = $fieldService;
     }
 
+    // Implementar a url de confirmação
     public function store(ApiRequestDeviceStore $request)
     {
+		if(!empty($request->get('confirmationToken'))) {
+			Log::info('AWS IOT request : token: ' . json_encode($request->get('confirmationToken')));
+			Log::info('Request header: ' . json_encode($request->header()));
+			return response()->json(['msg' => 'Validated'], 200);
+		}
+
         try {
+
             DB::beginTransaction();
             $data = $request->except('_token');
             $device = $data;
@@ -44,6 +51,8 @@ class DeviceController extends Controller
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
             DB::rollback();
+			Log::info('Request data: ' . json_encode($request->all()));
+			Log::info('Request header: ' . json_encode($request->header()));
             return response()->json(['status' => false]);
         }
     }
