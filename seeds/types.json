@@ -1,35 +1,40 @@
 {
     "types": [
         {
-            "type": "integer",
-            "form_type": "text",
-            "slug": "integer"
+            "type": "Porcentagem",
+            "form_type": "porcentagem",
+            "slug": "porcentagem"
         },
         {
-            "type": "bigint",
-            "form_type": "text",
-            "slug": "bigint"
+            "type": "Localização",
+            "form_type": "Localização",
+            "slug": "localizacao"
         },
         {
-            "type": "bigint",
-            "form_type": "text",
-            "slug": "bigint"
+            "type": "Temperatura",
+            "form_type": "Temperatura",
+            "slug": "temperatura"
         },
         {
-            "type": "float",
-            "form_type": "text",
-            "slug": "float"
+            "type": "Voltagem",
+            "form_type": "Voltagem",
+            "slug": "voltagem"
         },
         {
-            "type": "double",
-            "form_type": "text",
-            "slug": "double"
+            "type": "CO2",
+            "form_type": "CO2",
+            "slug": "co2"
         },
         {
-            "type": "varchar",
-            "form_type": "text",
-            "slug": "varchar"
-        }
+            "type": "Data",
+            "form_type": "Data",
+            "slug": "data"
+        },
+		{
+			"type": "Identificador",
+			"form_type": "Identificador",
+			"slug": "identificador"
+		}
     ]
 }
 
