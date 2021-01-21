@@ -7,11 +7,11 @@
 @section('content')
     <div class="row">
 		@foreach($devices as $device)
-			<div class="col-lg-3 col-6">
-				<div class="small-box bg-success">
+			<div class="col-lg-4 col-md-6 col-sm-12">
+				<div class="small-box bg-{{ $device->status }} p-3">
 					<a href="{{ route('device.detail', $device) }}" class="block">
 						<div class="inner">
-							<h3>{{ $device->code_device }}</h3>
+							<h4>{{ $device->code_device }}</h4>
 						</div>
 						<div  class="small-box-footer">Detalhes
 							<i class="fas fa-arrow-circle-right"></i>

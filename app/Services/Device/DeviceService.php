@@ -120,19 +120,17 @@ class DeviceService
     {
         $devices = $this->deviceRepo->all(15, true);
         $devices->map(function(&$device) {
-            $detail = $device->detail;
-            $device->status = 'success';
-            if(!empty($detail->stamp)) {
-                $stamp = Carbon::parse($detail->stamp);
-                $days = $stamp->diffInDays(Carbon::now());
 
-                if($days > 1) {
-                    $device->status = 'danger';
-                } elseif($days <= 1 && $days <> 0) {
-                    $device->status = 'warning';
-                }
-                $device->stamp_view = $stamp->diffForHumans();
-            }
+			$now = now();
+			$updated = $now->diffInDays($device->updated_at_status ?: $device->created_at);
+
+			if($updated == 1) {
+				$device->status = 'warning';
+			} elseif($updated > 1) {
+				$device->status = 'danger';
+			} else {
+				$device->status = 'success';
+			}
         });
 
         return $devices;
