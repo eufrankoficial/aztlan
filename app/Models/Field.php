@@ -47,7 +47,7 @@ class Field extends BaseModel
 
     public function type()
     {
-        return $this->hasOne(Type::class, 'type_id', 'id');
+        return $this->belongsTo(Type::class, 'type_id', 'id');
     }
 
     public function value()

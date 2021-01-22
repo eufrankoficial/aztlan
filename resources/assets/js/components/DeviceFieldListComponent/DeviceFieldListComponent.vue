@@ -12,7 +12,6 @@
                                     class="form-control form-control-lg float-right"
                                     placeholder="ID DO DISPOSITIVO"
                                     v-model="device"
-                                    @change="getDeviceFields($event)"
                                 />
                             </form>
                         </div>
@@ -46,6 +45,7 @@
                                 :key="index"
                                 :field="field"
                                 :url="currentUrl"
+								:types="typesprop"
                             ></field-list-item-component>
                         </tbody>
                     </table>
@@ -62,7 +62,7 @@
 
     export default {
         name: 'DeviceFieldListComponent',
-        props: ['getfieldsaction'],
+        props: ['getfieldsaction', 'typesprop'],
         components: {
             FieldListItemComponent
         },

@@ -31,7 +31,7 @@
 					</view-device-detail-component>
                   </div>
                   <div class="tab-pane" id="fields">
-                    <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}"></device-field-list-component>
+                    <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}" typesprop="{{  $typeFields }}"></device-field-list-component>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="charts" style="left: -47.7px; position: relative;">

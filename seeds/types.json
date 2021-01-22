@@ -34,6 +34,11 @@
 			"type": "Identificador",
 			"form_type": "Identificador",
 			"slug": "identificador"
+		},
+		{
+			"type": "Nome",
+			"form_type": "Nome",
+			"slug": "nome"
 		}
     ]
 }

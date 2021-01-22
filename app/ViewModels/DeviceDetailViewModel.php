@@ -3,6 +3,7 @@
 namespace App\ViewModels;
 
 use App\Models\Device;
+use App\Models\Type;
 use App\Services\Device\DeviceService;
 use Spatie\ViewModels\ViewModel;
 use App\Enums\ChartTypeEnum;
@@ -24,7 +25,7 @@ class DeviceDetailViewModel extends ViewModel
     {
         $this->deviceService = $deviceService;
         $this->device = $device;
-        $this->device->load(['fields.value', 'charts']);
+        $this->device->load(['fields.type', 'fields.value', 'charts']);
     }
 
     public function device(): Device
@@ -70,5 +71,10 @@ class DeviceDetailViewModel extends ViewModel
 		}
 
 		return json_encode($status);
+	}
+
+	public function typeFields()
+	{
+		return Type::orderBy('type', 'asc')->get();
 	}
 }

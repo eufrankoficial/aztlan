@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
+      <change afterPath="$PROJECT_DIR$/app/Repositories/System/TypeRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Field.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Field.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ViewModels/DeviceDetailViewModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ViewModels/DeviceDetailViewModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/DeviceChartTypeComponent/DeviceChartTypeComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/DeviceChartTypeComponent/DeviceChartTypeComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/LineChartComponent/LineChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/LineChartComponent/LineChartComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/RenderChartComponent/RenderChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/RenderChartComponent/RenderChartComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/DeviceFieldListComponent/DeviceFieldListComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/DeviceFieldListComponent/DeviceFieldListComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/FieldListItemComponent/FieldListItemComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/FieldListItemComponent/FieldListItemComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/device/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeds/types.json" beforeDir="false" afterPath="$PROJECT_DIR$/seeds/types.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +296,8 @@
       <workItem from="1611241066288" duration="5847000" />
       <workItem from="1611256916690" duration="1545000" />
       <workItem from="1611270436026" duration="5187000" />
-      <workItem from="1611323473916" duration="1283000" />
+      <workItem from="1611323473916" duration="1471000" />
+      <workItem from="1611328162562" duration="6747000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
