@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/DeviceChartTypeComponent/DeviceChartTypeComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/DeviceChartTypeComponent/DeviceChartTypeComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/LineChartComponent/LineChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/LineChartComponent/LineChartComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/RenderChartComponent/RenderChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/RenderChartComponent/RenderChartComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/detail.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package.json" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -281,7 +292,8 @@
       <workItem from="1611170568705" duration="239000" />
       <workItem from="1611241066288" duration="5847000" />
       <workItem from="1611256916690" duration="1545000" />
-      <workItem from="1611270436026" duration="4042000" />
+      <workItem from="1611270436026" duration="5187000" />
+      <workItem from="1611323473916" duration="1283000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>

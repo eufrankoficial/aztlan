@@ -34,10 +34,10 @@
                     <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}"></device-field-list-component>
                   </div>
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="charts">
-					  	<div class="col-lg-12">
-							  <render-chart-component data="{{ $chart }}" />
-						  </div>
+                  <div class="tab-pane" id="charts" style="left: -47.7px; position: relative;">
+					  <div class="col-lg-12 col-md-12 col-sm-12">
+						  <render-chart-component data="{{ $chart }}" />
+					  </div>
                   </div>
 
                   <div class="tab-pane" id="chartconfig">

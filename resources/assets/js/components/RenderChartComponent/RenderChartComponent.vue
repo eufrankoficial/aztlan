@@ -1,6 +1,6 @@
 <template>
     <div class="RenderChartComponent">
-        <div class="col-lg-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
             <line-chart-component :chart="data"></line-chart-component>
         </div>
     </div>
