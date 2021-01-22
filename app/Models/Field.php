@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Formats\GiveMeTheFormatClass;
 use App\Traits\Searchable;
 use Spatie\Sluggable\HasSlug;
 

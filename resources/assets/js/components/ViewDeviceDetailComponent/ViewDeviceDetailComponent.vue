@@ -47,7 +47,7 @@
                                         class="description-percentage text-success"
                                     ></span>
                                     <h5 class="description-header">
-                                        {{ field.value.value }}
+                                        {{ field.formatted_value }}
                                     </h5>
                                     <span class="description-text">{{
                                         field.list_name

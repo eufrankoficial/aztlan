@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Formats\GiveMeTheFormatClass;
 use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,4 +34,13 @@ class FieldValue extends BaseModel
     {
         return $this->belongsTo(Field::class, 'field_id', 'id');
     }
+
+    public function getFormattedValueAttribute()
+	{
+		$formatted = new GiveMeTheFormatClass($this->field->type_id, [
+			'value' => $this->attributes['value']
+		]);
+
+		return $formatted->getValue();
+	}
 }

@@ -2,11 +2,11 @@
 
 namespace App\Services\Device;
 
+use App\Formats\GiveMeTheFormatClass;
 use App\Models\Device;
 use App\Models\Field;
 use App\Repositories\Device\DeviceRepository;
-use App\Services\Interfaces\BaseServiceInterface;
-use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 
@@ -74,10 +74,23 @@ class DeviceService
     public function show($device)
     {
         $device->stamp_view = $device->created_at;
-        $device->status = 'online';
-
+        $this->formatDeviceFieldValues($device);
         return $device;
     }
+
+    public function formatDeviceFieldValues(&$device)
+	{
+		$device->fields->map(function($field) {
+			$typeId = $field->type_id;
+			$value = $field->value->value;
+			$formatted = new GiveMeTheFormatClass($typeId, [
+				'value' => $value
+			]);
+
+			$field->formatted_value = $formatted->getValue();
+			$field->value->formatted_value = $formatted->getValue();
+		});
+	}
 
     public function chart(Device $device)
     {
@@ -88,26 +101,25 @@ class DeviceService
 
 		if(!empty($fieldToChart->pivot)) {
 			// pegar todos os valores desse campos
-		$fieldAxe = $device->fields()
-			->with(['values'])
-			->whereHas('values', function($query) {
-				$query->orderBy('created_at', 'asc');
-			})->where('field_id', $fieldToChart->pivot->field_id)
-			->first();
+			$fieldAxe = $device->fields()
+				->with(['values'])
+				->where('field_id', $fieldToChart->pivot->field_id)
+				->first();
 
-		$dataLabels = $fieldAxe->values->pluck('value')->toArray();
-		$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->where('show_on_chart', 1)->get();
+			$dataLabels = $fieldAxe->values->pluck('formatted_value')->toArray();
+			$dataLabels = array_reverse($dataLabels);
+			$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->where('show_on_chart', 1)->get();
 
-        $sets = [];
-        foreach($fields as $key => $field) {
-            if($field->field !== $fieldAxe->field) {
-                $sets[] = [
-                    'label' => $field->list_name,
-                    'backgroundColor' => $field->color_on_chart,
-                    'data' => $field->values->pluck('value')->toArray()
-                ];
-            }
-        }
+			$sets = [];
+			foreach($fields as $key => $field) {
+				if($field->field !== $fieldAxe->field) {
+					$sets[] = [
+						'label' => $field->list_name,
+						'backgroundColor' => $field->color_on_chart,
+						'data' => array_reverse($field->values->pluck('value')->toArray())
+					];
+				}
+			}
 		}
 
         return collect([
