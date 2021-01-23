@@ -2,6 +2,8 @@
 
 namespace App\Services\Device;
 
+use App\Enums\ChartTypeEnum;
+use App\Enums\TrueOrFalseEnum;
 use App\Formats\GiveMeTheFormatClass;
 use App\Models\Device;
 use App\Models\Field;
@@ -97,18 +99,25 @@ class DeviceService
 		$dataLabels = [];
 		$sets = [];
 		// Eixo x do dispositivo
-        $fieldToChart = $device->charts()->where('x', 1)->first();
+		$fieldToChart = $device->charts->filter(function($chart) {
+			return $chart->id == ChartTypeEnum::LINE;
+		});
 
-		if(!empty($fieldToChart->pivot)) {
-			// pegar todos os valores desse campos
-			$fieldAxe = $device->fields()
-				->with(['values'])
-				->where('field_id', $fieldToChart->pivot->field_id)
-				->first();
+        $fieldToChart = $fieldToChart->first();
+
+		 if(!empty($fieldToChart->pivot)) {
+			// pegar todos os valores desse campo
+			$pivotId = $fieldToChart->pivot->field_id;
+		 	$fieldAxe = $device->fields->filter(function($field) use ($pivotId){
+				return $field->id === $pivotId;
+		 	})->first();
 
 			$dataLabels = $fieldAxe->values->pluck('formatted_value')->toArray();
 			$dataLabels = array_reverse($dataLabels);
-			$fields = $device->fields()->with('values')->whereNotIn('field', [$fieldAxe->field])->where('show_on_chart', 1)->get();
+
+			$fields = $device->fields->filter(function($field) use ($fieldAxe){
+				return $field->field !== $fieldAxe->field && $field->show_on_chart == TrueOrFalseEnum::TRUE;
+			});
 
 			$sets = [];
 			foreach($fields as $key => $field) {

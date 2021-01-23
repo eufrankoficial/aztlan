@@ -13,7 +13,7 @@ class TimeStamp implements FormatValue
 
     public function format()
     {
-        $value = Carbon::createFromTimestamp(strtotime($this->value))->isoFormat('Do MMMM, H:mm');
+        $value = Carbon::createFromTimestamp(strtotime($this->value))->format('d/m/Y H:i');
         $this->value = $value;
 
         return $this;
