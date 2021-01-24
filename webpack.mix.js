@@ -35,7 +35,8 @@ mix.styles([
     adminLteBase + 'jqvmap/jqvmap.min.css',
     adminLteBase + 'overlayScrollbars/css/OverlayScrollbars.min.css',
     adminLteBase + 'daterangepicker/daterangepicker.css',
-    adminLteBase + 'summernote/summernote-bs4.min.css'
+    adminLteBase + 'summernote/summernote-bs4.min.css',
+	core + 'css/timepicker.css'
 ],
     basePath + 'css/default.min.css'
 );
