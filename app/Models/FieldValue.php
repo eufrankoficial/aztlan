@@ -4,8 +4,6 @@ namespace App\Models;
 
 use App\Formats\GiveMeTheFormatClass;
 use App\Traits\Searchable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 
 class FieldValue extends BaseModel
@@ -14,6 +12,10 @@ class FieldValue extends BaseModel
     protected $table = 'field_value';
     protected $keyName = 'slug';
     protected $sourceSlug = 'value';
+
+	protected $searchableAttrs = [
+		'created_at' => 'bettween'
+	];
 
     protected $fillable = [
         'field_id',

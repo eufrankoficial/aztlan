@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
  * Trait Searchable.
  * @package App\Traits.
  */
-trait Searchable
+trait 	Searchable
 {
     /**
      * @param Builder $builder

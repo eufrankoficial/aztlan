@@ -73,14 +73,14 @@ class DeviceService
 
     }
 
-    public function show($device)
+    public function show($device, $request)
     {
         $device->stamp_view = $device->created_at;
-        $this->formatDeviceFieldValues($device);
+        $this->formatDeviceFieldValues($device, $request);
         return $device;
     }
 
-    public function formatDeviceFieldValues(&$device)
+    public function formatDeviceFieldValues(&$device, $request)
 	{
 		$device->fields->map(function($field) {
 			$typeId = $field->type_id;
@@ -93,49 +93,6 @@ class DeviceService
 			$field->value->formatted_value = $formatted->getValue();
 		});
 	}
-
-    public function chart(Device $device)
-    {
-		$dataLabels = [];
-		$sets = [];
-		// Eixo x do dispositivo
-		$fieldToChart = $device->charts->filter(function($chart) {
-			return $chart->id == ChartTypeEnum::LINE;
-		});
-
-        $fieldToChart = $fieldToChart->first();
-
-		 if(!empty($fieldToChart->pivot)) {
-			// pegar todos os valores desse campo
-			$pivotId = $fieldToChart->pivot->field_id;
-		 	$fieldAxe = $device->fields->filter(function($field) use ($pivotId){
-				return $field->id === $pivotId;
-		 	})->first();
-
-			$dataLabels = $fieldAxe->values->pluck('formatted_value')->toArray();
-			$dataLabels = array_reverse($dataLabels);
-
-			$fields = $device->fields->filter(function($field) use ($fieldAxe){
-				return $field->field !== $fieldAxe->field && $field->show_on_chart == TrueOrFalseEnum::TRUE;
-			});
-
-			$sets = [];
-			foreach($fields as $key => $field) {
-				if($field->field !== $fieldAxe->field) {
-					$sets[] = [
-						'label' => $field->list_name,
-						'backgroundColor' => $field->color_on_chart,
-						'data' => array_reverse($field->values->pluck('value')->toArray())
-					];
-				}
-			}
-		}
-
-        return collect([
-            'labels' => $dataLabels,
-            'sets' => $sets
-        ]);
-    }
 
     public function getDeviceList(): ?LengthAwarePaginator
     {

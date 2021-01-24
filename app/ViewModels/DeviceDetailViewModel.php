@@ -30,7 +30,7 @@ class DeviceDetailViewModel extends ViewModel
 
     public function device(): Device
     {
-        return $this->deviceService->show($this->device);
+        return $this->deviceService->show($this->device, request());
     }
 
     public function chartTypes()
@@ -42,11 +42,6 @@ class DeviceDetailViewModel extends ViewModel
 
         return json_encode($types);
     }
-
-    public function chart()
-    {
-        return $this->deviceService->chart($this->device);
-	}
 
 	public function status()
 	{

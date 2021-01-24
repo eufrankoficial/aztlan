@@ -37,4 +37,17 @@ class DeviceChartController extends Controller
 			return response()->json(['status' => false]);
 		}
     }
+
+    public function getDataChart(Device $device, Request $request)
+	{
+		try {
+			$chart = $this->deviceChartService->getDataChart($device, $request);
+			return response()->json([
+				'data' => $chart
+			]);
+		} catch (\Exception $e) {
+			dd($e);
+			return response()->json(['status' => false]);
+		}
+	}
 }

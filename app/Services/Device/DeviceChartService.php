@@ -2,8 +2,11 @@
 
 namespace App\Services\Device;
 
+use App\Enums\ChartTypeEnum;
+use App\Enums\TrueOrFalseEnum;
 use App\Models\Device;
 use App\Repositories\Device\DeviceRepository;
+use Carbon\Carbon;
 
 class DeviceChartService
 {
@@ -58,6 +61,78 @@ class DeviceChartService
 		$device->load(['charts']);
 
 		return $device;
+	}
+
+	public function getDataChart($device, $request)
+	{
+		return $this->chart($device, $request);
+	}
+
+	private function chart(Device $device, $request)
+	{
+		$dataLabels = [];
+		$sets = [];
+
+		// Eixo x do dispositivo
+		$fieldToChart = $device->charts->filter(function($chart) {
+			return $chart->id == ChartTypeEnum::LINE;
+		});
+
+		$fieldToChart = $fieldToChart->first();
+
+		$initialDate = now();
+		if(!is_null($request->get('initialDate'))) {
+			$initialDate = $request->get('initialDate');
+			$initialDate = Carbon::parse($initialDate);
+		}
+
+		$finalDate = now();
+		if(!is_null($request->get('finalDate'))) {
+			$finalDate = $request->get('finalDate');
+			$finalDate = Carbon::parse($finalDate);
+		}
+
+
+		if(!empty($fieldToChart->pivot)) {
+			// pegar todos os valores desse campo
+			$pivotId = $fieldToChart->pivot->field_id;
+			$fieldAxe = $device->fields->filter(function($field) use ($pivotId){
+				return $field->id === $pivotId;
+			})->first();
+
+			$dataLabels = $fieldAxe->values()->whereBetween('value', [
+				$initialDate->startOfDay()->format('Y-m-d H:i:s'),
+				$finalDate->endOfDay()->format('Y-m-d H:i:s')
+			])->get();
+
+			$dataLabels = $dataLabels->pluck('formatted_value')->toArray();
+
+			$fields = $device->fields->filter(function($field) use ($fieldAxe){
+				return $field->field !== $fieldAxe->field && $field->show_on_chart == TrueOrFalseEnum::TRUE;
+			});
+
+
+
+			$sets = [];
+			foreach($fields as $key => $field) {
+				if($field->field !== $fieldAxe->field) {
+					$values = $field->values->filter(function ($value) use ($initialDate, $finalDate){
+						return $value->created_at->between($initialDate->startOfDay()->format('Y-m-d H:i:s'), $finalDate->endOfDay()->format('Y-m-d H:i:s'));
+					});
+
+					$sets[] = [
+						'label' => $field->list_name,
+						'backgroundColor' => $field->color_on_chart,
+						'data' => $values->pluck('value')->toArray()
+					];
+				}
+			}
+		}
+
+		return collect([
+			'labels' => $dataLabels,
+			'sets' => $sets
+		]);
 	}
 
 }

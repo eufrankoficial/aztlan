@@ -36,7 +36,7 @@
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="charts" style="left: -47.7px; position: relative;">
 					  <div class="col-lg-12 col-md-12 col-sm-12">
-						  <render-chart-component data="{{ $chart }}" />
+						  <render-chart-component device="{{ $device }}" action="{{ route('device.get.chart', $device) }}"/>
 					  </div>
                   </div>
 
