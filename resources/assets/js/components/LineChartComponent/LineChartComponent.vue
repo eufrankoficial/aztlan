@@ -1,7 +1,7 @@
 <script>
-    import { Line } from 'vue-chartjs';
+    import { Line, mixins } from 'vue-chartjs';
     export default {
-        extends: Line,
+		extends: Line,
         name: 'LineChartComponent',
         props: ['chart', 'labels', 'sets'],
 
