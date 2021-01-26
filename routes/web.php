@@ -15,6 +15,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DeviceChartController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\UserGroupController;
+use App\Http\Controllers\DeviceReportController;
 
 Route::middleware('guest')->namespace('Auth')->group(function() {
     Route::get('/', [AuthController::class, 'index'])->name('login.index');
@@ -48,6 +49,7 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
 		Route::post('/{device}', [DeviceController::class, 'update'])->middleware(['can:device.update'])->name('update');
 		Route::post('/{device?}/save-chart-config', [DeviceChartController::class, 'save'])->middleware(['can:config.device.chart'])->name('save.chart.config');
 		Route::post('/{device?}/chart-data', [DeviceChartController::class, 'getDataChart'])->middleware(['can:config.device.chart'])->name('get.chart');
+		Route::post('/{device}/report', [DeviceReportController::class, 'generate'])->middleware(['can:config.device.chart'])->name('post.report');
         Route::post('/{device?}/{field}', [FieldController::class, 'update'])->middleware(['can:device.update'])->name('save');
     });
 

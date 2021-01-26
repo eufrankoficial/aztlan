@@ -2,13 +2,10 @@
 
 namespace App\Services\Device;
 
-use App\Enums\ChartTypeEnum;
-use App\Enums\TrueOrFalseEnum;
 use App\Formats\GiveMeTheFormatClass;
 use App\Models\Device;
 use App\Models\Field;
 use App\Repositories\Device\DeviceRepository;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 

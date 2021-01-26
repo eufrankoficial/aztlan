@@ -1,5 +1,19 @@
 <?php
 
+if(!function_exists('extractHourAndMinutesFromTime'))
+{
+	function extractHourAndMinutesFromTime($timeString)
+	{
+		$time = explode(':', $timeString);
+
+		return [
+			'hour' => $time[0],
+			'minutes' => $time[1],
+			'seconds' => isset($time[2]) ?: 0
+		];
+	}
+}
+
 if(!function_exists('company'))
 {
     function company()
@@ -7,8 +21,6 @@ if(!function_exists('company'))
         return auth()->user()->company;
     }
 }
-
-
 
 if(!function_exists('current_user'))
 {

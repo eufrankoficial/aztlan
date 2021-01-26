@@ -39,7 +39,6 @@
 
         methods: {
             mountChart: function () {
-            	console.log('Tamanho ' + this.chartOptions.length);
 				if(this.chartOptions.length > 0) {
 					this.chartdata.labels = this.chartOptions.labels;
 					this.chartdata.datasets = this.chartOptions.sets;

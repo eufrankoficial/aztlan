@@ -36,7 +36,7 @@
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="charts">
 					  <div class="col-lg-12 col-md-12 col-sm-12">
-						  <render-chart-component device="{{ $device }}" action="{{ route('device.get.chart', $device) }}"/>
+						  <render-chart-component device="{{ $device }}" action="{{ route('device.get.chart', $device) }}" actionreport="{{ route('device.post.report', $device) }}"/>
 					  </div>
                   </div>
 
