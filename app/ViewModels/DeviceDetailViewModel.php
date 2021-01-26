@@ -51,7 +51,7 @@ class DeviceDetailViewModel extends ViewModel
 		];
 
 		$now = now();
-		$updated = $now->diffInDays($this->device->updated_at_status ?: $this->device->created_at);
+		$updated = $now->diffInDays($this->device->getUpdatedAtStatus() ?: $this->device->created_at);
 
 		if($updated == 1) {
 			$status = [

@@ -97,7 +97,7 @@ class DeviceService
         $devices->map(function(&$device) {
 
 			$now = now();
-			$updated = $now->diffInDays($device->updated_at_status ?: $device->created_at);
+			$updated = $now->diffInDays($device->getUpdatedAtStatus() ?: $device->created_at);
 
 			if($updated == 1) {
 				$device->status = 'warning';
