@@ -53,6 +53,7 @@ class DeviceController extends Controller
             DB::rollback();
 			Log::info('Request data: ' . json_encode($request->all()));
 			Log::info('Request header: ' . json_encode($request->header()));
+			Log::error($e->getMessage());
             return response()->json(['status' => false]);
         }
     }
