@@ -44,21 +44,25 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
 							<tr>
-								@foreach($report['report']['fields'] as $field)
+								@forelse($report['report']['fields'] as $field)
 									@if($field->show_on_report)
 										<th>{{ $field->report_name }}</th>
 									@endif
-								@endforeach
+								@empty
+									<td>Não foram encontrados dados nas datas escolhidas</td>
+								@endforelse
 							</tr>
                         </thead>
                         <tbody>
-							@foreach($report['report']['lines'] as $key => $line)
+								@forelse($report['report']['lines'] as $key => $line)
 								<tr>
 									@foreach($line as $key=> $l)
 										<td>{{ $l }}</td>
 									@endforeach
 								</tr>
-							@endforeach
+								@empty
+									<td>Não foram encontrados dados nas datas escolhidas</td>
+								@endforelse
 						</tbody>
                     </table>
                 </div>

@@ -26,13 +26,10 @@
 				</div>
 				<div class="row">
 				<div class="col-md-6 col-sm-12 text-left">
-					<button class="btn btn-success" @click="filterData($event)">
+					<a href="javascript:void(0);" class="btn btn-success" @click="filterData($event)">
 						<i class="fa fa-search"></i> {{ textButton }}
-					</button>
-					<a href="javascript:void(0);" class="btn btn-warning">
-						<i class="fa fa-close"></i> Limpar
 					</a>
-					<button type="submit" class="btn btn-default">
+					<button type="submit" class="btn btn-warning">
 						<i class="fa fa-print"></i> {{ textButtonReport }}
 					</button>
 				</div>
