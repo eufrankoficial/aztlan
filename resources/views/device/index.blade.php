@@ -19,6 +19,19 @@
 					</a>
 				</div>
 			</div>
-    @endforeach
+    	@endforeach
     </div>
+	@if($devices->count() > 30)
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<!-- /.card-header -->
+					<div class="card-body table-responsive p-0">
+						@include('partials.pagination', ['data' => $devices])
+					</div>
+					<!-- /.card-body -->
+				</div>
+			</div>
+		</div>
+	@endif
 @stop

@@ -13,7 +13,7 @@
                     </div>
                 </div>
             @endforeach
-            <!-- ./col -->
+			@include('partials.pagination', ['data' => $devices])
         </div>
         <!-- /.row -->
     @stop

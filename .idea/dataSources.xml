@@ -7,5 +7,12 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/aztlan</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Prod" uuid="511128ea-41a8-45fd-8265-f464832ffaf5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://aztlanapp.cgrmafmz6bng.us-east-1.rds.amazonaws.com:3306/aztlandb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

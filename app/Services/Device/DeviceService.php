@@ -77,9 +77,8 @@ class DeviceService
 
     public function getDeviceList(): ?LengthAwarePaginator
     {
-        $devices = $this->deviceRepo->all(15, true);
+        $devices = $this->deviceRepo->all(30, true);
         $devices->map(function(&$device) {
-
 			$now = now();
 			$updated = $now->diffInDays($device->getUpdatedAtStatus() ?: $device->created_at);
 

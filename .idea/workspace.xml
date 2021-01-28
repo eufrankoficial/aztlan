@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
-      <change afterPath="$PROJECT_DIR$/app/Services/System/JobService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/DeviceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceChartService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceChartService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/device/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/device/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/pagination.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +203,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../estudos/aws/aws-doc-sdk-examples/php/example_code/kinesisfirehose" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -304,7 +308,10 @@
       <workItem from="1611616321571" duration="12360000" />
       <workItem from="1611668143873" duration="2433000" />
       <workItem from="1611707761217" duration="1198000" />
-      <workItem from="1611793929806" duration="6852000" />
+      <workItem from="1611793929806" duration="7550000" />
+      <workItem from="1611840450871" duration="5309000" />
+      <workItem from="1611849186493" duration="6487000" />
+      <workItem from="1611862899017" duration="2374000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
