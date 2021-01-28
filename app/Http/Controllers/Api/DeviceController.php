@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApiRequestDeviceStore;
 use App\Services\System\FieldService;
+use App\Services\System\JobService;
 use Illuminate\Support\Facades\DB;
 use App\Services\Device\DeviceService;
 use Illuminate\Support\Facades\Log;
@@ -20,10 +21,11 @@ class DeviceController extends Controller
      * @var FieldService.
      */
     protected $fieldService;
-    public function __construct(DeviceService $deviceService, FieldService $fieldService)
+    public function __construct(DeviceService $deviceService, FieldService $fieldService, JobService $jobService)
     {
         $this->deviceService = $deviceService;
         $this->fieldService = $fieldService;
+        $this->jobService = $jobService;
     }
 
     // Implementar a url de confirmação
@@ -40,12 +42,10 @@ class DeviceController extends Controller
             DB::beginTransaction();
             $data = $request->except('_token');
             $device = $data;
+            $this->jobService->createJobOnQueue($device);
 
-            $device = $this->deviceService->save([
-                'code_device' => $device['id']
-            ]);
-
-            $this->fieldService->prepareFieldsAndSave($request->except('_token'), $device);
+            //$device = $this->deviceService->save(['code_device' => $device['id']]);
+            //$this->fieldService->prepareFieldsAndSave($request->except('_token'), $device);
 
             DB::commit();
             return response()->json(['status' => true]);

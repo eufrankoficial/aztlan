@@ -7,7 +7,6 @@ use App\Models\Device;
 use App\Models\Field;
 use App\Repositories\Device\DeviceRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Http\Request;
 
 class DeviceService
 {
@@ -28,26 +27,16 @@ class DeviceService
         ])->where('id', $device->id)->first();
     }
 
-    public function saveFields(Device $device, $deviceFields)
-    {
-
-    }
-
     public function updateField($data, Field $field)
     {
         return $field->update($data);
-    }
-
-    public function list(Request $request)
-    {
-
     }
 
     public function save(array $data)
     {
         $device = $this->deviceRepo
                     ->with(['fields'])
-                    ->where('code_device', $data['code_device'])->first();
+                    ->where('code_device', trim($data['code_device']))->first();
 
         if(!$device)
             $model = $this->deviceRepo->create($data);
@@ -63,11 +52,6 @@ class DeviceService
         $device->detail()->create($data['detail']);
 
         return $device;
-    }
-
-    public function delete($user)
-    {
-
     }
 
     public function show($device, $request)

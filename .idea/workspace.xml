@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Disable notification after compiled npm run dev">
+      <change afterPath="$PROJECT_DIR$/app/Services/System/JobService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/DeviceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/DeviceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +302,9 @@
       <workItem from="1611442165100" duration="3281000" />
       <workItem from="1611504961146" duration="13069000" />
       <workItem from="1611616321571" duration="12360000" />
-      <workItem from="1611668143873" duration="712000" />
+      <workItem from="1611668143873" duration="2433000" />
+      <workItem from="1611707761217" duration="1198000" />
+      <workItem from="1611793929806" duration="6852000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
