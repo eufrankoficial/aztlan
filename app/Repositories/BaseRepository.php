@@ -172,7 +172,8 @@ abstract class BaseRepository implements BaseInterfaceRepository
 
 	public function orderBy($field, $direction)
 	{
-		return $this->newQuery()->orderBy($field, $direction);
+		$this->newQuery()->orderBy($field, $direction);
+		return $this;
 	}
 
     /**
