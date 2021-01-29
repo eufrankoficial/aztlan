@@ -37,9 +37,10 @@
 			</form>
 		</div>
 		<div class="row">
-        	<div class="col-lg-12 col-md-12 col-sm-12">
+        	<div class="col-lg-12 col-md-12 col-sm-12" id="chart">
 				<line-chart-component :labels="labels" :sets="sets" :chart="datachart" v-if="labels.length > 0"></line-chart-component>
 			</div>
+
         </div>
     </div>
 </template>
@@ -74,16 +75,10 @@
 				textButton: 'Filtrar',
 				textButtonReport: 'Exportar para relatório',
 				token: null,
-				initialDate: new Date(),
-				initialTime: {
-					HH: '00',
-					mm: '00'
-				},
-				finalDate: new Date(),
-				finalTime: {
-					HH: '23',
-					mm: '59'
-				},
+				initialDate: null,
+				initialTime: {},
+				finalDate: null,
+				finalTime: {},
 				devicemodel: null,
 				datachart: [],
 				labels: [],
@@ -92,18 +87,6 @@
 		},
 
 		methods: {
-			exportToReport: async function (event) {
-				this.textButtonReport = 'Carregando...';
-				this.formatDate();
-
-				const data = {
-					initialDate: this.initialDate,
-					finalDate: this.finalDate
-				};
-
-				const response = await request.post(this.actionreport, data);
-			},
-
 			filterData: async function(event) {
 				this.textButton = 'Carregando...';
 				this.formatDate();
@@ -122,14 +105,10 @@
 			formatDate: function () {
 				if(this.initialTime != null && this.initialTime.HH !== undefined && this.initialTime.mm !== undefined) {
 					this.initialDate.setUTCHours(this.initialTime.HH, this.initialTime.mm);
-				} else {
-					this.initialDate.setUTCHours('00', '00');
 				}
 
 				if(this.finalTime !== null && this.finalTime.HH !== undefined && this.finalTime.mm !== undefined) {
 					this.finalDate.setUTCHours(this.finalTime.HH, this.finalTime.mm);
-				} else {
-					this.finalDate.setUTCHours(23, 59);
 				}
 			}
 		}

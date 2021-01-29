@@ -32,7 +32,21 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true
+                    maintainAspectRatio: true,
+					scales: {
+						xAxes:[{
+							ticks:{
+								autoSkip: true,
+								autoSkipPadding: -20,
+								max: 9999,
+								min: 0,
+								stepSize: 0.5
+							}
+						}]
+					},
+					tooltips: {
+						mode: 'index'
+					}
                 }
             };
         },

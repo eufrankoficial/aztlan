@@ -80,13 +80,13 @@ class DeviceChartService
 
 		$fieldToChart = $fieldToChart->first();
 
-		$initialDate = now()->startOfDay();
+		$initialDate = now()->startOfHour();
 		if(!is_null($request->get('initialDate'))) {
 			$initialDate = $request->get('initialDate');
 			$initialDate = Carbon::parse($initialDate);
 		}
 
-		$finalDate = now()->endOfDay();
+		$finalDate = now()->endOfHour();
 		if(!is_null($request->get('finalDate'))) {
 			$finalDate = $request->get('finalDate');
 			$finalDate = Carbon::parse($finalDate);
@@ -100,7 +100,7 @@ class DeviceChartService
 				return $field->id === $pivotId;
 			})->first();
 
-			$dataLabels = $fieldAxe->values()->whereBetween('value', [
+			$dataLabels = $fieldAxe->values()->whereBetween('created_at', [
 				$initialDate->format('Y-m-d H:i'),
 				$finalDate->format('Y-m-d H:i')
 			])->get();
