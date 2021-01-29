@@ -100,7 +100,7 @@ class DeviceChartService
 				return $field->id === $pivotId;
 			})->first();
 
-			$dataLabels = $fieldAxe->values()->whereBetween('created_at', [
+			$dataLabels = $fieldAxe->values()->whereBetween('value', [
 				$initialDate->format('Y-m-d H:i'),
 				$finalDate->format('Y-m-d H:i')
 			])->get();
