@@ -1,4 +1,4 @@
-@extends('layouts.default', ['title' => 'Dispositivo ' . $device->code_device, 'breadcrumb' => 'device.detail', 'param' => $device])
+@extends('layouts.default', ['title' => !empty($device->description) ? $device->description : 'Dispositivo ' . $device->code_device, 'breadcrumb' => 'device.detail', 'param' => $device])
     @section('content')
 
     <div class="row">
@@ -31,7 +31,7 @@
 					</view-device-detail-component>
                   </div>
                   <div class="tab-pane" id="fields">
-                    <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}" typesprop="{{  $typeFields }}"></device-field-list-component>
+                    <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}" typesprop="{{  $typeFields }}" actionsavedevice="{{ route('device.update', $device) }}"></device-field-list-component>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="charts">

@@ -48,8 +48,7 @@ class DeviceService
 
     public function update(array $data, $device)
     {
-        $device = $this->deviceRepo->update($device->id, $data['device']);
-        $device->detail()->create($data['detail']);
+        $device = $this->deviceRepo->update($device->id, $data);
 
         return $device;
     }

@@ -4,7 +4,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h4 class="font-weight-bold">{{ device.code_device }}</h4>
+                        <h4 class="font-weight-bold">{{ device.description != null ? device.description : device.code_device }}</h4>
                         <p>Dispositivo</p>
                     </div>
                 </div>

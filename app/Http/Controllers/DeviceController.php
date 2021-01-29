@@ -73,7 +73,7 @@ class DeviceController extends Controller
 
             return response()->json(['status' => true]);
         } catch(\Exception $e) {
-
+			dd($e);
             DB::rollback();
             return response()->json(['status' => false]);
         }

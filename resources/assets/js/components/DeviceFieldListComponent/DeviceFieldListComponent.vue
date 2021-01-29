@@ -6,13 +6,24 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 mb-3">
                             <form>
-                                <input
-                                    type="text"
-                                    name="term"
-                                    class="form-control form-control-lg float-right"
-                                    placeholder="ID DO DISPOSITIVO"
-                                    v-model="device"
-                                />
+								<div class="form-group">
+									<div class="input-group">
+										<input
+											type="text"
+											name="term"
+											class="form-control form-control-lg float-right"
+											placeholder="ID DO DISPOSITIVO"
+											v-model="description"
+										/>
+										<div class="col-md-3">
+											<button
+												class="btn btn-lg btn-success"
+												@click="updateDeviceName($event)"
+											>{{ buttonSaveName }}</button>
+										</div>
+									</div>
+								</div>
+
                             </form>
                         </div>
                     </div>
@@ -62,7 +73,7 @@
 
     export default {
         name: 'DeviceFieldListComponent',
-        props: ['getfieldsaction', 'typesprop'],
+        props: ['getfieldsaction', 'typesprop', 'actionsavedevice'],
         components: {
             FieldListItemComponent
         },
@@ -78,18 +89,14 @@
             return {
                 fields: [],
                 device: null,
+				description: null,
                 currentUrl: null,
+				buttonSaveName: 'Salvar'
             };
         },
 
         methods: {
             getDeviceFields: async function (event, type = 'change') {
-                if(lastArgumentUrl == 'fields') {
-                    this.currentUrl = addCodeDeviceToUrl(this.device);
-                } else {
-                    this.currentUrl = changeLastUrlStringDeviceCode(lastArgumentUrl, this.device);
-                }
-
                 const code = this.device;
                 const url = this.getfieldsaction;
 
@@ -100,10 +107,23 @@
                 }
 
                 this.fields = response.data.device.fields;
+                this.description = response.data.device.description;
             },
 
-            changeUrl: function () {
+            updateDeviceName: async function (event) {
+            	this.buttonSaveName = 'Salvando...';
+				event.preventDefault();
+				const data = {
+					description: this.description
+				}
+				const response = request.post(this.actionsavedevice, data);
+				this.buttonSaveName = 'Salvo!';
+				let buttonName = this.buttonSaveName;
+				setTimeout(function () {
+					buttonName = 'Salvar';
+				}, 3000);
 
+				this.buttonSaveName = buttonName;
             }
         }
     };
