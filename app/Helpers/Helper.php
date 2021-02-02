@@ -1,5 +1,12 @@
 <?php
 
+if(!function_exists('hex_to_rgb')) {
+	function hexToRgb($hexCode) {
+		list($r, $g, $b) = sscanf($hexCode, "#%02x%02x%02x");
+		return "$r, $g, $b";
+	}
+}
+
 if(!function_exists('extractHourAndMinutesFromTime'))
 {
 	function extractHourAndMinutesFromTime($timeString)

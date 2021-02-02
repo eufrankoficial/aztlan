@@ -36,7 +36,7 @@
 					scales: {
 						xAxes:[{
 							ticks:{
-								autoSkip: true,
+								autoSkip: false,
 								autoSkipPadding: -20,
 								max: 9999,
 								min: 0,

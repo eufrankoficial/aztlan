@@ -120,7 +120,8 @@ class DeviceChartService
 
 				$sets[] = [
 					'label' => $field->list_name,
-					'backgroundColor' => $field->color_on_chart,
+					'backgroundColor' => 'rgba(' . hexToRgb($field->color_on_chart) . ', 0.1)' ,
+					'borderColor' => 'rgba(' . hexToRgb($field->color_on_chart) . ', 0.5)',
 					'data' => $values->pluck('value')->toArray()
 				];
 			}
