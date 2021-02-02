@@ -8,7 +8,7 @@
 						<!-- Date and time range -->
 						<div class="form-group">
 							<label>Data inicial</label>
-							<datepicker input-class="form-control" v-model="initialDate" name="initialDate" :use-utc="true" :language="ptBr"></datepicker>
+							<datepicker input-class="form-control" v-model="initialDate" name="initialDate" format="dd/MM/yyyy" :use-utc="true" :language="ptBr"></datepicker>
 						</div>
 						<div class="form-group">
 							<vue-timepicker input-class="form-control" format="HH:mm" v-model="initialTime" name="initialTime"></vue-timepicker>
@@ -17,7 +17,7 @@
 					<div class="col-md-5">
 						<div class="form-group">
 							<label>Data final</label>
-							<datepicker input-class="form-control" v-model="finalDate" name="finalDate" :use-utc="true" :language="ptBr"></datepicker>
+							<datepicker input-class="form-control" v-model="finalDate" name="finalDate" format="dd/MM/yyyy" :use-utc="true" :language="ptBr"></datepicker>
 						</div>
 						<div class="form-group">
 							<vue-timepicker input-class="form-control" format="HH:mm" v-model="finalTime" name="finalTime"></vue-timepicker>

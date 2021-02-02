@@ -54,20 +54,20 @@ class DeviceReportService
 	private function report(Device $device, $request)
 	{
 		$initialDate = $request->get('initialDate');
-		$initialDate = Carbon::parse($initialDate);
 		if($request->get('initialTime')) {
 			$time = extractHourAndMinutesFromTime($request->get('initialTime'));
-			$initialDate->addHour($time['hour']);
-			$initialDate->addMinute($time['minutes']);
-		}
-		$finalDate = $request->get('finalDate');
-		$finalDate = Carbon::parse($finalDate);
-		if($request->get('finalTime')) {
-			$finalTime = extractHourAndMinutesFromTime($request->get('finalTime'));
-			$finalDate->addHour($finalTime['hour']);
-			$finalDate->addMinute($finalTime['minutes']);
+			$initialDate = $initialDate . ' '. (int)$time['hour'] . ':' . $time['minutes'];
 		}
 
+		$initialDate = Carbon::createFromFormat('d/m/Y H:i', $initialDate);
+
+		$finalDate = $request->get('finalDate');
+		if($request->get('finalTime')) {
+			$finalTime = extractHourAndMinutesFromTime($request->get('finalTime'));
+			$finalDate = $finalDate . ' '. (int)$finalTime['hour'] . ':' . $finalTime['minutes'];
+		}
+
+		$finalDate = Carbon::createFromFormat('d/m/Y H:i', $finalDate);
 		$device->fields->map(function($field) use ($initialDate, $finalDate) {
 			if($field->show_on_report) {
 				$field->report_values = $field->values->filter(function($value) use ($initialDate, $finalDate) {

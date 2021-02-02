@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceReportService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceReportService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/js/components/RenderChartComponent/RenderChartComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/RenderChartComponent/RenderChartComponent.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -312,6 +312,7 @@
       <workItem from="1611849186493" duration="6487000" />
       <workItem from="1611862899017" duration="12456000" />
       <workItem from="1611876104953" duration="11081000" />
+      <workItem from="1612271997392" duration="3892000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
