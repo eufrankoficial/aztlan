@@ -1,7 +1,7 @@
 <template>
     <div class="ViewDeviceDetailComponent">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="small-box bg-success">
                     <div class="inner">
                         <h4 class="font-weight-bold">{{ device.description != null ? device.description : device.code_device }}</h4>
@@ -9,23 +9,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <!-- small box -->
                 <div class="small-box" :class="'bg-' + statusmodel.class">
                     <div class="inner">
                         <h4 class="font-weight-bold">{{ device.updated_at }}</h4>
                         <p>{{ statusmodel.name }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <!-- small box -->
-                <div class="small-box">
-                    <div class="inner">
-                        <h4 class="font-weight-bold">Relatório</h4>
-                        <a href="#">
-                            <p><i class="fa fa-file-export"></i>Gerar</p>
-                        </a>
                     </div>
                 </div>
             </div>
