@@ -52,7 +52,7 @@ class DeviceController extends Controller
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
             DB::rollback();
-			$this->jobService->createJobOnQueue($request->except('_token'));
+			$this->jobService->createJobOnQueue($request->all());
 			Log::info('Request data: ' . json_encode($request->all()));
 			Log::info('Request header: ' . json_encode($request->header()));
 			Log::error($e->getMessage());
