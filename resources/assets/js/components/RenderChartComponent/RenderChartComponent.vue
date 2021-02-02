@@ -8,7 +8,7 @@
 						<!-- Date and time range -->
 						<div class="form-group">
 							<label>Data inicial</label>
-							<datepicker input-class="form-control" v-model="initialDate" name="initialDate"></datepicker>
+							<datepicker input-class="form-control" v-model="initialDate" name="initialDate" :use-utc="true"></datepicker>
 						</div>
 						<div class="form-group">
 							<vue-timepicker input-class="form-control" format="HH:mm" v-model="initialTime" name="initialTime"></vue-timepicker>
@@ -17,7 +17,7 @@
 					<div class="col-md-5">
 						<div class="form-group">
 							<label>Data final</label>
-							<datepicker input-class="form-control" v-model="finalDate" name="finalDate"></datepicker>
+							<datepicker input-class="form-control" v-model="finalDate" name="finalDate" :use-utc="true"></datepicker>
 						</div>
 						<div class="form-group">
 							<vue-timepicker input-class="form-control" format="HH:mm" v-model="finalTime" name="finalTime"></vue-timepicker>
@@ -87,7 +87,7 @@
 		},
 
 		methods: {
-			filterData: async function(event) {
+			filterData: async function() {
 				this.textButton = 'Carregando...';
 				this.formatDate();
 
@@ -105,6 +105,7 @@
 			formatDate: function () {
 				if(this.initialTime != null && this.initialTime.HH !== undefined && this.initialTime.mm !== undefined) {
 					this.initialDate.setUTCHours(this.initialTime.HH, this.initialTime.mm);
+					this.initialDate
 				}
 
 				if(this.finalTime !== null && this.finalTime.HH !== undefined && this.finalTime.mm !== undefined) {
