@@ -10,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
 
 class SaveDataDeviceJob implements ShouldQueue
 {
@@ -39,11 +40,14 @@ class SaveDataDeviceJob implements ShouldQueue
     public function handle()
     {
     	try {
+    		DB::beginTransaction();
 			$device = $this->deviceService->save([
 				'code_device' => $this->deviceData['id']
 			]);
 			$this->fieldService->prepareFieldsAndSave($this->deviceData, $device);
+			DB::commit();
 		} catch (\Exception $e) {
+			DB::rollBack();
 			Log::error($e->getMessage());
     		Log::error('Error on job: . ' . json_encode($this->deviceData));
 		}
