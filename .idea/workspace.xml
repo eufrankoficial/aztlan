@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/682fd787-2d2b-4e75-9380-7e5395fc73b7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -312,7 +312,7 @@
       <workItem from="1611862899017" duration="12456000" />
       <workItem from="1611876104953" duration="11081000" />
       <workItem from="1612271997392" duration="5852000" />
-      <workItem from="1612305870016" duration="758000" />
+      <workItem from="1612305870016" duration="1350000" />
     </task>
     <task id="LOCAL-00001" summary="Define baseURL in config file">
       <created>1606164200847</created>
