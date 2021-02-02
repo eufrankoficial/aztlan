@@ -2,6 +2,7 @@
 
 namespace App\Services\Device;
 
+use App\Enums\FieldTypeEnum;
 use App\Formats\GiveMeTheFormatClass;
 use App\Models\Device;
 use App\Models\Field;
@@ -63,7 +64,7 @@ class DeviceService
 
     public function formatDeviceFieldValues(&$device)
 	{
-		$device->fields->map(function($field) {
+		$device->fields->map(function($field) use (&$device) {
 			$typeId = $field->type_id;
 			$value = $field->value->value;
 			$formatted = new GiveMeTheFormatClass($typeId, [
@@ -72,6 +73,13 @@ class DeviceService
 
 			$field->formatted_value = $formatted->getValue();
 			$field->value->formatted_value = $formatted->getValue();
+			if($field->type_id === FieldTypeEnum::LATITUDE) {
+				$device->lat = $formatted->getValue();
+			}
+
+			if($field->type_id === FieldTypeEnum::LONGITUDE) {
+				$device->lon = $formatted->getValue();
+			}
 		});
 	}
 

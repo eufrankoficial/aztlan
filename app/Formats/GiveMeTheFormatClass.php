@@ -31,6 +31,10 @@ class GiveMeTheFormatClass
 				return new Temperature($this->data['value']);
 			case FieldTypeEnum::DATA:
 				return new TimeStamp($this->data['value']);
+			case FieldTypeEnum::LATITUDE:
+				return new Latitude($this->data['value']);
+			case FieldTypeEnum::LONGITUDE:
+				return new Longitude($this->data['value']);
 			default:
 				return $this->data['value'];
 		}

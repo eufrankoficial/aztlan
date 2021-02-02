@@ -58,32 +58,40 @@
                     </div>
                 </div>
             </div>
+			<div class="col-lg-6 col-sm-12" v-if="options.lat !== null">
+				<div class="card card-primary">
+					<map-component :mapname="device.description" :options="options"></map-component>
+				</div>
+			</div>
         </div>
     </div>
 </template>
 
 <script>
+	import MapComponent from "../MapComponent/MapComponent";
 
     export default {
         name: 'ViewDeviceDetailComponent',
         props: ['devicejson', 'status'],
+		components: {
+        	MapComponent
+		},
 
         mounted() {
-            this.getFields();
+        	if(this.device.lat !== undefined && this.device.lon !== undefined) {
+				this.options.lat = this.device.lat;
+				this.options.lon = this.device.lon;
+			}
         },
 
         data () {
             return {
 				device: JSON.parse(this.devicejson),
-				statusmodel: JSON.parse(this.status)
-            }
-        },
-
-        methods: {
-            getFields: function () {
-                this.device.fields.map((field) => {
-
-                });
+				statusmodel: JSON.parse(this.status),
+				options: {
+					lat: null,
+					lon: null
+				}
             }
         }
     };

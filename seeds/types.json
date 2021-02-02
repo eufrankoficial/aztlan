@@ -39,6 +39,16 @@
 			"type": "Nome",
 			"form_type": "Nome",
 			"slug": "nome"
+		},
+		{
+			"type": "Latitude",
+			"form_type": "text",
+			"slug": "latitude"
+		},
+		{
+			"type": "Longitude",
+			"form_type": "text",
+			"slug": "longitude"
 		}
     ]
 }
