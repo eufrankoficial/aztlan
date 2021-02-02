@@ -4,7 +4,6 @@ namespace App\Services\System;
 
 use App\Models\Device;
 use App\Models\Field;
-use App\Repositories\Device\DeviceRepository;
 use App\Repositories\System\FieldRepository;
 
 class FieldService
@@ -22,28 +21,33 @@ class FieldService
     public function prepareFieldsAndSave(array $fieldsAndValues, Device $device): void
     {
         $fields = collect($fieldsAndValues);
+		$deviceFields = $device->fields->pluck('field')->toArray();
 
         foreach($fields as $field => $value) {
             $fieldInstance = $field;
-            $existField = $device->fields->filter(function($deviceField) use ($field) {
-                return $deviceField->field === $field;
-            });
 
-            if($existField->count() > 0) {
-                $fieldInstance = $existField->first();
-            }
+            $existField = in_array($fieldInstance, $deviceFields);
+            $createNewField = !$existField ? true : false;
 
-            $savedField = $this->saveFieldAndValue($fieldInstance, $value);
+            if(!$createNewField) {
+				$fieldInstance = $this->returnFieldInstance($device->fields, $fieldInstance)->first();
+			}
 
-            if($existField->count() === 0)
-                $this->fieldRepo->syncFields($device, $savedField);
-
+            $savedField = $this->saveFieldAndValue($fieldInstance, $value, $createNewField, $fieldsAndValues['stamp']);
+            if($createNewField)
+            	$this->fieldRepo->syncFields($device, $savedField);
         }
     }
 
-    private function saveFieldAndValue($field, $value): Field
+    private function returnFieldInstance($deviceFields, $fieldString)
+	{
+		return $deviceFields->filter(function($field) use ($fieldString){
+			return $field->field == $fieldString;
+		});
+	}
+
+    private function saveFieldAndValue($field, $value, $createField = true, $stampToValue = false): Field
     {
-        $createField = $field instanceof Field ? false : true;
-        return $this->fieldRepo->saveField($field, $value, $createField);
+        return $this->fieldRepo->saveField($field, $value, $createField, $stampToValue);
     }
 }

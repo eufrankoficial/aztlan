@@ -41,16 +41,18 @@ class DeviceController extends Controller
 
             DB::beginTransaction();
             $data = $request->except('_token');
-            $device = $data;
-            $this->jobService->createJobOnQueue($device);
 
-            //$device = $this->deviceService->save(['code_device' => $device['id']]);
-            //$this->fieldService->prepareFieldsAndSave($request->except('_token'), $device);
+			$deviceData = [
+				'code_device' => $data['id']
+			];
+            $device = $this->deviceService->save($deviceData);
+            $this->fieldService->prepareFieldsAndSave($request->except('_token'), $device);
 
             DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
             DB::rollback();
+			$this->jobService->createJobOnQueue($request->except('_token'));
 			Log::info('Request data: ' . json_encode($request->all()));
 			Log::info('Request header: ' . json_encode($request->header()));
 			Log::error($e->getMessage());

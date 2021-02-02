@@ -9,7 +9,7 @@ class FieldRepository extends BaseRepository
 {
     protected $modelClass = Field::class;
 
-    public function saveField($field, $value, $createField = true): Field
+    public function saveField($field, $value, $createField = true, $stamp = false): Field
     {
         if($createField) {
             $field = $this->create([
@@ -21,7 +21,9 @@ class FieldRepository extends BaseRepository
         }
 
         $field->values()->create([
-            'value' => $value
+            'value' => $value,
+			'created_at' => $stamp,
+			'updated_at' => $stamp
         ]);
 
         return $field;

@@ -38,10 +38,11 @@ class DeviceService
                     ->with(['fields'])
                     ->where('code_device', trim($data['code_device']))->first();
 
-        if(!$device)
-            $model = $this->deviceRepo->create($data);
-        else
-            $model = $this->deviceRepo->update($device->id, $data);
+        if(!$device) {
+			$model = $this->deviceRepo->create($data);
+		} else {
+			$model = $this->deviceRepo->update($device->id, $data);
+		}
 
         return $model;
     }
@@ -60,7 +61,7 @@ class DeviceService
         return $device;
     }
 
-    public function formatDeviceFieldValues(&$device, $request)
+    public function formatDeviceFieldValues(&$device)
 	{
 		$device->fields->map(function($field) {
 			$typeId = $field->type_id;
