@@ -11,7 +11,11 @@
 				<div class="small-box bg-{{ $device->status }} p-3">
 					<a href="{{ route('device.detail', $device) }}" class="block">
 						<div class="inner">
-							<h4>{{ $device->code_device }}</h4>
+							@if(!empty($device->description))
+								<h4>{{ $device->description }}</h4>
+							@else
+								<h4>{{ $device->code_device }}</h4>
+							@endif
 						</div>
 						<div  class="small-box-footer">Detalhes
 							<i class="fas fa-arrow-circle-right"></i>
