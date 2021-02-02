@@ -4,7 +4,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <form>
                     <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label>Tipos</label>
                                 <select
@@ -22,7 +22,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label>Eixo X</label>
                                 <select class="form-control" v-model="x">
@@ -37,25 +37,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="form-group">
-                                <label>Eixo Y</label>
-                                <select class="form-control" v-model="y">
-                                    <option>Selecione</option>
-                                    <option
-                                        v-for="(field, index) in fieldsmodel"
-                                        :key="index"
-                                        :value="field.id"
-                                    >
-                                        {{ field.form_name }}
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
-                        <button class="btn btn-primary" @click="save($event)">
-                            Salvar
+                        <button class="btn btn-primary" @click="save($event)" :disabled="btnSaveText !== 'Salvar'">
+                            {{ btnSaveText }}
                         </button>
                     </div>
                 </form>
@@ -122,7 +107,8 @@
 				device: [],
 				x: null,
                 y: null,
-                currentTypes: []
+                currentTypes: [],
+				btnSaveText: 'Salvar'
             }
 		},
 
@@ -171,9 +157,11 @@
 
             save: async function (event) {
 				event.preventDefault();
+				this.btnSaveText = 'Aguarde, salvando...';
 
 				if (this.charttype === 1 && this.x == null) {
 					this.$swal('Atenção!', 'Para o gráfico tipo linha, é necessário informar o eixo X', 'warning');
+					this.btnSaveText = 'Salvar';
 					return false;
 				};
 
@@ -186,11 +174,13 @@
 				const response = await request.post(this.action, types);
 
 				if(response.data.status == false) {
+					this.btnSaveText = 'Salvar';
 					this.$swal('Atenção!', 'Não foi possível salvar configurações.', 'danger');
 					return false;
 				}
 
 				this.$swal('Sucesso!', 'Configurações salvas com sucesso', 'success');
+				this.btnSaveText = 'Salvar';
 				this.configureChartTypesRegistered();
 				return true;
 

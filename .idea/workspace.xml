@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="Arruma bug ao salvar detalhes de um campo">
-      <change afterPath="$PROJECT_DIR$/app/Formats/Latitude.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Formats/Longitude.php" afterDir="false" />
+    <list default="true" id="0d37bdaf-0dcd-44c9-82aa-bf582c5f827a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/FieldTypeEnum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/FieldTypeEnum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Formats/GiveMeTheFormatClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Formats/GiveMeTheFormatClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Device/DeviceService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/ViewDeviceDetailComponent/ViewDeviceDetailComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeds/types.json" beforeDir="false" afterPath="$PROJECT_DIR$/seeds/types.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/components/DeviceChartTypeComponent/DeviceChartTypeComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/components/DeviceChartTypeComponent/DeviceChartTypeComponent.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,7 +368,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612233275311</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implementa funcionalidade de latitude e longitude">
+      <created>1612240141952</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612240141952</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Retina botao de relatorio da primeira tab no detalhe do dispositivo e arruma alinhamento de divs de nome e ultima atualização do dispositivo">
+      <created>1612240506007</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612240506007</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,6 +397,8 @@
     <MESSAGE value="Refatora filtragem de gráfico e melhora código" />
     <MESSAGE value="Arruma bug ao salvar detalhes de um campo" />
     <MESSAGE value="Bundle js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bundle js" />
+    <MESSAGE value="Implementa funcionalidade de latitude e longitude" />
+    <MESSAGE value="Retina botao de relatorio da primeira tab no detalhe do dispositivo e arruma alinhamento de divs de nome e ultima atualização do dispositivo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Retina botao de relatorio da primeira tab no detalhe do dispositivo e arruma alinhamento de divs de nome e ultima atualização do dispositivo" />
   </component>
 </project>
