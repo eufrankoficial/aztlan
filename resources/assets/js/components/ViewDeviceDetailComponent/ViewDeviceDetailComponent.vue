@@ -49,7 +49,7 @@
             </div>
 			<div class="col-lg-6 col-sm-12" v-if="options.lat !== null">
 				<div class="card card-primary">
-					<map-component :mapname="device.description" :options="options"></map-component>
+					<map-component :mapname="device.code_device" :options="options"></map-component>
 				</div>
 			</div>
         </div>
