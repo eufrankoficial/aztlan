@@ -153,7 +153,7 @@
 
     export default {
         name: 'FieldListItemComponent',
-		props: ['field', 'url', 'types'],
+		props: ['field', 'url', 'types', 'device'],
 		components: {
 			"v-input-colorpicker": InputColorPicker
 		},
@@ -298,7 +298,7 @@
 			},
 
             saveAction: async function (data) {
-                const postAction = this.url + '/' + this.field.id;
+                const postAction = this.url + '/' + this.device + '/' + this.field.id;
                 await request.post(postAction, data);
             }
 

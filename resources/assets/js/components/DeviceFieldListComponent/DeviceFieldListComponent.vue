@@ -55,8 +55,9 @@
                                 v-for="(field, index) in fields"
                                 :key="index"
                                 :field="field"
-                                :url="currentUrl"
+                                :url="savefieldaction"
 								:types="typesprop"
+								:device="device"
                             ></field-list-item-component>
                         </tbody>
                     </table>
@@ -73,7 +74,7 @@
 
     export default {
         name: 'DeviceFieldListComponent',
-        props: ['getfieldsaction', 'typesprop', 'actionsavedevice'],
+        props: ['savefieldaction', 'getfieldsaction', 'typesprop', 'actionsavedevice'],
         components: {
             FieldListItemComponent
         },
@@ -100,7 +101,7 @@
                 const code = this.device;
                 const url = this.getfieldsaction;
 
-                const response = await request.get(`${url}/${code}`);
+                const response = await request.get(this.getfieldsaction);
                 if(!response.data.status) {
                     this.$swal('Atenção!', 'Não localizamos o dispositivo informado', 'warning');
                     return false;

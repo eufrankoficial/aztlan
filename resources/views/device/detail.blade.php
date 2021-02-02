@@ -31,7 +31,7 @@
 					</view-device-detail-component>
                   </div>
                   <div class="tab-pane" id="fields">
-                    <device-field-list-component getfieldsaction="{{ route('field.device.detail') }}" typesprop="{{  $typeFields }}" actionsavedevice="{{ route('device.update', $device) }}"></device-field-list-component>
+                    <device-field-list-component savefieldaction="{{ route('field.save') }}" getfieldsaction="{{ route('field.device.detail', $device) }}" typesprop="{{  $typeFields }}" actionsavedevice="{{ route('device.update', $device) }}"></device-field-list-component>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="charts">
