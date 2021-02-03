@@ -33,7 +33,6 @@ class DeviceChartController extends Controller
 
 		} catch (\Exception $e) {
 			DB::rollback();
-			dd($e);
 			return response()->json(['status' => false]);
 		}
     }
@@ -46,7 +45,6 @@ class DeviceChartController extends Controller
 				'data' => $chart
 			]);
 		} catch (\Exception $e) {
-			dd($e);
 			return response()->json(['status' => false]);
 		}
 	}
