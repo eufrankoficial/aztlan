@@ -32,7 +32,7 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true,
+                    maintainAspectRatio: false,
 					scales: {
 						xAxes:[{
 							ticks:{

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="base-url" content="{{ url()->to('/') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AL2 - DASHBOARD</title>
 
@@ -15,58 +17,70 @@
 <div id="app">
     <section class="content">
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <h1 class="invoice-title">Dispositivo <strong>{{ $report['data']['device']->code_device }}</strong></h1>
-                    </div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h1>
+								Relatório de <strong>{{ !empty($report['data']['device']->description) ? $report['data']['device']->description : $report['data']['device']->code_device }}</strong>
+							</h1>
+							<div class="card-tools">
+								<h6>De: <strong>{{ $report['data']['initialDate']->format('d/m/Y H:i') }}</strong> à <strong>{{ $report['data']['finalDate']->format('d/m/Y H:i') }}</strong></h6>
+								<span class="mailbox-read-time float-right">Gerado em {{ now()->format('d/m/Y H:i') }}</span>
+							</div>
+						</div>
+						<!-- /.card-header -->
+						<div class="card-body p-0">
+							<div class="mailbox-read-info">
 
-                    <div class="row">
-                        <div class="col-lg-8 col-md-8">
-                            <br><br>
-                            <p>
-                                <strong>Criado em: </strong>
-                                {{ now()->format('d/m/Y H:i') }}
-                                <br>
-                                <strong>
-                                    Datas:
-                                </strong>
-                                 {{ $report['data']['initialDate']->format('d/m/Y H:i') }} à {{ $report['data']['finalDate']->format('d/m/Y H:i') }}
-                            </p>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <img src="{{ asset('assets/img/logos/global.jpeg') }}" alt="Logo" style="float: right" class="brand-image" width="254" height="100">
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-							<tr>
-								@forelse($report['report']['fields'] as $field)
-									@if($field->show_on_report)
-										<th>{{ $field->report_name }}</th>
-									@endif
-								@empty
-									<td>Não foram encontrados dados nas datas escolhidas</td>
-								@endforelse
-							</tr>
-                        </thead>
-                        <tbody>
-								@forelse($report['report']['lines'] as $key => $line)
-								<tr>
-									@foreach($line as $key=> $l)
-										<td>{{ $l }}</td>
-									@endforeach
-								</tr>
-								@empty
-									<td>Não foram encontrados dados nas datas escolhidas</td>
-								@endforelse
-						</tbody>
-                    </table>
-                </div>
-            </div>
+							</div>
+							<!-- /.mailbox-read-info -->
+							<div class="mailbox-controls with-border text-center">
+								<!-- /.btn-group -->
+								<button type="button" class="btn btn-default btn-sm" title="Imprimir" onclick="window.print()">
+									<i class="fas fa-print"></i>
+								</button>
+							</div>
+							<!-- /.mailbox-controls -->
+							<div class="mailbox-read-message">
+								<table id="example1" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+										@forelse($report['report']['fields'] as $field)
+											@if($field->show_on_report)
+												<th>{{ $field->report_name }}</th>
+											@endif
+										@empty
+											<td>Não foram encontrados dados nas datas escolhidas</td>
+										@endforelse
+									</tr>
+									</thead>
+									<tbody>
+									@forelse($report['report']['lines'] as $key => $line)
+										<tr>
+											@foreach($line as $key=> $l)
+												<td>{{ $l }}</td>
+											@endforeach
+										</tr>
+									@empty
+										<td>Não foram encontrados dados nas datas escolhidas</td>
+									@endforelse
+									</tbody>
+								</table>
+							</div>
+							<div class="mailbox-read-message">
+								<render-chart-on-report-component data="{{ $chart }}"></render-chart-on-report-component>
+							</div>
+							<!-- /.mailbox-read-message -->
+						</div>
+						<!-- /.card-footer -->
+						<div class="card-footer">
+							<button type="button" class="btn btn-default" title="Imprimir" onclick="window.print()"><i class="fas fa-print"></i> Imprimir </button>
+						</div>
+					</div>
+					<!-- /.card -->
+				</div>
+			</div>
         </div>
     </section>
 </div>

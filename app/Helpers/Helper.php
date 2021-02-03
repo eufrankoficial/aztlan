@@ -7,6 +7,12 @@ if(!function_exists('hex_to_rgb')) {
 	}
 }
 
+if(!function_exists('mountDateWithHourAndMinute')) {
+	function mountDateWithHourAndMinute($date, $hour, $minute) {
+		return $date . ' '. (int)$hour . ':' . $minute;
+	}
+}
+
 if(!function_exists('extractHourAndMinutesFromTime'))
 {
 	function extractHourAndMinutesFromTime($timeString)
