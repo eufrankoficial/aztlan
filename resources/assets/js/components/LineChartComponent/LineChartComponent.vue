@@ -45,7 +45,7 @@
 						}]
 					},
 					tooltips: {
-						mode: 'index'
+						mode: 'point'
 					}
                 }
             };
