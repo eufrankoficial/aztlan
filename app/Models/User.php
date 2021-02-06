@@ -89,9 +89,16 @@ class User extends BaseAuthModel
 
 	public function hasPermission($permission)
 	{
-		$list = $this->getPermissionsViaRoles()->pluck('slug')->toArray();
+		if($this->isSuperAdmin())
+			return true;
 
-		return in_array($permission->slug, $list);
+		$list = $this->getPermissionsViaRoles();
+		if($list->count() == 0) {
+			return false;
+		}
+
+		$list  = $list->pluck('slug')->toArray();
+		return in_array($permission, $list);
 	}
 
     public function getJWTIdentifier()
