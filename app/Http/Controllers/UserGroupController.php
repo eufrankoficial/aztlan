@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserGroupRequest;
 use App\Http\Requests\SaveUserGroupRequest;
+use App\Http\Requests\UpdateUserGrupoRequest;
 use App\Models\GroupUser;
 use App\Repositories\System\MenuRepository;
 use App\Repositories\System\PermissionRepository;
@@ -94,7 +95,7 @@ class UserGroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SaveUserGroupRequest $request, GroupUser $group)
+    public function update(UpdateUserGrupoRequest $request, GroupUser $group)
     {
         try {
 			DB::beginTransaction();
@@ -106,8 +107,8 @@ class UserGroupController extends Controller
 				$group->id
 			);
 
-			$this->userGroupRepository->syncPermissions($group, $request->get('permissions'));
-			$this->userGroupRepository->syncMenus($group, $request->get('menus'));
+			$this->userGroupRepository->syncPermissions($group, $request->get('permissions') ?: []);
+			$this->userGroupRepository->syncMenus($group, $request->get('menus') ?: []);
 
 			DB::commit();
 
@@ -116,7 +117,6 @@ class UserGroupController extends Controller
 
 		} catch(\Exception $e) {
 			DB::rollback();
-			dd($e);
 			flash('Não possível salvar os dados do grupo', 'danger');
 		}
 
