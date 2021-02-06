@@ -5,7 +5,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="base-url" content="{{ url()->to('/') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ !empty($title) ? $title : '' }} - AL2</title>
+    <title>{{ !empty($title) ? $title : '' }} - {{  company() ? company()->fantasy_name : 'AL2' }}</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -30,7 +30,7 @@
 				<li class="nav-item">
 					<a class="nav-link" href="javascript:void(0);">
 						<i class="fas fa-house-user"></i>
-                        {{ !empty(company()->company_name) ?: 'AL2 Dashboard' }}
+                        {{ !empty(company()->company_name) ? company()->company_name : 'AL2 Dashboard' }}
                     </a>
                 </li>
                 <li class="nav-item">

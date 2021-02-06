@@ -85,7 +85,10 @@ class DeviceService
 
     public function getDeviceList(): ?LengthAwarePaginator
     {
-        $devices = $this->deviceRepo->model()->orderBy('updated_at', 'DESC')->paginate(30);
+
+        $devices = $this->deviceRepo->model()->filter(request())
+			->orderBy('updated_at', 'DESC')->paginate(30);
+
         $devices->map(function(&$device) {
 			$now = now();
 			$updated = $now->diffInDays($device->getUpdatedAtStatus() ?: $device->created_at);
