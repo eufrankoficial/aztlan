@@ -13,6 +13,7 @@ class Device extends BaseModel
 
     protected $table = 'device';
     protected $fillable = [
+		'company_id',
         'vehicle_id',
         'code_device',
         'description',
@@ -33,6 +34,11 @@ class Device extends BaseModel
     ];
 
     protected $keyName = 'code_device';
+
+	public function company()
+	{
+		return $this->belongsTo(Company::class, 'company_id', 'id');
+	}
 
     public function fields()
     {

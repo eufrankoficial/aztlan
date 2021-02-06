@@ -25,7 +25,7 @@ class DeviceDetailViewModel extends ViewModel
     {
         $this->deviceService = $deviceService;
         $this->device = $device;
-        $this->device->load(['fields.type', 'fields.value', 'charts']);
+        $this->device->load(['fields.type', 'fields.value', 'charts', 'company']);
     }
 
     public function device(): Device

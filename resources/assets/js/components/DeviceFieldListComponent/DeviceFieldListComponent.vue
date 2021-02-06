@@ -12,8 +12,21 @@
 											type="text"
 											name="term"
 											class="form-control form-control-lg float-right"
-											placeholder="ID DO DISPOSITIVO"
+											placeholder="Nome do dispositivo"
 											v-model="description"
+										/>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<input
+											type="text"
+											name="term"
+											class="form-control form-control-lg float-right"
+											placeholder="Empresa"
+											v-model="company"
+											@keypress="getCompanies()"
+											:disabled="company_id !== null && companies.length == 0"
 										/>
 										<div class="col-md-3">
 											<button
@@ -24,6 +37,12 @@
 									</div>
 								</div>
 
+								<div class="form-group" v-if="companies.length > 0">
+									<div class="form-check" v-for="(company, index) in companies" :key="index">
+										<input class="form-check-input" :id="company.id" type="checkbox" @click="setCompanyId(index)" :checked="company_id == company.id">
+										<label class="form-check-label" :for="company.id" @click="setCompanyId(index)">{{  company.fantasy_name }}</label>
+									</div>
+								</div>
                             </form>
                         </div>
                     </div>
@@ -74,7 +93,7 @@
 
     export default {
         name: 'DeviceFieldListComponent',
-        props: ['savefieldaction', 'getfieldsaction', 'typesprop', 'actionsavedevice'],
+        props: ['deviceprop', 'savefieldaction', 'getfieldsaction', 'typesprop', 'actionsavedevice', 'findcompanyaction'],
         components: {
             FieldListItemComponent
         },
@@ -84,6 +103,9 @@
                 this.device = lastArgumentUrl;
                 this.getDeviceFields(null, 'url');
             }
+			const device = JSON.parse(this.$props.deviceprop);
+			this.company_id = device.company_id;
+			this.company = device.company.fantasy_name;
         },
 
         data() {
@@ -92,11 +114,36 @@
                 device: null,
 				description: null,
                 currentUrl: null,
-				buttonSaveName: 'Salvar'
+				buttonSaveName: 'Salvar',
+				company: null,
+				companies: [],
+				company_id: null
             };
         },
 
         methods: {
+
+			setCompanyId: function (id) {
+				this.company_id = this.companies[id].id;
+				this.company = this.companies[id].fantasy_name;
+			},
+
+			getCompanies: async function(event) {
+				const term = this.company;
+
+				if(term != null && term.length > 4)
+					return false;
+
+				const result = await request.post(this.$props.findcompanyaction, {
+					field: 'company_name',
+					value: term
+				});
+
+				if(result.data.status !== false && result.data.result.length > 0) {
+					this.companies = result.data.result;
+				}
+			},
+
             getDeviceFields: async function (event, type = 'change') {
                 const code = this.device;
                 const url = this.getfieldsaction;
@@ -115,8 +162,13 @@
             	this.buttonSaveName = 'Salvando...';
 				event.preventDefault();
 				const data = {
-					description: this.description
+					description: this.description,
+				};
+
+				if(this.company_id !== null) {
+					data.company_id = this.company_id;
 				}
+
 				const response = request.post(this.actionsavedevice, data);
 				this.buttonSaveName = 'Salvo!';
 				let buttonName = this.buttonSaveName;

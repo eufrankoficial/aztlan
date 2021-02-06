@@ -71,9 +71,11 @@ Route::middleware('auth')->namespace('Controllers')->group(function() {
         Route::get('/', [CompanyController::class, 'index'])->middleware(['can:company.index'])->name('index');
         Route::get('/create', [CompanyController::class, 'create'])->middleware(['can:company.create'])->name('create');
         Route::post('/create', [CompanyController::class, 'store'])->middleware(['can:company.create'])->name('store');
+		Route::post('/find-company', [CompanyController::class, 'findBy'])->middleware(['can:company.index'])->name('find');
         Route::get('/edit/{company}', [CompanyController::class, 'show'])->middleware(['can:company.detail'])->name('detail');
         Route::post('/edit/{company}', [CompanyController::class, 'update'])->middleware(['can:company.update'])->name('update');
         Route::get('/delete/{company}', [CompanyController::class, 'destroy'])->middleware(['can:company.delete'])->name('delete');
+
     });
 
     Route::prefix('fields')->name('field.')->group( function() {

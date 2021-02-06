@@ -113,4 +113,22 @@ class CompanyController extends Controller
     {
         return $company->delete();
     }
+
+	/**
+     * Find a company by some value or field
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function findBy(Request $request)
+	{
+		try {
+			$result = $this->companyRepository->searchBy($request);
+
+			return response()->json(['result' => $result, 'status' => true], 200);
+
+		} catch(\Exception $e) {
+			return response()->json(['status' => false], 400);
+		}
+	}
 }
