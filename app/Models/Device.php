@@ -25,6 +25,7 @@ class Device extends BaseModel
     protected $searchableAttrs = [
         'description' => 'like',
         'code_device' => '=',
+		'company_id' => '='
     ];
 
     protected $dates = [
