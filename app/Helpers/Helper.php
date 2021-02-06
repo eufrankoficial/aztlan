@@ -43,6 +43,12 @@ if(!function_exists('current_user'))
     }
 }
 
+if(!function_exists('company_id')) {
+	function company_id() {
+		return auth()->user()->company_id;
+	}
+}
+
 
 if(!function_exists('cache_key'))
 {
