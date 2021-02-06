@@ -47,6 +47,22 @@ abstract class BaseModel extends Model
         if($request->query->count() > 0)
             $builder = $this->search($builder, $request);
 
+		if(current_user()->hasRole('SuperAdmin'))
+			return $builder;
+
+		$dataFilter = company();
+
+		if($builder->getModel() instanceof Device) {
+            $builder->where('company_id', $dataFilter->id);
+        } elseif($builder->getModel() instanceof Company) {
+			$builder->where('id', $dataFilter->id);
+		} else {
+            $builder->whereHas('company', function($query) use ($dataFilter) {
+                $id = isset($dataFilter->id) ? $dataFilter->id : 0;
+                $query->where('company.id', $id);
+            });
+        }
+
         return $builder;
     }
 

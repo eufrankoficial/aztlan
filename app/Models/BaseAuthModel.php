@@ -75,16 +75,19 @@ abstract class BaseAuthModel extends Authenticatable
         return $builder->where('slug', $slug);
     }
 
-    /**
-     * @param Builder $builder
-     * @return Builder
-     * @throws \Exception
-     */
-    public function scopeFilter(Builder $builder, Request $request)
+    public function scopeFilter(Builder $builder, $request)
     {
-        if($request->query->count() > 0) {
+        if($request->query->count() > 0)
             $builder = $this->search($builder, $request);
-        }
+
+		if(current_user()->hasRole('SuperAdmin'))
+			return $builder;
+
+		$dataFilter = company();
+
+		$builder->where('company_id', $dataFilter->id);
+
+        return $builder;
     }
 
     /**
