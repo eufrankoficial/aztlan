@@ -54,17 +54,21 @@ class DeviceReportService
 	private function report(Device $device, $request)
 	{
 		$initialDate = $request->get('initialDate');
-		if($request->get('initialTime')) {
+		if(!is_null($request->get('initialTime'))) {
 			$time = extractHourAndMinutesFromTime($request->get('initialTime'));
 			$initialDate = $initialDate . ' '. (int)$time['hour'] . ':' . $time['minutes'];
+		} else {
+			$initialDate = $initialDate . ' 00:00';
 		}
 
 		$initialDate = Carbon::createFromFormat('d/m/Y H:i', $initialDate);
 
 		$finalDate = $request->get('finalDate');
-		if($request->get('finalTime')) {
+		if(!is_null($request->get('finalTime'))) {
 			$finalTime = extractHourAndMinutesFromTime($request->get('finalTime'));
 			$finalDate = $finalDate . ' '. (int)$finalTime['hour'] . ':' . $finalTime['minutes'];
+		} else {
+			$finalDate = $finalDate . ' 23:59';
 		}
 
 		$finalDate = Carbon::createFromFormat('d/m/Y H:i', $finalDate);

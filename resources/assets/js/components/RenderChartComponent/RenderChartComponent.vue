@@ -29,7 +29,7 @@
 					<a href="javascript:void(0);" class="btn btn-success" @click="filterData($event)">
 						<i class="fa fa-search"></i> {{ textButton }}
 					</a>
-					<button type="submit" class="btn btn-warning">
+					<button type="submit" class="btn btn-info">
 						<i class="fa fa-print"></i> {{ textButtonReport }}
 					</button>
 					<button class="btn btn-warning" @click="printChart($event)">
