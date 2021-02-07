@@ -25,12 +25,15 @@
 					</div>
 				</div>
 				<div class="row">
-				<div class="col-md-6 col-sm-12 text-left">
+				<div class="col-md-12 col-sm-12 text-left">
 					<a href="javascript:void(0);" class="btn btn-success" @click="filterData($event)">
 						<i class="fa fa-search"></i> {{ textButton }}
 					</a>
 					<button type="submit" class="btn btn-warning">
 						<i class="fa fa-print"></i> {{ textButtonReport }}
+					</button>
+					<button class="btn btn-warning" @click="printChart($event)">
+						<i class="fas fa-chart-line"></i> Imprimir gráfico
 					</button>
 				</div>
 			</div>
@@ -40,7 +43,6 @@
         	<div class="col-lg-12 col-md-12 col-sm-12" id="chart">
 				<line-chart-component :labels="labels" :sets="sets" :chart="datachart" v-if="labels.length > 0"></line-chart-component>
 			</div>
-
         </div>
     </div>
 </template>
@@ -61,6 +63,7 @@
 
 		async mounted() {
         	await this.filterData();
+			this.devicemodel = JSON.parse(this.$props.device);
 			this.token = document.getElementsByName('csrf-token')[0].getAttribute('content');
         	setInterval(this.filterData, 60000);
 		},
@@ -89,6 +92,19 @@
 		},
 
 		methods: {
+			printChart(event) {
+				event.preventDefault();
+				var canvasEle = document.getElementById('line-chart');
+				var win = window.open('', 'Print', 'height=600,width=800');
+				win.document.write("<h1>'" + this.devicemodel.description != null ? this.devicemodel.description : this.devicemodel.code_device +"'</h1>")
+				win.document.write("<br><img src='" + canvasEle.toDataURL() + "' />");
+
+				setTimeout(function(){ //giving it 200 milliseconds time to load
+						win.document.close();
+						win.focus()
+						win.print();
+				}, 200);
+			},
 			filterData: async function() {
 				this.textButton = 'Carregando...';
 				this.formatDate();
