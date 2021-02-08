@@ -17,7 +17,6 @@ class HasPermissionTo
     public function handle(Request $request, Closure $next, $permission)
     {
 		if(!auth()->user()->isSuperAdmin() && !auth()->user()->hasPermission($permission)) {
-			dd(auth()->user()->hasPermission($permission));
 			abort(403);
 		}
 
