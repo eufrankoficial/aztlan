@@ -61,7 +61,7 @@
                                 <td>{{ $company->company_name }}</td>
                                 <td>{{ $company->fantasy_name }}</td>
                                 <td>{{ $company->cpf_cnpj }}</td>
-                                <td>{{ $company->updated_at->format('d/m/Y h:i:s') }}</td>
+                                <td>{{ !is_null($company->updated_at) ? $company->updated_at->format('d/m/Y h:i:s') : '' }}</td>
                                 <td>
                                     <a href="{{ route('company.detail', $company) }}" class="btn btn-default">
                                         <i class="fa fa-edit"></i>
