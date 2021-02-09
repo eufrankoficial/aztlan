@@ -31,7 +31,7 @@ if(!function_exists('company'))
 {
     function company()
     {
-        return auth()->user()->company;
+        return auth()->user()->company ?: null;
     }
 }
 

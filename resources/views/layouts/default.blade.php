@@ -47,13 +47,13 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
 			<!-- Brand Logo -->
 			@if(!empty(company()->logo))
-				<a href="index3.html" class="brand-link">
-					<img src="{{ asset('assets/img/logos/global.jpeg') }}" alt="AdminLTE Logo" class="brand-image img-rounded elevation-3" style="opacity: .8">
+				<a href="{{ route('dashboard.index') }}" class="brand-link">
+					<img src="{{ company()->logo }}" alt="{{ company() ? company()->fantasy_name : 'AL2' }}" class="brand-image img-rounded elevation-3" style="opacity: .8">
 					<span class="brand-text font-weight-light">&nbsp;</span>
 				</a>
 			@else
-				<a href="index3.html" class="brand-link">
-					<img src="{{ asset('assets/img/logos/al2.png') }}" alt="AdminLTE Logo" class="brand-image img-rounded elevation-3" width="300">
+				<a href="{{ route('dashboard.index') }}" class="brand-link">
+					<img src="{{ asset('assets/img/logos/al2.png') }}" alt="{{ company() ? company()->fantasy_name : 'AL2' }}" class="brand-image img-rounded elevation-3" width="300">
 					<span class="brand-text font-weight-light">&nbsp;</span>
 				</a>
 			@endif
