@@ -21,12 +21,24 @@
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<h1>
-								Relatório de <strong>{{ !empty($report['data']['device']->description) ? $report['data']['device']->description : $report['data']['device']->code_device }}</strong>
-							</h1>
-							<div class="card-tools">
-								<h6>De: <strong>{{ $report['data']['initialDate']->format('d/m/Y H:i') }}</strong> à <strong>{{ $report['data']['finalDate']->format('d/m/Y H:i') }}</strong></h6>
-								<span class="mailbox-read-time float-right">Gerado em {{ now()->format('d/m/Y H:i') }}</span>
+							<div class="row">
+								<div class="col-md-9">
+									<div class="card-tools">
+										@if(!empty(company()->logo))
+											<a href="{{ route('dashboard.index') }}" class="brand-link">
+												<img src="{{ route('image.get', ['path' => auth()->user()->company->logo]) }}" alt="{{ company() ? company()->fantasy_name : 'AL2' }}" class="brand-image img-rounded" style="opacity: .9">
+												<span class="brand-text font-weight-light">&nbsp;</span>
+											</a>
+										@endif
+										<h6>De: <strong>{{ $report['data']['initialDate']->format('d/m/Y H:i') }}</strong> à <strong>{{ $report['data']['finalDate']->format('d/m/Y H:i') }}</strong></h6>
+										<span class="mailbox-read-time float-left">Gerado em {{ now()->format('d/m/Y H:i') }}</span>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<h1>
+										<strong>{{ !empty($report['data']['device']->description) ? $report['data']['device']->description : $report['data']['device']->code_device }}</strong>
+									</h1>
+								</div>
 							</div>
 						</div>
 						<!-- /.card-header -->
