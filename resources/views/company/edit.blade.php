@@ -23,14 +23,10 @@
                                     <input type="text" class="form-control" id="inputFantasyName" name="fantasy_name" value="{{ $company->fantasy_name }}">
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="inputLogo">Logo</label>
-                                    <input type="text" class="form-control" id="inputLogo" name="logo" value="{{ $company->logo }}">
-                                </div>
-                            </div>
                         </div>
                         <cpf-cnpj-component value="{{ $company->cpf_cnpj }}" error="false"></cpf-cnpj-component>
+
+						<image-upload-component action="{{ route('upload.file') }}" company="{{ $company }}"></image-upload-component>
                     </div>
 
                     <div class="card-footer">

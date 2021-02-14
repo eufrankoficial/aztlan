@@ -36,7 +36,8 @@ mix.styles([
     adminLteBase + 'overlayScrollbars/css/OverlayScrollbars.min.css',
     adminLteBase + 'daterangepicker/daterangepicker.css',
     adminLteBase + 'summernote/summernote-bs4.min.css',
-	core + 'css/timepicker.css'
+	core + 'css/timepicker.css',
+	core + 'css/custom.css',
 ],
     basePath + 'css/default.min.css'
 );

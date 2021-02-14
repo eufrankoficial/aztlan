@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class CompanyController extends Controller
 {
     /**
-     * @var CompanyRepository.
+     * @var companyRepository
      */
     protected $companyRepository;
 
@@ -46,7 +46,8 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(CompanyStoreRequest $request)
@@ -69,7 +70,8 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Company $company)
@@ -80,21 +82,21 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(CompanyUpdateRequest $request, Company $company)
     {
         try {
             DB::beginTransaction();
-            $this->companyRepository->update($company->id, $request->except('_token'));
+            $this->companyRepository->update($company->id, $request->except('_token', 'file'));
 
             DB::commit();
 
             flash(__('Saved with success'), 'success');
         } catch (\Exception $e) {
-
             DB::rollBack();
 
             flash(__('Something is not ok'), 'danger');
@@ -106,7 +108,8 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Company $company)
@@ -114,21 +117,21 @@ class CompanyController extends Controller
         return $company->delete();
     }
 
-	/**
-     * Find a company by some value or field
+    /**
+     * Find a company by some value or field.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
-	public function findBy(Request $request)
-	{
-		try {
-			$result = $this->companyRepository->searchBy($request);
+    public function findBy(Request $request)
+    {
+        try {
+            $result = $this->companyRepository->searchBy($request);
 
-			return response()->json(['result' => $result, 'status' => true], 200);
-
-		} catch(\Exception $e) {
-			return response()->json(['status' => false], 400);
-		}
-	}
+            return response()->json(['result' => $result, 'status' => true], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => false], 400);
+        }
+    }
 }

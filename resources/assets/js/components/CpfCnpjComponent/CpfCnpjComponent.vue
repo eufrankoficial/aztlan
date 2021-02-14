@@ -40,6 +40,7 @@ export default {
     props: ['value', 'error'],
 
     mounted() {
+		this.cpf_cnpj = this.value;
         this.verifyValue();
     },
 
@@ -53,7 +54,8 @@ export default {
 
     methods: {
         verifyValue: function() {
-            if(this.value.length > 14) {
+			this.cpf_cnpj = this.cpf_cnpj.replace(/[^\w\s]/gi, '');
+            if(this.cpf_cnpj.length > 14) {
                 this.type = 'cnpj';
             }
         }
