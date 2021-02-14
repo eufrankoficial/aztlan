@@ -12,6 +12,7 @@ use App\Http\Controllers\DeviceReportController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\MenuSystemController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\StorageController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserGroupController;
@@ -33,6 +34,10 @@ Route::middleware('auth')->namespace('Controllers')->group(function () {
 
     Route::prefix('upload')->name('upload.')->group(function () {
         Route::post('/', [UploadController::class, 'upload'])->name('file');
+    });
+
+    Route::prefix('image')->name('image.')->group(function () {
+        Route::get('/', [StorageController::class, 'image'])->name('get');
     });
 
     Route::prefix('menus')->name('menu.')->group(function () {

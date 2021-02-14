@@ -48,7 +48,7 @@
 			<!-- Brand Logo -->
 			@if(!empty(company()->logo))
 				<a href="{{ route('dashboard.index') }}" class="brand-link">
-					<img src="{{ company()->logo }}" alt="{{ company() ? company()->fantasy_name : 'AL2' }}" class="brand-image img-rounded elevation-3" style="opacity: .8">
+					<img src="{{ route('image.get', ['path' => company()->logo]) }}" alt="{{ company() ? company()->fantasy_name : 'AL2' }}" class="brand-image img-rounded elevation-3" style="opacity: .8">
 					<span class="brand-text font-weight-light">&nbsp;</span>
 				</a>
 			@else

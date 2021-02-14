@@ -3,7 +3,6 @@
 namespace App\Storage;
 
 use App\Interfaces\UploaderInterface;
-use Illuminate\Support\Facades\Storage;
 
 class Uploader implements UploaderInterface
 {
@@ -40,12 +39,10 @@ class Uploader implements UploaderInterface
         $this->validateFile();
         $this->setFileNameToS3();
 
-        $fileUploaded = $this->getFile()->storeAs(
+        return $this->getFile()->storeAs(
             $this->getPath(),
             $this->getFileNameToS3(),
             $this->driver
         );
-
-        return Storage::url($fileUploaded);
     }
 }
