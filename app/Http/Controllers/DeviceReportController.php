@@ -19,8 +19,6 @@ class DeviceReportController extends Controller
     public function generate(Device $device, Request $request)
     {
         try {
-            $report = $this->deviceReportService->exportDetail($device, $request);
-
             $initialDate = $request->get('initialDate');
             if ($request->get('initialTime')) {
                 $time = extractHourAndMinutesFromTime($request->get('initialTime'));
@@ -36,7 +34,9 @@ class DeviceReportController extends Controller
             $filters = $request->except('_token');
             $filters['initialDate'] = $initialDate;
             $filters['finalDate'] = $finalDate;
+
             $request->merge($filters);
+            $report = $this->deviceReportService->exportDetail($device, $request);
 
             $chart = $this->deviceChartService->getDataChart($device, $request)->toArray();
             $chart = json_encode($chart);
