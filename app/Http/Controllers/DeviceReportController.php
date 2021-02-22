@@ -20,16 +20,12 @@ class DeviceReportController extends Controller
     {
         try {
             $initialDate = $request->get('initialDate');
-            if ($request->get('initialTime')) {
-                $time = extractHourAndMinutesFromTime($request->get('initialTime'));
-                $initialDate = mountDateWithHourAndMinute($initialDate, (int) $time['hour'], $time['minutes']);
-            }
+			$time = extractHourAndMinutesFromTime($request->get('initialTime'));
+			$initialDate = mountDateWithHourAndMinute($initialDate, (int) $time['hour'], $time['minutes']);
 
             $finalDate = $request->get('finalDate');
-            if ($request->get('finalTime')) {
-                $finalTime = extractHourAndMinutesFromTime($request->get('finalTime'));
-                $finalDate = mountDateWithHourAndMinute($finalDate, (int) $finalTime['hour'], $finalTime['minutes']);
-            }
+			$finalTime = extractHourAndMinutesFromTime($request->get('finalTime'));
+			$finalDate = mountDateWithHourAndMinute($finalDate, (int) $finalTime['hour'], $finalTime['minutes']);
 
             $filters = $request->except('_token');
             $filters['initialDate'] = $initialDate;
@@ -44,6 +40,7 @@ class DeviceReportController extends Controller
             return view('device.report.detail', compact('report', 'chart'));
         } catch (\Exception $e) {
             Log::error($e->getMessage());
+            dd($e);
 
             return 'É necessário fazer o filtro de datas nos gráficos para emitr o relatório';
         }
