@@ -27,12 +27,16 @@ abstract class BaseModel extends Model
 
         if(current_user()) {
             self::creating(function($model) {
-                $model->created_by = current_user()->id;
-                $model->updated_by = current_user()->id;
+				if(in_array('created_by', $model->fillable))
+                	$model->created_by = current_user()->id;
+
+				if(in_array('updated_by', $model->fillable))
+                	$model->updated_by = current_user()->id;
             });
 
             self::updating(function($model) {
-                $model->updated_by = current_user()->id;
+				if(in_array('updated_by', $model->fillable))
+                	$model->updated_by = current_user()->id;
             });
         }
     }
