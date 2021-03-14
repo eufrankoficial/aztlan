@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:read-device-tmp-table')->everyMinute();
+        $schedule->command('command:read-device-tmp-table')->everyFiveMinutes();
     }
 
     /**
