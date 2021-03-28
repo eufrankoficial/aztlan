@@ -39,7 +39,6 @@ class DeviceController extends Controller
 
         try {
 
-            DB::beginTransaction();
             $data = $request->except('_token');
 
 			$deviceData = [
@@ -48,10 +47,9 @@ class DeviceController extends Controller
             $device = $this->deviceService->save($deviceData);
             $this->fieldService->prepareFieldsAndSave($request->except('_token'), $device);
 
-            DB::commit();
             return response()->json(['status' => true]);
         } catch (\Exception $e) {
-            DB::rollback();
+			dd($e);
 			$this->jobService->createJobOnQueue($request->all());
 			Log::info('Request data: ' . json_encode($request->all()));
 			Log::info('Request header: ' . json_encode($request->header()));

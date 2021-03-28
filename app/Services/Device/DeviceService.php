@@ -35,17 +35,7 @@ class DeviceService
 
     public function save(array $data)
     {
-        $device = $this->deviceRepo
-                    ->with(['fields'])
-                    ->where('code_device', trim($data['code_device']))->first();
-
-        if(!$device) {
-			$model = $this->deviceRepo->create($data);
-		} else {
-			$model = $this->deviceRepo->update($device->id, $data);
-		}
-
-        return $model;
+        return $this->deviceRepo->createOrUpdate($data);
     }
 
     public function update(array $data, $device)
@@ -85,7 +75,6 @@ class DeviceService
 
     public function getDeviceList(): ?LengthAwarePaginator
     {
-
         $devices = $this->deviceRepo->model()->filter(request())
 			->orderBy('updated_at', 'DESC')->paginate(30);
 
