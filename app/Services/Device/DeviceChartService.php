@@ -72,7 +72,7 @@ class DeviceChartService
     {
         $dataLabels = [];
         $sets = [];
-
+		$device->load(['fields.values']);
         // Eixo x do dispositivo
         $fieldToChart = $this->returnCharType($device);
         $fieldToChart = $fieldToChart->first();
@@ -82,7 +82,6 @@ class DeviceChartService
         $finalDate = !empty($finalDate) ? Carbon::createFromFormat('d/m/Y H:i', $finalDate) : now()->endOfHour();
 
         if (!empty($fieldToChart->pivot)) {
-            // pegar todos os valores desse campo
             $xValues = $this->returnXaxeValues($device, $fieldToChart->pivot, $initialDate, $finalDate);
             $dataLabels = $xValues['dataLabels'];
             $fieldAxe = $xValues['fieldAxe'];
